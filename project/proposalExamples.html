@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Project</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style2 {color: #FF0000}
+-->
+</style><!-- InstanceEndEditable -->
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/layoutV2.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="../css/styleV2.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+
+
+
+
+<body>
+
+<div id="outercontainer">
+<div id="container">
+
+<header>
+<div id="header-image"><p>GIS 540</p></div>
+<nav>
+<ul class="nav">
+<!--<li><a href="../index.html">Home</a></li>-->
+<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=3535" >Home</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../schedule.html">Schedule</a></li>
+<li><a href="../resources.html">Resources</a></li>
+<li><a href="https://courses.ncsu.edu/gis540/common/media/">Videos</a></li>
+<li><a href="https://piazza.com/">Forum</a></li>
+<!--<li><a href="../example_scripts/">Sample scripts</a></li>-->
+<!--<li><a href="../data.html">Data</a></li>-->
+<li><a href="../instructors.html">Instructors</a></li>
+<li><a href="project.html">Project</a></li>
+<li><a href="https://go.ncsu.edu/py4all">Py4All</a></li>
+</ul>
+</nav>
+
+</header>
+
+<div id="content2">
+<!-- InstanceBeginEditable name="content" -->
+     
+    <p><span class="ChapterTitle">Project proposal examples</span><a name="top" id="top"></a>    </p>
+    <hr />
+    Sample proposal #1 (not complex enough and some of the required components are missing)
+    <table width="642" border="3">
+      <tr>
+        <td width="634"><p>AGRICULTURAL LAND BEST MANAGEMENT PRACTICES<br />
+          </p>
+            <p><strong>Abstract:</strong> The purpose of this program will be to apply farmland best management practices(BMP) to parcels of land entered by the user.  Examples of BMP are stream and water body vegetation buffers, and runoff control from roads and other compacted surfaces. This program will also output area of lakes or ponds,  and lengths of rivers, creeks, and roads in feet.</p>
+          <p><strong>Input Data:</strong> Examples of data would be shapefiles such as lakes, roads and streams. However, the ideal program would extract this data from the entire parcel of land, sort the usable shapefiles and perform the BMP on the shapefiles.</p>
+          <p><strong>Batch Processing:</strong> Out of the shapefiles the program will perform a buffer tool on all water bodies.  It will also calculate length of roads and slope to determine in what lengths of road erosion control is needed.</p>
+          <p><strong>Pseudocode:</strong></p>
+          <p>OBTAIN shapefiles from workspace <br />
+            DETERMINE the nature of the shapefile <br />
+            IF the shapefile is a lake then<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE the area of the lake <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE buffer of polygon <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT area of lake<br />
+            IF the shapefile is a river<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      CALCULATE the length of the river in feet<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE buffer of the polygon<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT length of river</p>
+          </td>
+      </tr>
+    </table>
+    <br />
+    <table width="642" border="3">
+      <tr>
+        <td width="629"><p><strong>Instructor Evaluation of proposal #1:</strong><a name="feedback1" id="feedback1"></a></p>
+            <p>1. Format correct? <br />
+              --Neatly organized, but<em> missing the 'data product' section, student name, unityID, 'keywords' section, and the roman numerals for each section</em>. </p>
+          <p>2. Clear/brief? <br />
+            --Yes, it's well-defined. </p>
+          <p>3. Batch processing? <br />
+            --No. It's implied but keywords FOR or WHILE are missing.</p>
+          <p>4. Is the complexity sufficient? <br />
+            --No.  This project is equivalent to one or two homework scripts.  The core functionality could be written in less than 50 lines of code.</p>
+          <p>5. Is the pseudocode efficient and correct? <br />
+          --No. When two mutually exclusive conditions are used, the ELSEIF should be used form the second condition. The THEN keyword is lower-cased in the first conditional statement and missing from the second one. The keyword ENDIF is also missing. Corrections are shown in red below.</p>
+          <p>OBTAIN shapefiles from workspace <br /> 
+            <span class="style2">FOR each shapefile in the workspace</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DETERMINE the nature of the shapefile <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the shapefile is a lake <span class="style2">THEN</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE the area of the lake. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE buffer of polygon .<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT area of lake.<br />
+  <span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF</span> the shapefile is a river <span class="style2">THEN</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      CALCULATE the length of the river in feet.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE buffer of the polygon.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT length of river.<br />
+        <span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF<br />
+        ENDFOR</span></p>        </td>
+      </tr>
+    </table>
+    <br />
+    <br />
+Sample proposal #2
+    (sufficiently complex)
+<table width="642" border="3">
+  <tr>
+    <td><strong>Name:&nbsp;&nbsp;Engelbert Humberdinck
+      (eghumber) </strong>
+      <p><strong>I.  TITLE:</strong> Water Supply Model Sensitivity Analysis</p>
+        <p><strong>II. ABSTRACT:</strong></p>
+        <p> The U.S. Forest Service’s Eastern Forest Environmental Threat Assessment Center (EFTETAC) has developed a Water Supply Stress Index Model (WaSSI) that uses a set of 11 soil moisture parameters developed by the National Weather Service for use in flood forecasting. When properly calibrated, these soil moisture parameters can help accurately model daily hydrographs. However, the WaSSI model predicts water supply issues on a time frame of months to years and over areas where the parameters cannot be calibrated to actual runoff values.  Ideally, a sensitivity analysis could determine which soil parameters are necessary and which could be eliminated from the model. A cursory analysis showed that only four parameters had a substantial effect on twenty year average annual runoff values.  However, the model underestimates runoff during dry months, which is compensated by over estimation during wetter months.  A more sophisticated analysis at the monthly time frame needs to be conducted. </p>
+        <p><strong>III. INPUT DATA:</strong></p>
+        <p> * Eleven soil moisture parameter rasters for the conterminous U.S.<br />
+          * Boundary shapefile for 2099 watersheds by HUC-8 code.<br />
+          * Water supply model:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Input parameter file (CSV) of average soil parameters by HUC-8<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Output monthly data (CSV) from 1981-2000 by HUC-8 code.<br />
+          * Historic runoff data for a set of 10 watersheds from 1961-2007</p>
+        <p><strong>IV.</strong> <strong>DATA PRODUCTS:</strong></p>
+        <p>* Table of average sensitivity index values for each HUC for each month (12 columns x n rows, where n is the number of HUC)<br />
+          * Map with 12 layers (one per month) showing the sensitivity index values with color.<br />
+        * HTML report with screen shots of the output layers and a summary of the findings.</p>
+        <p><strong>V. BATCH PROCESSING:</strong></p>
+        <p> * Create 22 input files, by modifying each parameter by one standard deviation.<br />
+          * Run the model for each input file.<br />
+          * Calculate a sensitivty index or the percent difference between the outputs.<br />
+          * Pivot each index so that columns are average month index data by HUC-8</p>
+        <p><strong>VI.  PSEUDOCODE:</strong></p>
+        <p> FOR each soil parameter<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR each HUC-8<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET standard deviation.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET row from default input file.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUT row with plus parameter value in new input file.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUT row with minus parameter value in new input file.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR<br />
+        ENDFOR</p>
+        <p> FOR each new input file<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPY file into model input directory.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL WaSSI model.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPY output file into working directory.<br />
+        ENDFOR</p>
+        <p> FOR each pair of plus/minus output files <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR each soil parameter<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE sensitivity index.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR<br />
+          ENDFOR</p>
+        <p> FOR each index file<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE average index value by month for each HUC-8.<br />
+        ENDFOR<br />
+        <br />
+        <strong>VII. KEYWORDS</strong>:	water supply model, soil moisture parameter,  sensitivity analysis, arcpy, Python</p>        </td></tr>
+</table>
+<br />
+<table width="642" border="3">
+  <tr>
+    <td><p><strong>Instructor Evaluation of proposal #2:</strong><a name="feedback2" id="feedback2"></a></p>
+        <p>1. Format correct? <br />
+          --Yes. Keywords should distinguish this project from the others in the class. <em>All projects will use arcpy and Python, so these should be left off the list</em>.</p>
+      <p>2. Clear/brief? <br />
+        --An expert in hydrology might find the proposed work easy to understand. A lay-person might would need to read it a few times and then would still have questions. The main idea seems to be runnng the sensitivity analysis on monthly flood model output so as to identify the most influential parameters amongst a large number of model input parameters. This purpose should be stated first before getting into details about the model. The description is, however, laudably brief, but don't use acronyms without spelling them out at least once (e.g., HUC for hydrologic unit code)<a name="requirements" id="requirements"></a> Also, run a spelling check (e.g., sensitivty-&gt;sensitivity)</p>
+      <p>3. Batch processing? <br />
+        --Yes, there are several loops, some nested.</p>
+      <p>4. Is the complexity sufficient? <br />
+        --Yes. It's easy to see how this project could require some of the advanced techniques for code-reuse which are taught in the second half of the course.</p>
+      <p>5. Is the pseudocode efficient and correct? <br />
+      The pseudocode is correct and seems to be efficient, though if any of these loops are consuming the same data, they could be combined. In this proposal, it doesn't seem to be the case, but a simple example of this is shown in the following pseudocode:</p>
+      <p>FOR each input file:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE a 1-mile buffer.<br />
+ENDFOR<br />
+      </p>
+      <p>FOR each input file:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE the record count.<br />
+        ENDFOR</p>
+      <p><em>This would be more efficiently combined as</em> <em>follows:</em></p>
+      <p>FOR each input file:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE a 1-mile buffer.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE the record count.<br />
+        ENDFOR</p></td>
+  </tr>
+</table>
+<!-- InstanceEndEditable --></div>
+
+</div></div>
+</body>
+<!-- InstanceEnd --></html>

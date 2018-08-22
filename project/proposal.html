@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Project</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/layoutV2.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="../css/styleV2.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+
+
+
+
+<body>
+
+<div id="outercontainer">
+<div id="container">
+
+<header>
+<div id="header-image"><p>GIS 540</p></div>
+<nav>
+<ul class="nav">
+<!--<li><a href="../index.html">Home</a></li>-->
+<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=3535" >Home</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../schedule.html">Schedule</a></li>
+<li><a href="../resources.html">Resources</a></li>
+<li><a href="https://courses.ncsu.edu/gis540/common/media/">Videos</a></li>
+<li><a href="https://piazza.com/">Forum</a></li>
+<!--<li><a href="../example_scripts/">Sample scripts</a></li>-->
+<!--<li><a href="../data.html">Data</a></li>-->
+<li><a href="../instructors.html">Instructors</a></li>
+<li><a href="project.html">Project</a></li>
+<li><a href="https://go.ncsu.edu/py4all">Py4All</a></li>
+</ul>
+</nav>
+
+</header>
+
+<div id="content2">
+<!-- InstanceBeginEditable name="content" -->
+     
+    <p><span class="ChapterTitle">Project proposal</span><a name="top" id="top"></a>    </p>
+    <hr />
+    <p>The  proposal submitted on Wolfware should communicate project objectives and help you create an organized  approach. The completed project will include  Python script(s) which performs some kind of batch processing and a map document which calls a Python script and a script tool which has a graphical user interface. The project topic should also be sufficiently challenging (See more about this below). For this  proposal, do not include any discussion of the graphical user interface component yet. Be sure to put your <em>name and unity id</em> at the beginning of the document. Do include the following (use roman numerals and the given titles to organize your description):</p>
+    <ol type="I">
+      <li><strong>Title: </strong>A short title indicating the topic</li>
+      <li><strong>Abstract:</strong> a description of the overall application problem that you would like to investigate (required). </li>
+      <li><strong>Input data:</strong> A description of the  data being processed (if known).</li>
+      <li><strong>Data Products:</strong> What new information does this project produce that did not exist before? What are the tangible outputs? Modified road data? Statistical analysis? <strong><em>Pictures or illustrations </em></strong>to visualize the input and output or workflow are <em>strongly encouraged</em>.</li>
+      <li> <strong>Batch processing:</strong> A description of the processing  problem that you want to handle  with Python  (required).</li>
+      <li><strong>Pseudocode:</strong> Pseudocode for the problem described in the previous step  (required).</li>
+      <li><strong>Keywords: </strong>Comma separated list of keywords relating to the project. These should include topic area, data types, and tools. This is meant to help other students search for related project topics.</li>
+    </ol>
+    <p>These proposals will be evaluated on the following criteria:</p>
+    <p>1. Is the required proposal format followed?<br />
+      2. Is the idea  clearly and BRIEFLY presented? (can we understand your idea? did you provide a useful illustration?).<br />
+      3. Is there batch processing in the pseudocode? <br />
+      4. Is the complexity sufficient?<br />
+    5. Is the pseudocode efficient and correct?</p>
+    <p>Each proposal that is submitted will be scrutinized by the instructor for appropriate application of the scripting concepts and sufficient complexity. If the proposed project is not sufficiently complex or challenging, the proposal will be rejected and a project will be assigned by the instructor, in which case the project topic is non-negotiable. Two sample proposals are provided below. Evaluate these examples yourself based on the given criteria and compare your evaluations to <a href="proposalExamples.html">these</a>. (Hint: Sample proposal # 1 <strong>does not meet the formatting and complexity requirements</strong>. Sample proposal #2 only needs improvement in the clarity requirement.) </p>
+    Sample proposal #1 (<a href="proposalExamples.html#feedback1">not complex enough and some of the required components are missing</a>)
+    <table width="642" border="3">
+      <tr>
+        <td width="634"><p>AGRICULTURAL LAND BEST MANAGEMENT PRACTICES <br />
+          </p>
+            <p><strong>Abstract:</strong> The purpose of this program will be to apply farmland best management practices(BMP) to parcels of land entered by the user.  Examples of BMP are stream and water body vegetation buffers, and runoff control from roads and other compacted surfaces. This program will also output area of lakes or ponds,  and lengths of rivers, creeks, and roads in feet.</p>
+          <p><strong>Data:</strong> Examples of data would be shapefiles such as lakes, roads and streams. However, the ideal program would extract this data from the entire parcel of land, sort the usable shapefiles and perform the BMP on the shapefiles.</p>
+          <p><strong>Batch Processing:</strong> Out of the shapefiles the program will perform a buffer tool on all water bodies.  It will also calculate length of roads and slope to determine in what lengths of road erosion control is needed.</p>
+          <p><strong>Pseudocode:</strong></p>
+          <p>OBTAIN shapefiles from workspace <br />
+            DETERMINE the nature of the shapefile <br />
+            IF the shapefile is a lake then<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE the area of the lake <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE buffer of lake<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT area of lake<br />
+            IF the shapefile is a river<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      CALCULATE the length of the river in feet<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE buffer of the river<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT length of river</p>          </td>
+      </tr>
+    </table>
+    <br />
+    <br />
+Sample proposal #2
+    (<a href="proposalExamples.html#feedback2">sufficiently complex, but needs to be described in lay-terms</a>)
+    <table width="642" border="3">
+  <tr>
+    <td><strong>Name:&nbsp;&nbsp;Engelbert Humberdinck
+      (eghumber) </strong>
+        <p><strong>I.  TITLE:</strong> Water Supply Model Sensitivity Analysis</p>
+      <p><strong>II. ABSTRACT:</strong></p>
+      <p> The U.S. Forest Service’s Eastern Forest Environmental Threat Assessment Center (EFTETAC) has developed a Water Supply Stress Index Model (WaSSI) that uses a set of 11 soil moisture parameters developed by the National Weather Service for use in flood forecasting. When properly calibrated, these soil moisture parameters can help accurately model daily hydrographs. However, the WaSSI model predicts water supply issues on a time frame of months to years and over areas where the parameters cannot be calibrated to actual runoff values.  Ideally, a sensitivity analysis could determine which soil parameters are necessary and which could be eliminated from the model. A cursory analysis showed that only four parameters had a substantial effect on twenty year average annual runoff values.  However, the model underestimates runoff during dry months, which is compensated by over estimation during wetter months.  A more sophisticated analysis at the monthly time frame needs to be conducted. </p>
+      <p><strong>III. INPUT DATA:</strong></p>
+      <p> * Eleven soil moisture parameter rasters for the conterminous U.S.<br />
+        * Boundary shapefile for 2099 watersheds by HUC-8 code.<br />
+        * Water supply model:<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Input parameter file (CSV) of average soil parameters by HUC-8<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Output monthly data (CSV) from 1981-2000 by HUC-8 code.<br />
+        * Historic runoff data for a set of 10 watersheds from 1961-2007</p>
+      <p><strong>IV.</strong> <strong>DATA PRODUCTS:</strong></p>
+      <p>* Table of average sensitivity index values for each HUC for each month (12 columns x n rows, where n is the number of HUC)<br />
+        * Map with 12 layers (one per month) showing the sensitivity index values with color.<br />
+        * HTML report with screen shots of the output layers and a summary of the findings.</p>
+      <p><strong>V. BATCH PROCESSING:</strong></p>
+      <p> * Create 22 input files, by modifying each parameter by one standard deviation.<br />
+        * Run the model for each input file.<br />
+        * Calculate a sensitivty index or the percent difference between the outputs.<br />
+        * Pivot each index so that columns are average month index data by HUC-8</p>
+      <p><strong>VI.  PSEUDOCODE:</strong></p>
+      <p> FOR each soil parameter<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR each HUC-8<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET standard deviation.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET row from default input file.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUT row with plus parameter value in new input file.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUT row with minus parameter value in new input file.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR<br />
+        ENDFOR</p>
+      <p> FOR each new input file<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPY file into model input directory.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL WaSSI model.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPY output file into working directory.<br />
+        ENDFOR</p>
+      <p> FOR each pair of plus/minus output files <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR each soil parameter<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE sensitivity index.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR<br />
+        ENDFOR</p>
+      <p> FOR each index file<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULATE average index value by month for each HUC-8.<br />
+        ENDFOR<br />
+        <br />
+        <strong>VII. KEYWORDS</strong>:	water supply model, soil moisture parameter,  sensitivity analysis, arcpy, Python</p>      </td></tr>
+</table>
+<!-- InstanceEndEditable --></div>
+
+</div></div>
+</body>
+<!-- InstanceEnd --></html>

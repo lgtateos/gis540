@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Project</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/layoutV2.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="../css/styleV2.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+
+
+
+
+<body>
+
+<div id="outercontainer">
+<div id="container">
+
+<header>
+<div id="header-image"><p>GIS 540</p></div>
+<nav>
+<ul class="nav">
+<!--<li><a href="../index.html">Home</a></li>-->
+<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=3535" >Home</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../schedule.html">Schedule</a></li>
+<li><a href="../resources.html">Resources</a></li>
+<li><a href="https://courses.ncsu.edu/gis540/common/media/">Videos</a></li>
+<li><a href="https://piazza.com/">Forum</a></li>
+<!--<li><a href="../example_scripts/">Sample scripts</a></li>-->
+<!--<li><a href="../data.html">Data</a></li>-->
+<li><a href="../instructors.html">Instructors</a></li>
+<li><a href="project.html">Project</a></li>
+<li><a href="https://go.ncsu.edu/py4all">Py4All</a></li>
+</ul>
+</nav>
+
+</header>
+
+<div id="content2">
+<!-- InstanceBeginEditable name="content" -->
+     
+    <p><span class="ChapterTitle">Project submission checklist</span><a name="top" id="top"></a>    </p>
+    <p>&nbsp;</p>
+    <hr />
+    <ol>
+      <li><strong>Extended write-up</strong> with these parts:<br />
+          <br />
+          <ol type="I">
+            <li><strong>Title</strong>: A short title indicating the topic. </li>
+            <li><strong>Synopsis: </strong>up to 4 sentences telling what your project does.   (you may reuse what you submitted for the project gallery.) </li>
+            <li><strong>Extended abstract:</strong> (&lt;=300 words) The abstract should   give a very clear brief high-level description of the problem you're addressing   and how you solve it. Assume the audience is not an expert in your subject area.   Use a spelling-checker! <a href="../projectExamples/abstracts.html">See   examples.</a> </li>
+            <li><strong>Pseudocode:</strong> Pseudocode for the problem described in the   previous step. Use pseudocode keywords and keep level of detail broad. </li>
+            <li><strong>Acknowledgements: </strong>Acknowledge help received writing the   code or any scripts you used which were authored by others (aside from course   examples) </li>
+            <li><strong>Keywords: </strong>Comma separated list of keywords relating to the   project. These should include topic area, data types, and tools. This is meant   to help other students search for related project topics.</li>
+            <li><strong>Mapping</strong>: One or two sentences explaining how you used the mapping module and what is  automatically added to the map.</li>
+            <li><strong>GUI</strong>:  A screenshot of your graphical user interface and a table with a list of parameter (should have the same columns as in the revised proposal: 
+              <em>Parameter</em>, <em>Data Type</em>, <em>Type</em> (Required, optional, or derived), <em>Direction</em>, <em>Filter</em>. See the<a href="proposalExtended.html"> extended proposal instructions </a>for an example.)<br />
+              <br />
+            </li>
+          </ol>
+      </li>
+      <li><strong>Presentation </strong> with two parts:
+        <ol type="I">
+            <li><strong>Presentation 1</strong>: Explain the project(&lt;= 5 minutes)<br />
+--File should be named: <strong>unityID_Pres1</strong><br />            
+--Describe the problem the code solves (screen recording with voiceover). Be clear, concise, and creative.<br />
+--Include a checklist of the required components (see Code Evaluation part I below). List how the requirement was met --or why it was not. <br />
+--If applicable, note any advanced funtionality Python that you used   beyond the requirements or requiring the study of Python functionality   beyond the course material. <br />
+            </li>
+          <li><strong>Presentation 2</strong>: Prerecorded demo (&lt;=5 minutes)<br />
+          --File should be named: <strong>unityID_Pres2</strong><br /> 
+              <span class=>-- Introduce the project topic <em><strong>very briefly</strong></em>--give the project title and the goal of the project in 1-3 sentences (and a picture, if possible).</span><br />
+            -- Demonstrate the run the code. <span class=>Make sure to show the button, the interface, and the results  being added automatically to the map.</span><br />
+            <span class=>-- Tell us about any extra functionality you've learned and implemented. This is your chance to brag.</span><br />
+            -- 
+            Both distance and traditional students prerecord a video.  Jing   recommended for free video screen capture.<br />
+            <br />
+          </li>
+        </ol>
+      </li>
+      <li><strong>Map files, scripts, toolboxes, test data </strong>any other   supporting files needed to test the code. Test data should not be massive. If   the data is massive, please submit only a small dataset. Please indicate any   privacy restrictions on the data, otherwise, it may be made publicly available. 
+        <ol type="I"><li>Set <em>default values</em> in the graphical user interfaces so that we can   run your code without assistance. </li>
+          <li>Check for portability (if I move it to another machine, does it   break?)<br />
+              <br />
+          </li>
+        </ol>
+      </li>
+      <li><strong>Code checklist</strong><a name="checklist" id="checklist"></a><br />
+          <ol type="I">
+            <li>Implement <strong>instructor feedback from proposal (and extended proposal) submissions. </strong></li>
+            <li>Code components:<br />
+              <strong id="docs-internal-guid-cc98ffbc-e6c3-f2de-0024-d7eb86cc3ad"> Category I (Complete all of a-f for this category)</strong>
+              <br />
+              <br />
+              <ol type="a">
+                <li>Python geoprocessing (call arcpy tools). <br />
+                  <br />
+                </li>
+                <li>Python batch processing (FOR or WHILE loops) <br />
+                  <br />
+                </li>
+                <li>Code reuse: Define and call at least 3 user-defined reusable functions.  Remember not to use functions presented as examples and not to create functions that are simply wrappers for geoprocessing tools. <br />
+                  <br />
+                </li>
+                <li>Code reuse: Define a class and instantiate and use an object of this type.<br />
+                  <br />
+                </li>
+                <li>Mapping: Automatically display geoprocessing output in the map. (If the output is   better viewed outside of ArcMap, you must still display it automatically. But   also show messages so that the user knows how to find and display the visual   output in a more appropriate viewer.)                <br />
+                  <br />
+                </li>
+                <li>GUI: Use Python script tools and script tool properties to generate an   graphical interface.</li>
+              </ol>
+                  <strong>Category II &nbsp;(Pick one or more)</strong>
+                  <br />
+                  <br />
+                  <ol type="a" start="7">
+                    <li>Reading and/or writing files with standard file objects or with cursors. <br />
+                      <br />
+                    </li>
+                    <li>Reading and/or writing HTML to automatically generate an output report.<br />
+                      <br />
+                    </li>
+                    <li>Reading and/or writing KML with BeautifulSoup. <br />
+                      <br />
+                    </li>
+                    <li>Downloading and uncompressing data from the web.</li>
+              </ol>
+                  <br />
+                  <p ><strong id="docs-internal-guid-cc98ffbc-e6c3-f2de-0024-d7eb86cc3ad7">Category III &nbsp;(Pick one or more--these are easier and don't carry as much weight as Cat II)</strong>                  </p>
+                  <ol type="a" start="11"><li><p >Use the tool validator to create dynamic behavior for the script tool.</p>
+                    </li>
+                    <li>
+                      <p >Provide a portable toolbar button to launch the script tool.</p>
+                    </li>
+                    <li>
+                      <p >Inform the user of progress, using messages.</p>
+                    </li>
+                    <li>
+                      <p >Add the arcpy progressor to present messages.</p>
+                    </li>
+                    <li>In the script tool, use the parameter filter property, the paramater &quot;obtained from&quot; propery, the parameter symbology property, or the Schema property.<br />
+                      <br />
+                    </li>
+                  </ol>
+            </li>
+          </ol>
+        </li>
+            <li>Programming style:
+              <ol type="a">
+                <li><strong>Provide a valid usage example in the header comments.</strong></li>
+                <li>Use of variables instead of repeating string literals; </li>
+                <li>Minimize hard-coding. File paths should not be hard-coded.</li>
+                <li>Mulitiple lines of code that are invoked more than once with only slight variation should be put into a function with the variations passed in as parameters. In other words. </li>
+                <li>Use conditional expressions efficiently (e.g., if foo.endswith(&quot;bla&quot;) instead of if foo.endswith(&quot;bla&quot;) == True)</li>
+                <li>Use conditional blocks efficiently (e.g., use elif/else when they can be used instead of sequential if/if/if)</li>
+                <li>Only import modules and packages that are being used.</li>
+                <li>Use of data structures such as lists/dictionaries to streamline code   (instead of long if/elif/elif/elif... blocks.)<br />
+                </li>
+              <li>Lightly commented but also self-documenting (easy to guess what's happening) </li>
+              <li>Use modules to group tightly related function facilitate reusability.</li>
+              <li>Avoid use of 'magic numbers' -- hard-coded numbers unique values with   unexplained meaning and/or multiple occurrence which could (preferably) be   replaced with meaningfully named variables. <span class="head"><a name="format" id="format"></a></span></li>
+              <li>Catch exceptions to avoid traceback exceptions in case of user input mistakes or data availability/corruption issues.</li>
+              <li>Lines of code &lt;=90-ish characters each. Achieve this by using variables to   hold long string arguments and using line continuation symbols as needed. </li>
+              <li>Use a docstring inside the start of each function and inside the start of each class.</li>
+              </ol>
+            </li>
+          </ol>
+      </li>
+    </ol>
+    <!-- InstanceEndEditable --></div>
+
+</div></div>
+</body>
+<!-- InstanceEnd --></html>
