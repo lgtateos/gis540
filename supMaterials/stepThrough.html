@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<strong>step_through</strong><strong> PRIVATE piazza post</strong><br />
+Use the sample script 'tableListerDebug.py' to practice using the debugger.
+Take screen shots as directed and answer the questions in bold. To submit this question, post a PRIVATE piazza message with a 'step_through' folder label. Make sure the message includes your unityid and answers to questions in bold<strong> </strong>and <em><strong>embeds</strong></em> the three screen shots.
+    <ol type='a'>
+      <li>Download 'tableListerDebug.py' and sample dataset 'trainData.zip'. Unzip 'trainData.zip' in your working directory. View the trainData directory in ArcCatalog and confirm that it contains a number of datasets, including four dBase tables whose name starts with the word 'stations'. </li>
+      <li>Open 'tableListerDebug.py' in your IDE. Set the argument to the path for the trainData directory (e.g., C:/Temp/trainData) and select 'Step-through in the debugger' in the 'Run script' dialog.</li>
+      <li>Add 5 new items to the Watch window: <code>table</code>, <code>tables</code>, <code>len(tables)</code>, <code>lineList</code>, <code>len(lineList)</code>. The value of these should all show a NameError initially since they have yet to be defined. </li>
+      <li>Step over until you reach line 11. The <code>tables</code> variable should contain 4 items. <em>Take a screen shot that shows the watch window and the script window with the cursor at line 11.</em></li>
+      <li>Step over until you reach line 23 (the cursor should be pointing at line 23, not 24 yet). <strong>What does lineList contain now?</strong> </li>
+      <li>Before stepping over line 23, predict the output from the tool call. <strong>How many records do you think 'hubs' will contain? Explain your prediction. </strong>Step over line 23. Then view the attribute table for hubs in ArcCatalog. <strong>Does it match your prediction? Explain any mistake you might have made in your hypothesis.</strong></li>
+      <li>Before continuing to run the code, click on the trainsData directory in ArcCatalog and click refresh. <strong>Explain why you need to do this. </strong>(Hint: if you're not sure why you need to do this, try skipping this and you'll see).</li>
+      <li>Before stepping over line 24, make another prediction. <strong>Predict</strong> <strong>which line you expect it to point to next. </strong>Step over line 24. <strong>Did the cursor move to the line you expected? Explain any mistake you might have made in your hypothesis.</strong></li>
+      <li>Next keep clicking 'Step Over' or 'F10' until you reach line 24 a second time. <strong>What is the length of 'lineList'? What items are in 'lineList'?</strong></li>
+      <li>Now, preview the geography of 'hubs' in ArcCatalog and take a <em>screen shot of the 'hubs' points</em>. Be sure to click on 'trainData' in ArcCatalog and refresh again before moving on.</li>
+      <li>Next  'Step Over' or use 'F10' to reach line 24 a third time. <strong>What is the length of <code>lineList</code> and items are in <code>lineList</code> this time?</strong></li>
+      <li>Now, preview the geography of 'hubs' in ArcCatalog and take a <em>second screen shot of the 'hubs' points</em>. Be sure to click on 'trainData' in ArcCatalog and refresh again before moving on.</li>
+      <li>There should appear to be less points in the second picture.<strong> Explain how this could be true. In your explanation, refer to the length of <code>lineList</code> in parts k and m.</strong> Hint: if you're not sure why this is happening, add the line files and hub output to a blank map. Turn layers on and off to explore the data.</li>
+      <li>Stop the script. Delete all the output files ('hubs', 'stations1Lines.shp', 'stations2Lines.shp', 'stations3Lines.shp') Dedent the last <em>four</em> lines of code (lines 21-24 so that they are all the way to the left. You can do this quickly by selecting all four lines and clicking shift+Tab. </li>
+      <li>Close and reopen the IDE. Next, step through until you reach line 19. Before stepping over line 19, <strong>predict</strong> <strong>which line  you expect it to point to next. </strong>Step over line 19. <strong>Did the cursor move to the line you expected? Explain any mistake you might have made in your hypothesis. </strong></li>
+      <li>Step over again until you reach line 23 again. Refresh the 'trainData' directory in ArcCatalog.<strong> Which output files has the modified script  created at this point?</strong> </li>
+      <li>Step over until the script exits. Check the 'trainData' directory in ArcCatalog again. <strong>State the key difference between how the original script and the modified script works.</strong></li>
+    </ol>
+<p>&nbsp;</p>
+</body>
+</html>

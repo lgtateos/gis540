@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<pre>(1) I have a BIG                        gap in my middle.</pre><br>
+(2) I <br>
+don't<br>
+care.<br>
+
+(3) I have a SMALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap in my middle.<br>
+
+
+
+
+
+
+
+###################################
+#List .shp files Python code:
+
+import os
+
+try:
+    dir = "C:/Temp"
+    filelist = os.listdir(dir)
+    for file in filelist:
+        if file.endswith(".shp"):
+            print file
+except:
+    print "Warning: an error occurred.\n"
+
+#\ is a special character called the escape character. Confusing as it may be, to indicate that we're not escaping, but rather referring to the character itself, you have to use double slashes \\.
+###################################
+
+</body>
+</html>
+
