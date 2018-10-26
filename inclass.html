@@ -1198,14 +1198,14 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
      <p>In class-- Cursors <a name="Cursors" id="Cursors"></a></p>
      <table width="648" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td width="642" scope="row"><p><strong>Exploring  cursor objects Part 1 (Search cursors): </strong>Type each statement in the Interactive Window (Except for the comments) and answer the questions. </p>
-             <table width="643" bgcolor="#FFFFFF">
-               <tr>
+         <td width="642" scope="row"><p><strong>Exploring  cursor objects Part 1 (Search cursors): </strong>Copy <strong>C:\gispy\data\ch01\park.shp</strong> to the scratch directory to create <strong>C:\gispy\scratch\park.shp</strong>. Then, type each statement in the Interactive Window (Except for the comments) and answer the questions. </p>
+<table bgcolor="#FFFFFF">
+             <tr>
                  <td width="6" rowspan="2">&nbsp;</td>
                  <td width="317"><p class="number number">import arcpy<br />
                          <br />
-                   fc = &quot;C:/Temp/COVER63p.shp&quot; </p>
-                   <p class="number number">fds = arcpy.ListFields(fc)<br />
+                   fc = &quot;C:/gispy/scratch/park.shp&quot; </p>
+           <p class="number number">fds = arcpy.ListFields(fc)<br />
                        <br />
                      fds<br />
                    </p>
@@ -1252,9 +1252,8 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                    <p class="number number">del sc<br />
                      row = sc.next( )<br />
                    </p>
-                   <hr />
-                   <p>&nbsp;</p>                   </td>
-                 <td width="303" valign="top"><img src="images/cover63pAttrTable.png" alt="COVER63p Attribute Table" width="303" height="855" /></td>
+                   <hr /></td>
+                 <td valign="top"><img src="images/parkAttrTable.png" alt="park.shp attribute table" /></td>
                </tr>
                <tr>
                  <td colspan="2"><p class="number number">sc = arcpy.da.SearchCursor(fc, &quot;*&quot;, &quot;COVER = 'other'&quot;)<br />
@@ -1272,11 +1271,10 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                      # what does &lt;&gt; mean here in the statement above?</p>
                    <p class="number number">sc =arcpy.da.SearchCursor(fc, &quot;*&quot;, &quot;FID &gt; 200&quot;)<br />
                    </p>
-               <p class="number number">row = sc.next()<br />
+               row = sc.next()<br />
                          <br />
-                     row[0]</p>
-                   <hr />
-                     <p class="number number">&nbsp;</p>                 </td>
+                     row[0]
+                   <hr /></td>
                </tr>
              </table>
            <br />
@@ -1300,13 +1298,13 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
      <br />
      <table width="648" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td width="642" scope="row"><p><strong>Exploring cursors objects Part 2 (insert &amp; update cursors): </strong>Type each statement in the Interactive Window (Except for the comments) and view the results. </p>
-             <table width="572" bgcolor="#FFFFFF">
+         <td width="642" scope="row"><p><strong>Exploring cursors objects Part 2 (insert &amp; update cursors): If you skipped part 1, </strong>you'll need to create <span class="number number"><strong>&quot;C:\gispy\scratch\park.shp&quot;</strong> by copying it from </span><strong>C:\gispy\data\ch01\park.shp</strong>. Otherwise, simply continue and type each statement in the Interactive Window (Except for the comments), predicting the results as you go. </p>
+<table width="572" bgcolor="#FFFFFF">
                <tr>
                  <td width="6">&nbsp;</td>
                  <td width="554"><p class="number number"> import arcpy<br />
                    </p>
-                     <p class="number number">fc = &quot;C:/Temp/COVER63p.shp&quot;<br />
+                     <p class="number number">fc = &quot;C:/gispy/scratch/park.shp&quot;<br />
                        ic = arcpy.da.InsertCursor(fc, [&quot;COVER&quot;])<br />
                        <br />
                        ic.insertRow([&quot;lake&quot;])<br />
@@ -1316,7 +1314,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                         ... 	for i in range(4):<br />
                          ........		ic.insertRow([&quot;lake&quot;])<br />
                      </p>
-                 <span class="comment"># Refresh view in ArcCatalog. </span><br />
+               <span class="comment"># Refresh view in ArcCatalog. </span><br />
                      uc = arcpy.da.UpdateCursor(fc, &quot;*&quot;)<br />
                      <br />
                      for row in uc:<br />
@@ -1330,12 +1328,12 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                </tr>
              </table>
              <br />
-             <strong>Exploring cursors objects Part 3 Geometric insertions</strong><br />
+             <strong>Exploring cursors objects Part 3 Geometric insertions</strong>. Copy <strong>C:\gispy\data\ch17\fires.shp</strong> to <strong>C:\gispy\scratch\fires.shp</strong>.<br />
          <table width="461" bgcolor="#FFFFFF">
          <tr>
                  <td width="6" height="252">&nbsp;</td>
            <td width="443">import arcpy<br />
-             fc = &quot;C:/Temp/NEROFires.shp&quot;<br />
+             fc = &quot;C:/gispy/scratch/fires.shp&quot;<br />
                        ic = arcpy.da.InsertCursor(fc, [&quot;FireId&quot;, &quot;SHAPE@&quot;] )<br /></p>
                      <p>myPoint = arcpy.Point(-70.1, 42.07)<br />
                        newRow = (500000, myPoint)</p>
