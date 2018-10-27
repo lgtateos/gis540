@@ -517,19 +517,19 @@ ELSE<br />
        </tr>
      </table>
      <br />
-     <table width="640" border="0" bgcolor="#FFFFCC">
+  <!--   <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td scope="row"><p><strong>table_select</strong><strong>.py</strong></p>
-             <p>The park cover types in <em>COVER63p.shp </em> include woods, orchards,  park, and others. Fire risk experts would like a table including only  those polygons with a cover type of woods. Write a script to perform a  Table Select that will generate this table. Call the output table <em>wooded.dbf</em>. </p>
-           <p>Use these comments as a starting point for your script:</p>
+             <p>The park cover types in <em>park.shp </em> include woods, orchards,  park, and others. Fire risk experts would like a table including only  those polygons with a cover type of woods. Write a script to perform a  Table Select that will generate this table. Call the output table <em>wooded.dbf</em>. </p>
+             <p>Use these comments as a starting point for your script:</p>
            <p>#IMPORT module(s)</p>
            <p>#SET the variables</p>
            <p>#CALL the table select geoprocessing method. <br />
                  <br />
            </p></td>
        </tr>
-     </table>
-     <br />
+     </table>-->
+    
      <table width="640">
        <tr>
          <td bgcolor="#FFFFCE" scope="row"><p><strong>Distance Conversion Pseudocode</strong><a name="distancepy" id="distancepy"></a></p>
@@ -903,30 +903,31 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
      <br />
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td scope="row"><p><strong>try_buffer</strong><strong>.py</strong> </p>
+         <td scope="row"><p><strong>try_buffer.py</strong></p>
              <ol>
-               <li>Make a bogus shapefile by creating a txt document and then renaming it bogus.shp and putting it in C:/Temp. Set the argument to  C:/Temp/bogus.shp</li>
+               <li>Copy try_buffer.py <strong><em>shown below</em></strong> to make a new script.</li>
+               <li>Make a bogus shapefile by creating a txt document and then renaming it bogus.shp and putting it in C:/gispy/scratch. Set the argument to  C:/gispy/scratch/bogus.shp</li>
                <li> Choose 'step through in the debugger' and watch what the script does as you run it.</li>
                <li>Which statements were printed? Why?</li>
-               <li>Place COVER63p.shp in C:/Temp.</li>
-               <li>Set the argument to C:/Temp/COVER63p.shp</li>
+               <li>Copy cover.shp from C:\gispy\sample_scripts\ch14\ to C:/gispy/scratch.</li>
+               <li>Set the argument to C:/gispy/scratch/cover.shp</li>
                <li>Step through again.</li>
                <li>Again, which statements were printed and why?</li>
              </ol>
-           <p># Input: full path name of a shapefile. </p>
-           <p><span class="key">import</span> arcpy, sys <br />
-            </p>
-           <p>arcpy.overwriteOutput = 1<br />
+           <p><em># try_buffer.py<br />
+           # Input: full path name of a shapefile.</em><br />
+             <span class="key">import</span> arcpy, os, sys <br />arcpy.overwriteOutput = True<br />
              inputFile = sys.argv[<span class="num">1</span>] <br />
              <span class="key"><br />
                try</span>:<br />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer = inputFile[:-<span class="num">4</span>] + <span class="str">&quot;_buffer.shp&quot;</span><br />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.Buffer_Analysis(inputFile, buffer, <span class="str">&quot;1 mile&quot;</span>)<br />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> <span class="str">&quot;Buffer&quot;</span>, buffer, <span class="str">&quot;created.&quot;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer = os.path.splitext(inputFile)[0] + 'Buffer.shp'<span class="str"></span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.Buffer_Analysis(inputFile, buffer, <span class="str">&quot;1 mile&quot;</span>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print '{0} created.'.format(buffer)</span><br />
              <span class="key">except</span>:<br />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> arcpy.GetMessages( )<br />
-             print &quot;Exiting the script now&quot; <br />
-           </p></td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> arcpy.GetMessages( )<br />
+print &quot;Exiting the script now&quot; <br />
+          </p>
+          </td>
        </tr>
      </table>
      <br />
@@ -936,7 +937,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
              <ol>
                <li>Copy buffer_loop_try.py, <em><strong>shown below</strong></em>, to make a new scripts.</li>
                <li>Make a bogus shapefile by creating a txt document and then renaming it to C:/Temp/aaadata.shp.</li>
-               <li>Copy cover.shp from C:/gispy/data/ch14 to C:/Temp too.</li>
+               <li>Copy cover.shp from C:/gispy/data/ch14 to C:/gispy/scratch too.</li>
                <li>Predict what will happen when you run the script, then run it with no debugging.</li>
                <li>Run the script again using the 'step through in debugger' option.</li>
                <li>Ideally, we want the script to create buffers for all of the valid files and just print a warning if it fails for one of the files. try and except are in the wrong positions for this to happen. Repair the script. </li>
@@ -969,7 +970,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
          <td scope="row"><p><strong>buffer_loop_try2.py</strong> </p>
              <ol>
                <li>Run the code <em><strong>shown below</strong></em> and observe what happens. </li>
-               <li>Run the code again by stepping through in the debugger to see the flow. </li>
+               <li>Run the code by stepping through in the debugger to see the flow. </li>
                <li>Repair the mistake on line 11 (buffDist = str(x) + &quot;mile&quot;).</li>
                <li>Run the code by stepping through in the debugger again to see the flow. </li>
                <li>Watch the value of <strong>x </strong>in the watch window.</li>
@@ -979,9 +980,9 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
            <p><span class="comment"><em># buffer_loop_try2.py</em></span><br />
                  <span class="key">import </span>arcpy, sys <br />
              arcpy.env.overwriteOutput = True<br />
-             arcpy.env.workspace = <span class="str">&quot;C:/Temp&quot;</span> <br />
+             arcpy.env.workspace = <span class="str">&quot;C:/gispy/scratch/&quot;</span> <br />
              <br />
-             fc = 'COVER63p.shp'<br />
+             fc = 'cover.shp'<br />
              x = 1<br />
              <span class="key">while </span>x &lt;= 10: <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
                </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">try:<br />
@@ -1009,7 +1010,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                # Usage: Directory path for input tables<br />
                # Example input : &quot;C:/Temp&quot; <br />
                # Output: A clipped raster for each input table and a sumraster containing a sum of these rasters.<br />
-               Author: Laura Tateosian <br />
+               Author: Bugs Bunny<br />
                # ---------------------------------------------------------------------------</p>
            <p><span class="comment"># Import system modules</span><br />
                  <span class="key"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import</span> arcpy, os, sys</p>
@@ -1326,7 +1327,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                      # Refresh view in ArcCatalog.<br />
                    </p>                 </td>
                </tr>
-             </table>
+            </table>
              <br />
              <strong>Exploring cursors objects Part 3 Geometric insertions</strong>. Copy <strong>C:\gispy\data\ch17\fires.shp</strong> to <strong>C:\gispy\scratch\fires.shp</strong>.<br />
          <table width="461" bgcolor="#FFFFFF">
@@ -1449,7 +1450,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                <li>Remove the 'Shape' field from the field name list (if it's there).</li>
                <li>Create a search cursor for an input file.</li>
                <li>Create an empty dictionary. </li>
-               <li>For each row, add an item to the dictionary that has a key of the input file's 'FID' and the rest of the non-shape fields the value. For example input C:/Temp/COVER63p.shp, the dictionary would look something like this:<br />
+               <li>For each row, add an item to the dictionary that has a key of the input file's 'FID' and the rest of the non-shape fields the value. For example input C:/gispy/data/ch02/park.shp, the dictionary would look something like this:<br />
                    <br />
                  {0: (u'woods', 1.0), 1: (u'woods', 2.0), 2: (u'woods', 3.0), 3: (u'woods', 4.0), 4: (u'woods', 5.0), 5: (u'other', 6.0), 6: (u'woods', 7.0), 7: (u'orch', 8.0), 8: (u'woods', 9.0), 9: (u'woods', 10.0), 10: (u'orch', 11.0), 11: (u'orch', 12.0), 12: (u'other', 13.0), and so forth...<br />  
                  <br />  
@@ -2105,7 +2106,7 @@ layer.isRasterLayer<br />
                        <br />
                    </p></td>
                </tr>
-             </table>
+            </table>
            <br />
              <ol>
                <li>How can you get a list of ALL the layers in map? (hint: the last two arguments in ListLayers are optional)<br />
