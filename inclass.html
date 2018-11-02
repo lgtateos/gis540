@@ -926,8 +926,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
              <span class="key">except</span>:<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> arcpy.GetMessages( )<br />
 print &quot;Exiting the script now&quot; <br />
-          </p>
-          </td>
+          </p>          </td>
        </tr>
      </table>
      <br />
@@ -1521,24 +1520,41 @@ print &quot;Exiting the script now&quot; <br />
      <br />
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td width="642" scope="row"><p><strong>rdu_forest.py Part 1<br />
+         <td width="642" scope="row"><p><strong>rdu_forest1.py Part 1<br />
                    <br />
-             </strong><strong>Read/write </strong>Write a script that opens <a href="example_data/rdu_forest.txt">rdu_forest.txt</a>, reads it and writes it to an output file named rdu_out.txt.<br />
-         </p></td>
+             </strong><strong>Read/write </strong>Write a script that opens &quot;C:/gispy/data/ch19/RDUforest.txt&quot;, reads it and writes it to an output file named RDUout.txt in the &quot;C:/gispy/scratch&quot; directory.<br />
+            </p>          </td>
        </tr>
      </table>
      <br />
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td width="642" scope="row"><p><strong>rdu_forest.py Part 2</strong></p>
-             <ol>
-               <li><strong>Delete rows </strong>Write a script that opens <a href="example_data/rdu_forest.txt">rdu_forest.txt</a>, reads it and writes it to an output file named rdu_out2.txt. This time, delete all of the records that are not Loblolly pines (species LP).</li>
-               <li><strong>Delete columns </strong>Write a script that opens <a href="example_data/rdu_forest.txt">rdu_forest.txt</a>, reads it and writes it to an output file named rdu_out3.txt. This time, delete the plot column of the records.<br />
-               </li>
-             </ol></td>
+         <td width="642" scope="row"><p><strong>rdu_forest2.py</strong> <strong>Part 2</strong></p>
+             <p><strong>Read/modify/write </strong>Suppose a mistake was made in calculating the dbh. It should be the square root of the value in the file. E.g., 25 should be 5. Modify the code from Part 1 so that it makes this change in the output, RDUout2.txt. (Hint: the built-in math module has a sqrt method. For example math.sqrt(16) returns 4.<br />
+             </p>          </td>
        </tr>
      </table>
-<br />
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest3.py Part 3<br />
+           <br />
+         Delete rows. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and write it to RDUout3.txt <em>deleting</em> all of the records that are not Loblolly pines (species LP). Hint: Instead of thinking in terms of deleting, think about what you DO want to write.<br />
+              </p>
+             </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest4.py Part 4<br />
+           <br />
+         </strong><strong>Delete a column. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and  write it to RDUout4.txt. This time, delete the plot column.<br />
+              </p>
+          </td>
+       </tr>
+     </table>
+     <p>&nbsp;</p>
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td width="642" scope="row"><p><strong><a href="example_scripts/ipcc2ESRI.py">ipcc2Esri.py</a> (Intergovernmental Panel on Climate Change):<br />
