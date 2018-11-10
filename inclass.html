@@ -1586,7 +1586,7 @@ print &quot;Exiting the script now&quot; <br />
        <tr>
          <td width="649"><p><strong>User-defined modules: <br />
                    <br />
-           1. </strong>Copy and save <em>sortString.py</em> and <em>listManager.py</em> defined BELOW. sortString calls one of the functions in listManager, but you need to add code to sortString for this to work correctly. The output should look like this: </p>
+           1. </strong>Copy and save <em>sortString.py</em> and <em>listManager.py</em> <a href="#sortString">defined BELOW</a>. Save them both in C:/gispy/scratch. <em>sortString</em> calls one of the functions in <em>listManager</em>, but you need to add code to sortString for this to work correctly. The output should look like this: </p>
              <table width="467" border="0" bgcolor="#ffffff">
                <tr>
                  <td width="461"><p class="comment"># Desired output: </p>
@@ -1595,9 +1595,9 @@ print &quot;Exiting the script now&quot; <br />
              </table>
            <br />
              <p>If you add the code and it still doesn't work, you may need to click reload <img src="images/reloadButton.png" alt="reload button" width="34" height="32" /> while your focus is on listManager.py. </p>
-           <p><strong>2. </strong>Now add code to sortString.py to sort mylist (returned from string2List). Print the list. <br />
+           <p><strong>2. </strong>Now add <strong>one line of code</strong> to sortString.py to sort mylist (returned from string2List) and then add another to print the list. <br />
             </p>
-           <table width="467" border="0" bgcolor="#ffffff">
+    <table width="467" border="0" bgcolor="#ffffff">
                <tr>
                  <td width="461"><p class="comment"># Desired output: </p>
                      <p>&gt;&gt;&gt; ['alt', 'fid', 'fid', 'fid', 'lat', 'lat', 'long']</p></td>
@@ -1611,17 +1611,33 @@ print &quot;Exiting the script now&quot; <br />
                  <td width="461"><p class="comment"># Desired output: </p>
                      <p>&gt;&gt;&gt; alt;fid;fid;fid;lat;lat;long</p></td>
                </tr>
-           </table></td>
+           </table>
+           <p>4. Add the function uniqueList given below to listManager.py</p>
+           <table width="467" border="0" bgcolor="#ffffff">
+             <tr>
+               <td width="461"><p ><span class="key">def</span> uniqueList(L):<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">&quot;&quot;&quot;Get list with only unique entries&quot;&quot;&quot;</span><br />
+                 <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;# Python Set data types hold only unique entries<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;# S collects unique entries in L</span></span><br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;S = set(L)<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Cast the set back to list. </span><br />
+                 &nbsp;&nbsp;&nbsp; uniqueL = list(S)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return </span>uniqueL</p></td>
+             </tr>
+           </table>
+           <p>5. In  sortString.py,   add a line of code  to call  the uniqueList function on mylist. </p>
+           <p>6. Add print (&quot;Hehe&quot;) to listManager.py (outside of any functions).</p>
+           <p>7. Without reloading listManager.py, run sortString.py. Does it run to completion? Does Hehe print?</p>
+           <p>8. Reload listManager.py, using the reload button. Does Hehe print?  </p>
+           <p>9. Run sortString.py now. Does it run to completion?</p></td>
        </tr>
-       <tr>
-         <td><p class="comment">&nbsp;</p></td>
-       </tr>
+
      </table>
    <br />
      <table width="640" border="0" bgcolor="#ffffcc">
        <tr>
          <td width="649"><br />
-             <span class="comment"> <strong># sortString.py</strong><br />
+             <span class="comment"> <strong># sortString.py</strong> <a name="sortString" id="sortString"></a><br />
                #Purpose: Given a delimited string, it sorts the delimited elements by splitting it into a list, sorting the list, and joining it back into a string. The sorted string result is printed.</span><br />
            <br />
            <br />
@@ -1650,31 +1666,6 @@ print &quot;Exiting the script now&quot; <br />
              &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Join the string elements of stringL</span><br />
              &nbsp;&nbsp;&nbsp;&nbsp;s = delimiter.join(stringL)<br />
              &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return</span> s</p></td>
-       </tr>
-     </table>
-     <table width="640" border="0" bgcolor="#ffffcc">
-       <tr>
-         <td width="651"><p><strong>Modifying support  modules: <br />
-                   <br />
-           1. </strong>In the same Pythonwin session, modify listManager.py. Add the function uniqueList given below to listManager.py</p>
-             <p><strong>2. </strong>Replace the list sorting call in  sortString.py  with a call to the uniqueList function. <br />
-             </p>
-           <table width="467" border="0" bgcolor="#ffffff">
-               <tr>
-                 <td width="461"><p ><span class="key">def</span> uniqueList(L):<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">&quot;&quot;&quot;Get unique entries&quot;&quot;&quot;</span><br />
-                   <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;# Python Set data types hold only unique entries<br />
-                     &nbsp;&nbsp;&nbsp;&nbsp;# S collects unique entries in L</span></span><br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;S = set(L)<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Copy S  to a new list which only has the unique values</span><br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;U = []<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;for i in S:<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U.append(i)<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return </span>U</p></td>
-               </tr>
-            </table>
-           <p><br />
-           </p></td>
        </tr>
      </table>
      <hr />
