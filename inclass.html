@@ -1540,8 +1540,7 @@ print &quot;Exiting the script now&quot; <br />
          <td width="642" scope="row"><p><strong>rdu_forest3.py Part 3<br />
            <br />
          Delete rows. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and write it to RDUout3.txt <em>deleting</em> all of the records that are not Loblolly pines (species LP). Hint: Instead of thinking in terms of deleting, think about what you DO want to write.<br />
-              </p>
-             </td>
+              </p>             </td>
        </tr>
      </table>
      <br />
@@ -1550,8 +1549,7 @@ print &quot;Exiting the script now&quot; <br />
          <td width="642" scope="row"><p><strong>rdu_forest4.py Part 4<br />
            <br />
          </strong><strong>Delete a column. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and  write it to RDUout4.txt. This time, delete the plot column.<br />
-              </p>
-          </td>
+              </p>          </td>
        </tr>
      </table>
      <p>&nbsp;</p>
@@ -1631,7 +1629,6 @@ print &quot;Exiting the script now&quot; <br />
            <p>8. Reload listManager.py, using the reload button. Does Hehe print?  </p>
            <p>9. Run sortString.py now. Does it run to completion?</p></td>
        </tr>
-
      </table>
    <br />
      <table width="640" border="0" bgcolor="#ffffcc">
@@ -2021,33 +2018,42 @@ mxd.saveACopy(p)</p>                 </td>
                <li> How can you change mxd.filePath from a Python script?<br />
                  <br />
                </li>
-               <li>How do you get or change the author of the map from a Python script?<br />  
+               <li>How do you get or change the author of the map from a Python script?<br />
                  <br />
                </li>
-               <li>Try the following in the PythonWin interactive Window (describe what does/doesn't work):<br />
-                 <span class="number number">import arcpy<br />
-mxd = arcpy.mapping.MapDocument('CURRENT')<br />
-arcpy.env.workspace = &quot;C:/gispy/scratch/ch24/maps/&quot;<br />
-mapName = 'states.mxd'<br />
-                 </span><span class="number number">mxd = arcpy.mapping.MapDocument(mapName)<br />
-mapName = &quot;C:/gispy/scratch/ch24/maps/states.mxd&quot;</span><br />
-<span class="number number">mxd = arcpy.mapping.MapDocument(mapName)<br />
-# make a change to the map in ArcMap (e.g., change the title)</span></li>
-               <span class="number number"># </span><span class="number number">and try to save the map.</span><span class="number number"><br />
-                del mxd<br />
-               </span></li>
-               <li><span class="number number">Try the following in the PythonWin interactive Window. What does it do?<br />
-               </span><span class="number number">import os<br />
-               os.startfile('C:/gispy/scratch/ch24/maps/landCover.mxd')</span><span class="number number"><br />
-                 </span><br />
-               </li>
-               <li>Where can you find a complete list of map properties and methods and how can you determine which properties can be modified from a Python script?<br />
+               <li>How can you force the map to refresh to show changes you've made in the current session?<br />
                  <br />
                </li>
-         </ol></td>
+               <li>Keep ArcMap open for now. Try the following in the PythonWin <em>Interactive Window</em>. Note...which of three calls to <em>arcpy.mapping.MapDocument</em>  work/don't work.<br />
+                 <span class="number number">&gt;&gt;&gt; import arcpy<br />
+                 #Attempt #1 <br />
+                 </span><span class="number number">&gt;&gt;&gt; mxd1 = arcpy.mapping.MapDocument('CURRENT')<br />
+                 #Attempt #2<br />
+                 &gt;&gt;&gt; arcpy.env.workspace = &quot;C:/gispy/scratch/ch24/maps/&quot;<br />
+                &gt;&gt;&gt; arcpy.env.workspace<br />
+                &gt;&gt;&gt; mapName = 'states.mxd'<br />
+                 </span><span class="number number">&gt;&gt;&gt; mxd2 = arcpy.mapping.MapDocument(mapName)<br />
+                 # Attempt #3<br />
+                 &gt;&gt;&gt; mapName = &quot;C:/gispy/scratch/ch24/maps/states.mxd&quot;</span><br />
+                 <span class="number number">&gt;&gt;&gt; mxd3 = arcpy.mapping.MapDocument(mapName)<br />
+               # make a change to the map in ArcMap (e.g., change the title)</span><br />
+               &gt;&gt;&gt; mxd3.title = &quot;Smart map&quot;<br />
+               <span class="number number"># </span><span class="number number">and try to save the map.</span><br />
+               &gt;&gt;&gt; mxd3.save()<span class="number number"><br />
+&gt;&gt;&gt; del mxd</span><span class="number number">3<br />
+  </span></li>
+               <li>Close ArcMap and <span class="number number">try the following in the PythonWin interactive Window. What does it do?<br />
+                </span>import os<br />
+os.startfile('C:/gispy/scratch/ch24/maps/landCover.mxd')</li><br />
+               </p>
+               <li>a) Where can you find a complete list of map properties and methods b) How do you know which properties can be modified from a Python script?<br />
+                 <br />
+               </li>
+          </ol></td>
        </tr>
      </table>
-     <br />
+     <p><br />
+     </p>
      <table width="648" border="0" bgcolor="#FFFFCC">
        <tr>
          <td width="642" scope="row"><p><strong>Exploring  the arcpy DataFrame and Layer objects: </strong></p>
@@ -2133,6 +2139,26 @@ layer.isRasterLayer<br />
      <br />
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
+         <td scope="row"><p><strong>listFeatureLayers</strong><a href="example_scripts/addLayer1.py"></a></p>
+             <ul>
+               1. By hand, add raster &quot;C:\gispy\data\ch24\otherData\getty_rast&quot; to the 'C:/gispy/scratch/ch24/maps/states.mxd' map. Save the map.<br />
+               2. 
+               Add to the code below, to print the names of the feature type layers in a map (not the raster layers).<span class="comment"></span>
+               <div>Hint1:  Need nested looping to loop through the data frames and the layers.</div>
+               <div>Hint2: layers have a Boolean property called <em>isFeatureLayer</em>                 </div>
+          </ul>
+             <pre>import arcpy
+mapName = 'C:/gispy/scratch/ch24/maps/states.mxd'<br />
+mxd = arcpy.mapping.MapDocument(mapName)<br />
+dfs = arcpy.mapping.ListDataFrames(mxd)<br>
+for df in dfs:<br />
+     print &quot;Frame &quot; + df.name<br />
+     layers = arcpy.mapping.ListLayers(mxd, &quot;*&quot;, df)</pre></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
          <td scope="row"><p><strong>addLayer1.py </strong><a href="example_scripts/addLayer1.py">Run this script. </a></p>
              <ul>
                <li>Note that if the map document doesn't already exist, you will get an error. Change the name of the map document in the script to one that you have on your machine. </li>
@@ -2150,14 +2176,6 @@ layer.isRasterLayer<br />
        </tr>
      </table>
      <br />
-     <table width="640" border="0" bgcolor="#FFFFCC">
-       <tr>
-         <td scope="row"><p><strong>listFeatureLayers</strong><a href="example_scripts/addLayer1.py"></a></p>
-             <ul>
-               Add a raster to states.mxd. Write a script that prints the names of the feature type layers in a map (not the raster layers).<span class="comment"></span>
-             </ul>         </td>
-       </tr>
-     </table>
      <hr />
      <p>In class-- Messaging <a name="Messaging" id="Messaging"></a></p>
      <table width="640" border="0" bgcolor="#ffffcc">
