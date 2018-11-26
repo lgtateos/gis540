@@ -1,1 +1,4 @@
-a
+Title:  Sediment Transport Research Test Bed
+Name: Nathan J. Lyons
+Synopsis:   Research of sediment transport dynamics, a persistent topic since the early twentieth century, provides invaluable insight into fluvial processes, engineering applications, and aquatic habitat. The complex and stochastic nature of stream systems provides numerous challenges to researchers and new studies can benefit from a dynamic geospatial test bed that contains tools as well as other researchers’ models to test their hypotheses. An application of sediment transport dynamics, the control of bedload sediment size on salmonid distribution, is presented here in an effort to create this test bed.
+Keywords: Sediment Transport, Grain Size, Fish Habitat, Stream Restoration, Hydraulic Model
