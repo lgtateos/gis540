@@ -1883,9 +1883,10 @@ End Sub</li>
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td scope="row"><p><strong>wakeURL.py</strong></p>
-             <p>1. Save <a href="example_scripts/BeautifulSoup.py"><strong>BeautifulSoup.py </strong></a>and<a href="example_scripts/wakeURL.py"> <strong>wakeURL.py</strong></a> in  C:/Temp<br />
+             <p>1. Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch 
+               and save <a href="example_scripts/wakeURL.py"> <strong>wakeURL.py</strong></a> in  C:/gispy/scratch<br />
              </p>
-           <p>2. Add code to import as necessary. (don't forget to append the directory to the system path) </p>
+            <p>2. Add code to import as necessary. (don't forget to append the directory to the system path) </p>
            <p>3. Find the url assignment statement (line 40), check the url to be sure it's current. Modify if needed.</p>
            <p>4. Run the script in its current state and view the resulting print statements. </p>
            <p>5. Search for the ## signs and add code there to make functions work and then to call them. <br />
@@ -1897,8 +1898,8 @@ End Sub</li>
      <table width="648" border="0" bgcolor="#FFFFCC">
        <tr>
          <td width="642" scope="row"><p><strong>Exploring  KML soup: </strong><br />
-           Save sample script, 'BeautifulSoup.py' in C:/Temp. Type each statement in the Interactive Window  and answer the questions. </p>
-             <table width="477" bgcolor="#FFFFFF">
+           Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch. Type each statement in the <em>Interactive Window</em>  and answer the questions. </p>
+          <table width="477" bgcolor="#FFFFFF">
                <tr>
                  <td width="6">&nbsp;</td>
                  <td width="459"><p class="number number">import os<br />
@@ -1907,14 +1908,14 @@ End Sub</li>
                    <br />
                    import BeautifulSoup<br />
                    <br />
-                   os.chdir('C:/Temp')<br />
+                   os.chdir('C:/gispy/scratch')<br />
                    <br />
-                   import BeautifulSoup<br />
+                   import BeautifulSoup<br /> 
                    <br />
                    mystr = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;kml xmlns=&quot;http://www.opengis.net/kml/2.2&quot;&gt;&lt;Document&gt;&lt;Placemark&gt;&lt;name&gt;Bubba's Tofu Gumbo&lt;/name&gt;&lt;description&gt;Tofu Gumbo and Zydeco!&lt;br /&gt;Score: 97&lt;/description&gt;&lt;Point&gt;&lt;coordinates&gt;-90,30,0&lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&lt;Placemark&gt;&lt;name&gt;Joe Bob's Good Cookin'&lt;/name&gt;&lt;description&gt;The best tree top grits n' greens restaurant south of the Mason-Dixon line.&lt;br /&gt;Score: 94&lt;/description&gt;&lt;Point&gt;&lt;coordinates&gt;-78,35,0&lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&lt;/Document&gt;&lt;/kml&gt;&quot;&quot;&quot;<br />
-                   <br />
+                    <br />
                    soup = BeautifulSoup.BeautifulSoup(mystr) </p>
-                     <p class="number number">h = soup.prettify( )</p>
+                   <p class="number number">h = soup.prettify( )</p>
                    <p class="number number">print h<br />
                    </p>
                    <p class="number number">t = soup.find('description')</p>
@@ -1957,9 +1958,10 @@ End Sub</li>
    <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td scope="row"><p><strong>parseKMLpts_inclass.py</strong></p>
-             <p>1. Save the <a href="example_data/Sample_7-Day_GPS_Data.kml">sample kml data set</a> and<a href="example_scripts/parseKMLpts_inclass.py"><strong> parseKMLpts_inclass.py</strong></a> in  C:/Temp<br />
+             <p>1. Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch.</p>
+             <p>2. Save <a href="example_scripts/parseKMLpts_inclass.py"><strong> parseKMLpts_inclass.py</strong></a> in  C:/gispy/scratch. <br />
              </p>
-           <p>2. Search for the ### signs in the Python script and add code so that the script successfully parses the kml and creates an output shapefile. <br />
+            <p>3. Search for the ### signs in the Python script. Add code as instructed in the comments. When complete the script  parses the driving stops from the kml and creates an output shapefile. <br />
            </p></td>
        </tr>
      </table>
