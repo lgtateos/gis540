@@ -1,4 +1,4 @@
-import os, sys
+import os
 ## add imports as needed
 
 def saveBinary(localDir, binPath):
