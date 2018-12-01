@@ -1,12 +1,8 @@
-import os, sys, arcpy
-mydir = os.path.dirname(sys.argv[0])
+import arcpy, BeautifulSoup
+
 arcpy.overwriteOutput = True
 
-#Make sure path is appended to import local module
-sys.path.append(mydir)
-import BeautifulSoup
-
-filename =  mydir + "/Sample_7-Day_GPS_Data.kml"
+filename =  "C:/gispy/data/Ch20/Sample_7_Day_GPS_Data.kml"
 
 #Read the kml file and put contents in BeautifulSoup object
 data = open(filename,'r')
@@ -43,6 +39,8 @@ class kmlPoint():
 
 	def parsePoint(self, coord):
 		'''Parse the coordinate values from  -78.67717,35.781952,0'''
+		# coord is a comma delimited string. Split the coord on comma!
+		# Set each (self.x, self.y, self.z) with the split results.
 		###Set the point's x, y, and z coordinate values
 		print self.y,self.x,self.z
 
@@ -70,7 +68,7 @@ for placemark in placemarks:
 
 # Create output shapefiles
 fc = "stops.shp"
-mydir = "C:/Temp/"
+mydir = "C:/gispy/scratch/"
 arcpy.env.workspace = mydir
 arcpy.overwriteOutput = True
 if arcpy.Exists(fc):
