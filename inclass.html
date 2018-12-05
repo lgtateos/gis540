@@ -2531,7 +2531,7 @@ for df in dfs:<br />
            <p>Pseudocode:</p>
            <p>IF the first parameter has been altered THEN<br />
              &nbsp;&nbsp;&nbsp;&nbsp;
-             IF the first parameter's value is greater than zero THEN<br />
+             IF the first parameter's value is less than zero THEN<br />
              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Set the error message to remind the bozo running the tool to use a positive number<br />
              &nbsp;&nbsp;&nbsp;&nbsp; ENDIF<br />
             ENDIF</p>
@@ -2545,30 +2545,31 @@ for df in dfs:<br />
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td scope="row"><p><strong>getUniqueValues.py</strong></p>
-             <p>1. Write a script which gets the unique values for a given field in a given GIS table. For the moment, hard code the table and field. The script is started for you here. Fill in code where you see ##</p>
+             <p>1. Write a script which gets the unique values for a given field in a given GIS table. For the moment, hard-code the table and field. The script is started for you here. Fill in code where you see ###</p>
            import arcpy<br />
-           fc = "C:/Temp/COVER63p.shp"<br />
+           fc = "C:/gispy/data/ch01park.shp"<br />
            fieldname = "COVER"<br />
            <br />
-           sc = ##get a search cursor <br />
+           sc = ### Get a search cursor.<br />
            valueList = [ ]<br />
            <br />
-           ## Loop through the rows; get the value for field name for the current row; append it to the list <br />
+           ### Loop through the rows; get the value for field name for the current row; append it to the list. <br />
            <br />
            uniqueValueSet = set(valueList) #Casts valueList to a set (only unique values retained)<br />
            <br />
-           uniqueList = ##Cast uniqueValueSet back to a list<br />
+           uniqueList = ### Cast uniqueValueSet back to a list.<br />
            <br />
            print uniqueList<br />
            <p>2. Create a script tool (no need to point to an actual script--this is just an empty shell). Set up 3 parameters:</p>
            <ol type='a'>
-             <li>The first arg (file name) should be a required feature class. </li>
-             <li>The second argument (field name) should be required input obtained from the first argument.</li>
+             <li>The first arg (file name) should be a required feature class type. </li>
+             <li>The second argument (field name) should be required input field type obtained from the first argument.</li>
              <li>The third argument (field value) should be a required string. </li>
            </ol>
-           <p>3. Use parts of getUniqueValues to modify the updateParameters method in the ToolValidator class so that the 3rd parameter is updated to a unique list of values in the selected field for the selected feature class. The method is started for you here. Fill in code where you see ##</p>
-           <pre>  def updateParameters(self):<br />    """Modify the values and properties of parameters before internal<br />    validation is performed.  This method is called whenever a parmater<br />    has been changed."""<br />    <br />    if ## the 2nd parameter is altered:<br />      fc = str(self.params[0].value) #Feature class is the first parameter<br />      fieldname = ##use the 2nd parameter<br />      sc = ##get a search cursor<br />      valuelist = []<br />      ## loop through rows and get the values for the selected field name and append to valuelist<br />      uniqueValueSet = set(valueList) #Cast valueList to a set (only unique values retained)<br />      uniqueList = ##Cast uniqueValueSet back to a list<br />      self.params[2].filter.list = ## this should be your unique list    <br />    return
-</pre>         </td>
+           <p>3. Use parts of getUniqueValues to modify the updateParameters method in the ToolValidator class so that the 3rd parameter is updated to a unique list of values in the selected field for the selected feature class. The method is started for you here. Fill in code where you see ###</p>
+           <pre>  def updateParameters(self):<br />    """Modify the values and properties of parameters before internal<br />    validation is performed.  This method is called whenever a parmater<br />    has been changed."""<br />    <br />    if ### The 2nd parameter is altered:<br />      fc = str(self.params[0].value) #Feature class is the first parameter<br />      fieldname = str( ###use the 2nd parameter ) #Has to be cast to string, since it's a field object.<br />      sc = ### Get a search cursor.<br />      valueList = []<br />      ### Loop through rows and get the values for the selected field name and append to valuelist.<br />      uniqueValueSet = set(valueList) #Cast valueList to a set (only unique values retained)<br />      uniqueList = ### Cast uniqueValueSet back to a list.<br />      self.params[2].filter.list = ### This should be your unique list.    <br />    return
+</pre>   
+           Test the tool by selecting <strong>C:/gispy/data/ch01/park.shp</strong> for the first parameter. The 2nd parameter should automatically get populated with a list of the field names in park.shp. Select COVER for the second parameter.  The third parameter should get dynamically populated with a list of the landcover types in park.shp. If it does, congratulations--you got it working!</td>
        </tr>
      </table>
    <hr />
