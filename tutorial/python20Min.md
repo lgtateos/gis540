@@ -47,9 +47,9 @@ arcpy.GeoTaggedPhotosToPoints_management(myPicFolder)
 ```
 3. Do you see any new points?  Look for the new layer in the table of contents.  Right click on the layer and select "Zoom to layer"
 4. Cick the "Identify" button <br>
-  <img src="./identifyButton.png" alt="Identify button" />
-5. Click on one of the points you've added to the map. Inspect the values.
-6. Click on the image "Path" in the identify box. The path might be something like this:<i>C:/gispy/scratch/EnchantedForest/trees.JPG</i>.  
+  <img src="./identifyButton.png" alt="Identify button" /><br>
+5. Click on one of the points you've added to the map. Inspect the values.<br>
+6. Click on the image "Path" in the identify box. The path might be something like this:<br>  <i>C:/gispy/scratch/EnchantedForest/trees.JPG</i> <br>  
 Clicking on the path will open the image!  Does the forest look enchanted?
 
 ## 4. Add points to the map.
