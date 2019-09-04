@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2_no_menu.dwt" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>In Class</title>
 <!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" --><span class="titleLT">In Class</span><!-- InstanceEndEditable -->
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="css/layoutV2.css" rel="stylesheet" type="text/css" media="screen" >
+    <link href="css/layoutV2.css" rel="stylesheet" type="text/css" media="screen">
     <link href="css/styleV2.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 
@@ -25,17 +25,17 @@
 <div id="header-image"><p>GIS 540</p></div>
 <nav>
 <ul class="nav">
-<!--<li><a href="../index.html">Home</a></li>
-<li><a href="../syllabus.html">Syllabus</a></li>
-<li><a href="../schedule.html">Schedule</a></li>
-<li><a href="../resources.html">Resources</a></li>-->
-<!--<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=5897" target="_blank">Moodle</a></li>-->
-<!--<li><a href="https://piazza.com/" target="_blank">Forum</a></li> -->
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=5897" target="_blank">Moodle</a></li>
+<li><a href="https://piazza.com/" target="_blank">Forum</a></li>
 <!--<li><a href="../example_scripts/">Sample scripts</a></li>-->
 <!--<li><a href="../data.html">Data</a></li>-->
-<!--<li><a href="../instructors.html">Instructors</a></li>
-<li><a href="../project/project.html">Project</a></li>-->
-<!--<li><a href="https://go.ncsu.edu/py4all" target="_blank">Py4All</a></li>-->
+<li><a href="instructors.html">Instructors</a></li>
+<li><a href="project/project.html">Project</a></li>
+<li><a href="https://go.ncsu.edu/py4all" target="_blank">Py4All</a></li>
 </ul>
 </nav>
 
@@ -344,9 +344,9 @@ arcpy.env.workspace = <span class="str">'C:/gispy/data/ch01/'</span><br />
                  <li>Write a line of code that will make 'path' all caps.<br />
                    <br />
                  </li>
-                 <li>Type these commands then Write a line of code that will sort mylistA, but not mylistB<br />
+                 <li>Type these commands. Then try to write a line of code that  will sort mylistA, but not mylistB. Is it possible?<br />
                  &gt;&gt;&gt; mylistA = [5,23,7,-1]<br />
-                   &gt;&gt;&gt; mylistB = mylistA<br />
+                 &gt;&gt;&gt; mylistB = mylistA<br />
                    <br />
                  </li>
                  <li>Use the join string function to make a semicolon separated string from the list p (that you created in question 1).</li>
@@ -578,11 +578,11 @@ ENDIF</td>
      </p>
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td scope="row"><p><strong>1. listfc_os.py </strong>Write a script to  print only the names of the file in C:/Temp that are shapefiles (print name and :] ), txt files (name and print :[ ), or dbf files (print name and :o ). Use a FOR<strong>-</strong>loop.</p>
+         <td scope="row"><p><strong>1. listfc_os.py </strong>Write a script to  print only the names of the file in C:/gispy/data/ch19 that are shapefiles (print name and :] ), txt files (name and print :[ ), or dbf files (print name and :o ). Use a FOR<strong>-</strong>loop.</p>
 <p># os.listdir example:<br />
                  <br />
                import os<br />
-            path = 'C:/Temp'<br />
+            path = 'C:/gispy/data/ch19'<br />
                files = os.listdir(path)</p>
            <p>2. <strong>listfc_os2.py</strong> Rewrite  listfc_os.py to print each file's index in the list along with the file name.<br />
             </p>
@@ -645,9 +645,9 @@ ENDIF</td>
              <ol>
                <li>List all the point feature classes in C:/gispy/data/ch10/tester.gdb whose names start with 's'.</li>
                <li>Call arcpy.CreateFileGDB_management('C:/gipsy/scratch/', 'out.gdb') to create a new gdb.</li>
-               <li>Write copies the point feature classes whose names start with 's' from C:/Temp/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc</li>
+               <li>Write copies the point feature classes whose names start with 's' from  C:/gispy/data/ch10/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc</li>
              </ol>
-           <p>&nbsp;</p></td>
+          <p>&nbsp;</p></td>
        </tr>
      </table>
      <br />
@@ -792,7 +792,7 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
        <li>Write lineLength.py by merging your code to solve the task.</li>
      </ol>
      <p>Group  1 members:  Open a “test.py” for  reading.  Print the length of each line  in the file.<br />
-       Group  2 members:   Print a list of full  path  names of the files in &quot;C:/Temp/&quot; .  Use list  comprehension to make a full path list from a base name list.<br />
+       Group  2 members:   Print a list of full  path  names of the files in &quot;C:/gispy/data/ch12/wTest/&quot; .  Use list  comprehension to make a full path list from a base name list.<br />
        Group  3 members:   Check if an input file is a  Python script or a directory. (Hint:   There’s an os.path.isdir(path)  method.)<br />
        Group  4 members:   Write pseudocode for  the overall task.  Assume you have three  function: printLineLength (from group 1), getFullFileNames (from group 2), and  pyORdir (from group 3)</p>
      <p><a href="example_data/testNest.zip">Test data</a><br />
@@ -853,13 +853,13 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
                  </table>
                  <br />
                </li>
-               <li>Run fileOpen.py with 'C:/Temp/poem.txt' as the argument.<br />
+               <li>Run fileOpen.py with 'C:/gispy/data/ch19/poem.txt' as the argument.<br />
                    <br />
                </li>
                <li>Explain what this script does.<br />
                    <br />
                </li>
-               <li> Run fileOpen.py with a text file that doesn't exist  as this argument, perhaps 'C:/Temp/bogus.txt'.<br />
+               <li> Run fileOpen.py with a text file that doesn't exist  as this argument, perhaps 'C:/gispy/data/ch19/bogus.txt'.<br />
                    <br />
                </li>
                <li> Which named exception does it throw? <br />
@@ -1060,7 +1060,7 @@ print &quot;Exiting the script now&quot; <br />
        </tr>
      </table>
     <hr />
-     <p>In class-- Procedures <a name="Procedures" id="Procedures"></a></p>
+     <p>In class-- Procedures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://docs.google.com/document/d/1QCUDqPaTfMY3BbT6YfScG9j2XbcudyeLHLkk0udeEqE/edit?usp=sharing">^__^</a></p>
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
          <td scope="row"><p><strong><a href="example_scripts/printProcedures.py">printProcedures.py</a></strong> contains 2 function definitions and calls these functions (as examples). </p>
@@ -1463,10 +1463,10 @@ print &quot;Exiting the script now&quot; <br />
 
      <table width="640" border="0" bgcolor="#FFFFCC">
        <tr>
-         <td width="642" scope="row"><p><strong>Exploring file objects: </strong>Type each statement in the Interactive Window (Except for the comments) and discuss the results. If you don't already have a <strong>C:/temp directory</strong>, you'll need to create one before starting this exercise.</p>
+         <td width="642" scope="row"><p><strong>Exploring file objects: </strong>Type each statement in the Interactive Window (Except for the comments) and discuss the results.</p>
     <table width="327" bgcolor="#FFFFFF">
                <tr>
-                 <td width="317"><p>f = open(&quot;C:/Temp/test.txt&quot;, 'w')<br />
+                 <td width="317"><p>f = open(&quot;C:/gispy/scratch/test.txt&quot;, 'w')<br />
                     f.write('a')<br />
                     f.write('b')<br />
                     f.write(2) <br />
@@ -1484,7 +1484,7 @@ print &quot;Exiting the script now&quot; <br />
                      <br />
                    </p>
                    <hr />
-                     <p>f = open(&quot;C:/Temp/test.txt&quot;, 'w')<br />
+                     <p>f = open(&quot;C:/gispy/scratch/test.txt&quot;, 'w')<br />
                        f.write('xyz\n')<br />
                        f.write('a\nbcd\ne\nf\ng')<br />
                        f.close( )</p>
@@ -1493,7 +1493,7 @@ print &quot;Exiting the script now&quot; <br />
                    <p>Explain why the text is not all on one line.<br />
                    </p>
                    <hr />
-                     <p>inf = open(&quot;C:/Temp/test.txt&quot;, 'r')<br />
+                     <p>inf = open(&quot;C:/gispy/scratch/test.txt&quot;, 'r')<br />
                        print inf.readline()<br />
                        <br />
                        print inf.readline()<br />
