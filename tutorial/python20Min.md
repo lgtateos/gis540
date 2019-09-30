@@ -1,6 +1,8 @@
 # GIS and Python  (~20 minutes)
 
-ArcMap is a GIS for visualizing and analyzing data.  Data preparation: Download [chilePics.zip](https://drive.google.com/file/d/1Y-IzaKyDzhxHhgOHhwpTBZ0afLWaXERP/view?usp=sharing) and unzip it in C:/gispy/scratch so that C:/gispy/scratch/chilePics/EnchantedForest/P1010417.JPG exists. Then download
+ArcMap is a GIS for visualizing and analyzing data.  
+
+Data preparation: Download [chilePics.zip](https://drive.google.com/file/d/1Y-IzaKyDzhxHhgOHhwpTBZ0afLWaXERP/view?usp=sharing) and unzip it in C:/gispy/scratch so that C:/gispy/scratch/chilePics/EnchantedForest/P1010417.JPG exists. 
 
 Open ArcMap <br>
 <img src="./ArcMap.png" alt="ArcMap" width="100"/>
