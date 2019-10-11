@@ -203,7 +203,7 @@
 
    
 
-4. Convert all the Polygon files in a workspace whose names contain 'oak' to point.  The script takes 2 arguments, an input directory and an output directory.  The tool syntax is **FeatureToPoint(in_features, out_feature_class, {point_location})**
+4. Convert all the Polygon files in a workspace whose names contain 'oak' to point.  The script takes 2 arguments, an input directory and an output directory.  The tool syntax is **FeatureToPoint_management(in_features, out_feature_class, {point_location})**
 
    
 
