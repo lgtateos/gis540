@@ -319,7 +319,7 @@ arcpy.env.workspace = <span class="str">'C:/gispy/data/ch01/'</span><br />
                <ol>
                <li>Modify the convertLat.py script so that it takes one argument, the full path file name of a data file that contains the latitudes for a number of different points <a href="supMaterials/lats.txt">lats.txt</a> by clicking on it and then choosing <strong>File</strong> &gt; <strong>Save As...</strong> </li>
                <li>Rename convertLat.py as convertLat2.py.</li>
-               <li>This script should take one argument, the full path for lat.txt, then it should open the file, read each latitude and convert the each degrees, minutes, seconds latitude to decimal degrees. (Don't forget to close the file.<br> To open a file, use the built-in open function and then loop through each line with.   Something like this: inf = open(theFilePath, 'r')<br> for line in inf: <br>&nbsp;&nbsp;&nbsp;&nbsp;# do stuff to line <br>fin.close()</li>
+               <li>This script should take one argument, the full path for lat.txt, then it should open the file, read each latitude and convert the each degrees, minutes, seconds latitude to decimal degrees. (Don't forget to close the file.<br> To open a file, use the built-in open function and then loop through each line with.   Something like this: inf = open(theFilePath, 'r')<br> for line in inf: <br>&nbsp;&nbsp;&nbsp;&nbsp;# do stuff to line <br>inf.close()</li>
                <li>Put the code that converts things where it says "do stuff". </li>
                <li> Once you get this working, add code that counts the number of lines in the input.<br />
                </li>
