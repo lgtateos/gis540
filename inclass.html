@@ -313,8 +313,22 @@ arcpy.env.workspace = <span class="str">'C:/gispy/data/ch01/'</span><br />
                <p>'C:/gispy/buffer/output'</p>               </td>
            </tr>
          </table>
-         <p><br />
-         </p>
+          <table width="642" bgcolor="#ffffcc">
+           <tr>
+             <td width="634" ><strong>convertLat2.py</strong>
+               <ol>
+               <li>Modify the convertLat.py script so that it takes one argument, the full path file name of a data file that contains the latitudes for a number of different points <a href="supMaterials/Lat.txt">lats.txt</a> by clicking on it and then choosing <strong>File</strong> &gt; <strong>Save As...</strong> </li>
+               <li>Rename convertLat.py as convertLat2.py.</li>
+               <li>This script should take one argument, the full path for lat.txt, then it should open the file, read each latitude and convert the each degrees, minutes, seconds latitude to decimal degrees. (Don't forget to close the file.<br> To open a file, use the built-in open function and then loop through each line with.   Something like this: inf = open(theFilePath, 'r')<br> for line in inf: <br>&nbsp;&nbsp;&nbsp;&nbsp;# do stuff to line <br>fin.close()</li>
+               <li>Put the code that converts things where it says "do stuff". </li>
+               <li> Once you get this working, add code that counts the number of lines in the input.<br />
+               </li>
+               <li> Then add code that appends the input latitudes to a list</li>
+				   <li> Then create convertLat3.py that does the same thing, but works on a different input file: <a href="supMaterials/lats2.csv">lats2.csv</a></li>
+               </ol>
+             <p></p>               </td>
+           </tr>
+         </table>
 <table width="642" height="72" bgcolor="#ffffcc">
            <tr>
              <td width="634"><p><strong>Print statements (if you have extra time, try this one)</strong> </p>
@@ -534,7 +548,7 @@ ELSE<br />
        <tr>
          <td bgcolor="#FFFFCE" scope="row"><p><strong>Distance Conversion Pseudocode</strong><a name="distancepy" id="distancepy"></a></p>
             
-              <p>Suppose you want to write pseudocode to convert miles to km and km to miles and handle user input of 2, 1, or 0 arguments as follows:  <br>
+              <p>Suppose you want to write pseudocode to convert miles to km and km to miles and handle user input of 2, 1, or 0 arguments as follows:  <br>
                 <br>
                Arguments: 50 miles<br>
 &gt;&gt;&gt; 50 miles is equivalent to 80.0 kilometers.<br>
@@ -545,7 +559,7 @@ ELSE<br />
                <br>
                <br>
                Arguments:<br>
-&gt;&gt;&gt; Usage: &lt;numeric_distance&gt; &lt;distance_unit(miles or km)&gt;   <br />
+&gt;&gt;&gt; Usage: &lt;numeric_distance&gt; &lt;distance_unit(miles or km)&gt;   <br />
 </p>
               <p><br />
               The pseudocode below would break, if the user provides less than 2 arguments. Follow these steps to approach the problem:</p>
@@ -779,9 +793,9 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
 
     <p><strong>lineLength.py</strong></p>
      <p>Task:  Check the length of each line in each Python file in a  directory and each of its subdirectory in a directory </p>
-     <p>Approach: Divide  and conquer!  Each number group will have  a separate task.  </p>
+     <p>Approach: Divide  and conquer!  Each number group will have  a separate task.  </p>
      <ol>
-       <li>Work on it on paper  alone first.  </li>
+       <li>Work on it on paper  alone first.  </li>
        <li>Gather with  the other  people in your group (such as, all of the other #1’s, all of the other #2's, ...). </li>
        <li>Compare answers</li>
        <li>Write it in Pythonwin and  try it (if possible).</li>
@@ -791,10 +805,10 @@ Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </
        <li>Return to your original group of 4.</li>
        <li>Write lineLength.py by merging your code to solve the task.</li>
      </ol>
-     <p>Group  1 members:  Open a “test.py” for  reading.  Print the length of each line  in the file.<br />
-       Group  2 members:   Print a list of full  path  names of the files in &quot;C:/gispy/data/ch12/wTest/&quot; .  Use list  comprehension to make a full path list from a base name list.<br />
-       Group  3 members:   Check if an input file is a  Python script or a directory. (Hint:   There’s an os.path.isdir(path)  method.)<br />
-       Group  4 members:   Write pseudocode for  the overall task.  Assume you have three  function: printLineLength (from group 1), getFullFileNames (from group 2), and  pyORdir (from group 3)</p>
+     <p>Group  1 members:  Open a “test.py” for  reading.  Print the length of each line  in the file.<br />
+       Group  2 members:   Print a list of full  path  names of the files in &quot;C:/gispy/data/ch12/wTest/&quot; .  Use list  comprehension to make a full path list from a base name list.<br />
+       Group  3 members:   Check if an input file is a  Python script or a directory. (Hint:   There’s an os.path.isdir(path)  method.)<br />
+       Group  4 members:   Write pseudocode for  the overall task.  Assume you have three  function: printLineLength (from group 1), getFullFileNames (from group 2), and  pyORdir (from group 3)</p>
      <p><a href="example_data/testNest.zip">Test data</a><br />
      </p>
      <p>----------------------------------<br />
@@ -1067,7 +1081,7 @@ print &quot;Exiting the script now&quot; <br />
              <p>1. A list of file names is given in the code (testList = ['a.shp', 'a.txt', 'cRaster']). Write code to loop through testList  and print only names that end with .shp.</p>
            <p>2. When that is working, put the looping code that you wrote for #1 inside a function definition. Pass a  list in as an argument.<br />
             </p>
-           3. Write a line of code to call the function using the given test  list of file names (testList).  
+           3. Write a line of code to call the function using the given test  list of file names (testList).  
            (The idea is to replace the code you wrote for #1 with a function definition and call.)<br />         </td>
        </tr>
      </table>
@@ -1416,7 +1430,7 @@ print &quot;Exiting the script now&quot; <br />
              'beer': [’Ali', ’Mayu', ’Geddy', ’Chang'], <br />
              'sweet tea': [’Shayo', ’John']}</p>
            <p>General format for creating dictionaries that use lists as  values:</p>
-           <em> </em><em> # If the key is already in the list, append. <br />
+           <em> </em><em> # If the key is already in the list, append. <br />
              &#13;</em> if key in dict: <br />
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict[key].append(value)<br />
            else: # <em>Otherwise create a new list</em><br />
@@ -1429,7 +1443,7 @@ print &quot;Exiting the script now&quot; <br />
                    dict={}<br />
                    for i in range(10):<br />
                    &nbsp;&nbsp;&nbsp;&nbsp;name = raw_input(&quot;Name:&quot;)<br />
-                   &nbsp;&nbsp;&nbsp;&nbsp;drink = raw_input(name +&quot;'s fav. drink:&quot;) <em>    # insert dictionary code here.</em>
+                   &nbsp;&nbsp;&nbsp;&nbsp;drink = raw_input(name +&quot;'s fav. drink:&quot;) <em>    # insert dictionary code here.</em>
                    <p>print dict<br />
                    </p></td>
                </tr>
@@ -2321,7 +2335,7 @@ for df in dfs:<br />
              <div>3.Under  Categories, scroll to select [Geoprocessing tool] </div>
              <div>4.Add  Tools… Browse to toolbox &gt; Select script tool in toolbox &gt; Add (Script  tool appears under Commands )</div>
              <div>5.Drag  script tool from under Commands to an ArcMap toolbar</div>
-             <div>6.Before  closing the ‘Customize’ dialog, right-click on the tool in the toolbar to  display text and image and modify these as desired.  (can also be done by reopening the customize  dialog)</div>          </td>
+             <div>6.Before  closing the ‘Customize’ dialog, right-click on the tool in the toolbar to  display text and image and modify these as desired.  (can also be done by reopening the customize  dialog)</div>          </td>
        </tr>
      </table>
      <br />
@@ -2425,6 +2439,7 @@ for df in dfs:<br />
               </li>
              <li>Create a script tool in C:\gispy\scratch and use filters to  allow the user to:
                <ol type='a'>
+
                    <li> Choose the word 'float' or 'integer' from a combobox.<br />
                        <br />
                    </li>
@@ -2596,11 +2611,11 @@ for df in dfs:<br />
              <p>arcpy.CreateTin_3d(newtin,  "PROJCS['NAD_1983_StatePlane_South_Carolina_FIPS_3900_Feet_Intl',GEOGCS['GCS_North_American_1983',DATUM['D_North_American_1983',SPHEROID['GRS_1980',6378137.0,298.257222101]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]],PROJECTION['Lambert_Conformal_Conic'],PARAMETER['False_Easting',2000000.0],PARAMETER['False_Northing',0.0],PARAMETER['Central_Meridian',-81.0],PARAMETER['Standard_Parallel_1',32.5],PARAMETER['Standard_Parallel_2',34.83333333333334],PARAMETER['Latitude_Of_Origin',31.83333333333333],UNIT['Foot',0.3048]]",  newshp,  "Shape.Z  masspoints  &lt;None&gt;", "DELAUNAY")<br />
              </p>
              <p>3. Rewrite this code to make use of triple quotes.</p>
-             <p>outfile.write("   0\n")</p>
+             <p>outfile.write("   0\n")</p>
              <p>outfile.write("SECTION\n")</p>
-             <p>outfile.write("   2\n")</p>
+             <p>outfile.write("   2\n")</p>
              <p>outfile.write("HEADER\n") # Header Section</p>
-             <p>outfile.write("   9\n")</p>
+             <p>outfile.write("   9\n")</p>
          <p>4. Run this code and see the results. Then rewrite using string formatting. Confirm that your results match the original.<br />
            <br />
          count1 = 4<br />
