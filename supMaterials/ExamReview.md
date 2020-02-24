@@ -220,7 +220,6 @@
 6. Write a pseudocode that sets the restaurant rating based on the score given by the user.  If the score is more than 95, the restaurant is excellent.   If the score is less than 30, the restaurant is poor. Otherwise, if the score is 95 or less and 30 or higher, the restaurant is acceptable.  If the user does not provide an argument, tell them they need to provide this information.
 
 7. Given the Summary Statistics tool signature, **Statistics_analysis (in_table, out_table, {statistics_fields}, {case_field})**, tell which toolbox the tool is in, list the required parameters, and list the optional parameters.  
-   
 
 8. Write a script that takes one argument, the full path file name of a GIS dataset. Then, if the data type of the input is ShapeFile or FeatureClass, it should print *point*, *line*, or *polygon* depending on the shapeType of the input. If the input data is a not a ShapeFile or FeatureClass, the code should print *I'm don't have a feature type*.
 
@@ -238,7 +237,8 @@
 
     Call arcpy.CreateFileGDB_management('C:/gipsy/scratch/', 'out.gdb') to create a new gdb.
 
-    Write copies the point feature classes whose names start with 's' from C:/gispy/data/ch10/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc
+    Write copies the point feature classes whose names start with 's' from C:/gispy/data/ch10/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc  
+    The signature for the Copy tool is as follows: **Copy_management (in_data, out_data, {data_type})**
 
     
 
