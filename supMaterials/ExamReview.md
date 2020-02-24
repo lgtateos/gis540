@@ -31,7 +31,7 @@
    print "Directory {0} contains {1} files.".format(mydir,len(currentFiles))
    ```
 
-   Where's Waldo?  Conditional statement,  comparison operator, logical operator, slicing, indexing
+   Where's Waldo?  Locate the conditional statements,  comparison operator, logical operator, slicing, indexing
 
    ```python
    # keyTermSearch.py
@@ -130,10 +130,12 @@
    2/3 + 1/3 == 1
    0.25 - myNum/float(4)
    len(fields) != len(centroids)
+   not None
    ```
 
-3. Use the given script arguments and the code fragments to **determine the printed output**. If the code would cause an error, write ERROR and give a brief explanation. Assume os and sys have already been imported. Be sure to use case (upper and lower) and punctuation such as quotation marks and braces appropriately.  
-   
+   Check your answers for each expression by trying them in the Python console (Interactive Window) using *bool(theExpression)*
+
+3. Use the given script arguments and the code fragments to **determine the printed output**. If the code would cause an error, write ERROR and give a brief explanation. Assume os and sys have already been imported. **Be sure to use case (upper and lower) and punctuation such as quotation marks and braces appropriately.**  
 
 **Arguments:**    8 3 9 
 
@@ -203,10 +205,41 @@
 
    
 
-4. Convert all the Polygon files in a workspace whose names contain 'oak' to point.  The script takes 2 arguments, an input directory and an output directory.  The tool syntax is **FeatureToPoint_management(in_features, out_feature_class, {point_location})**
+4. Describe exactly what will be returned by this expression:  arcpy.ListRasters("forest*","TIF")
+
+5. Write a FOR-loop and the equivalent WHILE loop that print:
+   -5
+   2
+   9
+   16
+   23
+   30
+   37
+   44
+
+6. Write a pseudocode that sets the restaurant rating based on the score given by the user.  If the score is more than 95, the restaurant is excellent.   If the score is less than 30, the restaurant is poor. Otherwise, if the score is 95 or less and 30 or higher, the restaurant is acceptable.  If the user does not provide an argument, tell them they need to provide this information.
+
+7. Given the Summary Statistics tool signature, **Statistics_analysis (in_table, out_table, {statistics_fields}, {case_field})**, tell which toolbox the tool is in, list the required parameters, and list the optional parameters.  
+   
+
+8. Write a script that takes one argument, the full path file name of a GIS dataset. Then, if the data type of the input is ShapeFile or FeatureClass, it should print *point*, *line*, or *polygon* depending on the shapeType of the input. If the input data is a not a ShapeFile or FeatureClass, the code should print *I'm don't have a feature type*.
 
    
 
-5. Create a list of all of the files in a directory whose names end in prj or shx and are smaller than 2000 bytes.  Use **os.listdir** to get a list of all the files.  Given the full path of a file, **os.path.getsize** returns the size in bytes. 
+9. Write a script that takes one argument, the full path file name of a GIS dataset that will be summarized by calling the Summary Statistics tool.   Place the output in a subdirectory of the directory where the input dataset resides.  Name the output directory  *myOutput*.   For example, if the user passes in C:/foo/mydata.txt, the output will be placed inside of C:/foo/output.   Use the **os.path.dirname** method to get the inputs location.  Use the **os.path.exists** method to check if the output directory already exists.  If not, use the **os.mkdir** method to create it.
 
    
+
+10. Use the FeatureToPoint tool to convert all the Polygon files in a workspace whose names contain 'oak' to point.  The script takes 2 arguments, an input directory and an output directory.  The tool signature is **FeatureToPoint_management(in_features, out_feature_class, {point_location})**
+
+    
+
+11. List all the point feature classes in C:/gispy/data/ch10/tester.gdb whose names start with 's'.
+
+    Call arcpy.CreateFileGDB_management('C:/gipsy/scratch/', 'out.gdb') to create a new gdb.
+
+    Write copies the point feature classes whose names start with 's' from C:/gispy/data/ch10/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc
+
+    
+
+12. Create a list of all of the files in a directory whose names end in prj or shx and are smaller than 2000 bytes.  Use **os.listdir** to get a list of all the files.  Given the *full path* of a file, **os.path.getsize** returns the size in bytes. 
