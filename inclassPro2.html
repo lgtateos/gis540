@@ -1,0 +1,2908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/courseV2_no_menu.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+    <title>In Class</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" --><!--<span class="titleLT">In Class</span>--><!-- InstanceEndEditable -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/layoutV2.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="css/styleV2.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+
+
+
+
+<body>
+
+<div id="outercontainer">
+<div id="container">
+
+<header>
+<div id="header-image"><p>GIS 540</p></div>
+<nav>
+<ul class="nav">
+<!--<li><a href="../index.html">Home</a></li>
+<li><a href="../syllabus.html">Syllabus</a></li>
+<li><a href="../schedule.html">Schedule</a></li>
+<li><a href="../resources.html">Resources</a></li>-->
+<!--<li><a href="https://moodle-courses1819.wolfware.ncsu.edu/course/view.php?id=5897" target="_blank">Moodle</a></li>-->
+<!--<li><a href="https://piazza.com/" target="_blank">Forum</a></li> -->
+<!--<li><a href="../example_scripts/">Sample scripts</a></li>-->
+<!--<li><a href="../data.html">Data</a></li>-->
+<!--<li><a href="../instructors.html">Instructors</a></li>
+<li><a href="../project/project.html">Project</a></li>-->
+<!--<li><a href="https://go.ncsu.edu/py4all" target="_blank">Py4All</a></li>-->
+</ul>
+</nav>
+
+</header>
+
+<div id="content2">
+<!-- InstanceBeginEditable name="content" -->
+     <p><span class="ChapterTitle">In class</span>
+     <hr /><p>In class-- Preface<a name="class1" id="class1"></a></p>
+   <table width="684">
+       <tr>
+         <td width="676" scope="row"><p><strong>Simple buffer</strong><br />
+           <br />
+         To practice using sample data and sample scripts, try this simple example of calling an ArcGIS buffer tool, which generates buffers around the input features by following these steps:</p>
+           <ol>
+             <li>If you don't have a C:/gispy directory, follow the instructions in the book to create it.<br />
+                 <br />
+             </li>
+            <li>Confirm that C:\gispy\data\ch01\park.shp exists. <br />
+              <br />
+             </li>
+             <li>Launch ArcGIS Pro. Under the Analysis Tab, open the ArcPro Python Window as shown in Figure 1. <br>
+				 <img src= "imagesPro/pythonWindow_Pro.png" height="250" /><br />
+                 <strong>Figure 1</strong>: The ArcGIS Python Window embedded in ArcGIS Pro.<br />
+                 <br />
+             </li>
+             <li>Take a moment to become familiar with the Python prompt. Type each of the following lines of code at the Python prompt and observe the result:<br />
+                 <br />
+               print('Hello')<br />
+  <br />
+               5 + 6<br />
+  <br />
+               x =  5<br />
+  <br />
+               print(x)<br />
+  <br />
+               x<br />
+  <br /></li>
+             <li>Copy the following line of code into the ArcGIS Python Window:<br />
+               <br />
+arcpy.env.workspace = <span class="str">'C:/gispy/data/ch01/'</span><br />
+               <br />
+             </li>
+             <li>Get a snack.<br />
+                 <br />
+             </li>
+             <li>Copy these lines of code   into the ArcGIS Python Window. Be sure to copy the entirety of both lines, starting with 'arcpy' going all the way the end, including the right parenthesis:<br />
+                 <br />
+                 arcpy.Buffer_analysis('park.shp', 'C:/gispy/scratch/parkBuffer.shp', '0.25 miles', 'OUTSIDE_ONLY', '', 'ALL')<br />
+                   <br />
+             </li>
+             <li>Press the 'Enter' key and you'll see messages in the Python Help Panel that the buffering is occuring.<br />
+                 <br />
+             </li>
+             <li>When the process completes, confirm that an output buffer file  is created and added to the map (Figure 2 shows with both the input and output layers added to the table of contents).<br />
+                 <br />
+                <img src="imagesPro/buffer_outside_onlyv2_Pro.png" height="180" /><br />
+                 <strong>Figure 2 </strong>Input (light orange) and output (blue) from script Example 1.<br />
+                 <br />
+             </li>
+             <li>You should receive a message in the Python Window giving the name of the result file. If you get a red error message instead, then either the input data is not set up correctly or the Python statement wasn't copied correctly. If your result doesn't appear automatically on the map, use the Catalog pane to see if the input data (park.shp) is there in C:/gispy/data/ch01and see if parkBuffer.shp has been created in C:/gispy/scratch/. <br />
+                 <br />
+             </li>
+             <li>You have just called a tool from Python. This is  just like running it from the Geoprocessing graphical user interface (GUI) such as the one shown in Figure 3. The  items in the parentheses in the tool call are the
+               parameter values, the user input. Compare these parameters to the user input in Figure 3. Identify the four differences between the parameters used in our Python statement and those used in this GUI example.<br />
+             </li>
+           </ol>
+     <p><img src="imagesPro/tool_GUI2_Pro.png" /><br />
+               <strong>Figure 3</strong> Each input slot in the graphical user interface (GUI) for running the buffer tool corresponds to a parameter in the Python code blueprint.</p>         </td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class--  Introduction <a name="Introduction" id="Introduction"></a></p>
+     <table width="640" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>add.py</strong></p>
+             <ol>
+               <li>Download <a href="example_scripts/add.py">add.py</a> by clicking on it and then choosing <strong>File</strong> &gt; <strong>Save As...</strong> </li>
+               <li>Open it with your IDE<br />
+               </li>
+               <ol type='a'>
+                 <li>Right-click on the script in Windows Explorer</li>
+                 <li><strong>Open with ...</strong> &gt; <strong>[Your IDE]</strong></li>
+                 <li>If your IDE is not one of the listed choices,<strong> Choose Program... </strong>&gt;<strong> Browse </strong>to <strong>&gt; [the directory where your IDE is installed]&nbsp; </strong>and select <strong>the executable file ending in '.exe'</strong>. You should only have to do this once for this machine, since the next time you want to do this, it will appear in the list of <strong>Open with</strong> choices . ** stands for the current version number of Python.</li>
+               </ol>
+               <li>Identify the <strong>Console</strong> window or pane of your IDE, where outputs will be displayed.&nbsp; &nbsp; &nbsp; &nbsp; </li>
+               <li>Run your script using the icon. </li>
+               <li>Give input arguments: 5 6 </li>
+               <li>Look for the output in the <strong>Console</strong>. </li>
+               <li>Uncomment the last 4 lines of the script by deleting the '#'s. </li>
+               <li>Observe the output. </li>
+               <li>Can you explain why the sum is 56? </li>
+             </ol></td>
+       </tr>
+     </table>
+     <br />
+    <table width="640" bordercolor="#FFFFCC" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Try Me</strong> The Python Console is a good place to try out individual code statements. The code snippets in the white box use built-in functions and illustrate some built-in exceptions. Type each of these lines of code in the<strong> Console</strong>. You can only run ONE command at a time in this window, so type in one line of code at a time. Before you click the Return or Enter key, try to <em>predict</em> what will be printed. Did you get it right?   </p>
+           <table width="631" bgcolor="#FFFFFF">
+             <tr>
+               <td width="1" rowspan="2">&nbsp;</td>
+               <td width="238" rowspan="2"><p>round(2.56)<br />
+                 <br />
+                   x = round(2.56)<br />
+                   <br />
+                   print(x)<br />
+                   <br />
+                   x<br />
+                   <br />
+                   help(round)<br />
+                   <br />
+                   type(&quot;5&quot;)<br />
+                   <br />
+                   help(int)<br />
+                   <br />
+                   int(&quot;5&quot;)<br />
+                   <br />
+                   inputData = &quot;trees.shp&quot;</p>
+                 <p>FID = 145<br />
+                   <br />
+                   type(FID)<br />
+                   <br />
+                   FID<br />
+                   <br />
+                   fid<br />
+                   <br />
+                   avg = 92<br />
+                   <br />
+                   type(avg)<br />
+                   <br />
+                   avg = &quot;A&quot; <br />
+                   <br />
+                   type(avg)<br />
+                   <br />
+                   print = &quot;inputData&quot;<br />
+                   <br />
+                   min(1, 2, 3)<br />
+                   <br />
+                   type(min)<br />
+                   <br />
+                   min = 5 <br />
+                   <br />
+                   min(1, 2, 3)<br />
+                   <br />
+                   type(min)<br />
+                   <br />
+                   &quot;hi&quot; in &quot;hiho&quot;<br />
+                   <br />
+                   type(True)<br />
+                   <br />
+                   dir(__builtins__) </p>                </td>
+               <td width="34" rowspan="2" bgcolor="#FFFFCC">&nbsp;</td>
+               <td width="338" height="135" valign="top" bgcolor="#CCCCCC"><div align="left"><br /><br />
+                 <em><strong>Tip</strong></em> Make sure that your code input is always preceded by a prompt in the <strong>Console</strong> of your IDE. In some IDE's, if you ‘Backspace’ at the prompt before you enter your code, nothing will be printed. Press the Return or Enter key and the cursor will automatically be placed in the correct position, ready for the next line of code.</div></td>
+             </tr>
+             <tr>
+               <td bgcolor="#FFFFCC">&nbsp;</td>
+             </tr>
+           </table>
+          <p>&nbsp;</p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" >
+       <tr>
+         <td scope="row"><hr />         </td>
+       </tr>
+     </table>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Exporting a model </strong><strong>(if you have extra time, try this one)</strong></p>
+             <ol>
+               <li>Download <a href="example_scriptsPro/simple_tool_pro.zip">simple_tool.tbx</a> and unzip it. </li>
+               <li>Download COVER63p.shp from  <a href="example_scriptsPro/COVER63p.zip">this link</a> and unzip it. </li>
+               <li>Place them in a new folder: C:/gispy/scratch/export_example </li>
+               <li>In the ArcGIS Pro Catalog Pane, locate the toolbox and edit the model (buffer_tool) </li>
+               <li>Export &gt; To Script &gt; Python (.py)</li>
+               <li>Save as exported.py in  C:/gispy/scratch/export_example</li>
+               <li>Run the model in your IDE with no arguments. Does it run successfully?</li>
+               <li>Open the modelbuilder model for editing again. Make the inputs  Model Parameters. ("P" should appear near the ovals.)</li>
+               <li>Save the model and export as a Python  script named exported2.py.</li>
+               <li>Run the model again with no arguments. Look at the feedback bar. Did it run and exit successfully?</li>
+               <li>Compare and contrast the 2 scripts (exported.py and exported2.py).</li>
+               <li>Run the script with a 700 foot buffer on the input shapefile COVER63p.shp<br />
+                 Arguments:
+                 &quot;700 feet&quot; &quot;C:\\gispy\\scratch\\export_example\\COVER63p.shp&quot; </li>
+               <li>Look at the feedback bar. Did it run and exit successfully? </li>
+               <li>Check the directory for the buffer output. </li>
+             </ol></td>
+       </tr>
+     </table>
+
+   <hr />
+     <p>In class--  Strings, lists, and tuples <a name="SandL" id="Introduction2"></a></p>
+    <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row">
+          <p><strong>Exploring string operations: </strong>Type each statement in the <strong>Console</strong>. After observing the results from all of these,  <strong>answer the questions that follow</strong>. </p>
+<table width="141" bgcolor="#FFFFFF">
+                         <tr>
+                           <td width="22">&nbsp;</td>
+                           <td width="107"><p class="number number">x = “GIS”<br />
+                                   <br />
+                             x[0]<br />
+                             <br />
+                             x[3]<br />
+                             <br />
+                             “s” in x<br />
+                             <br />
+                             len(x)<br />
+                             <br />
+                             y = “rules”<br />
+                             <br />
+                             x = x + y <br />
+                             <br />
+                             len(x)<br />
+                             <br />
+                             “s” in x<br />
+                             <br />
+                             x[0:2]<br />
+                             <br />
+                             x[:2]<br />
+                             <br />
+                             x[2]<br />
+                             <br />
+                             x[:-4]<br />
+                             <br />
+                             x[3]</p>
+                               <p class="number number">x</p>
+                             <p class="number number">x.lower( )</p>
+                             <p class="number number">x<br />
+                                   <br />
+                               y.startswith('ru')</p>
+                           <p class="number number">print(x, y)</p>
+                           <p class="number number">print(x + y)</p>
+                           <p class="number number">numStr = &quot;742&quot;<br />
+                             <br />
+                             numStr.zfill(8)</p></td>
+                         </tr>
+            </table>
+                       <br>
+           Please respond to the following questions about the code you just ran:<br />
+              <ol>
+                 <li> Why does x[3] give an error the 1st time but not the 2nd time?<br />
+                 </li>
+                         <li> What does Python keyword &quot;<em>in</em>&quot; do? Does case matter? </li>
+                         <li> How could you change the statement x = x+y to print “GIS rules”?</li>
+                         <li> What’s the difference between x[:2], x[0:2], and x[2]? </li>
+                         <li> What does x[:-4] do?</li>
+                         <li>Does x.lower( ) change the value of x? If so, how?</li>
+                         <li>What's the difference between the output of <span class="number number">print(x,y)</span> and <span class="number number">print(x+y)?</span></li>
+          </ol></td>
+       </tr>
+     </table>
+
+
+         <p><a name="lists" id="Introduction3"></a></p>
+         <table width="642" bgcolor="#ffffcc">
+           <tr>
+             <td width="634" ><strong>convertLat.py</strong>
+               <ol>
+               <li>Download <a href="example_scripts/convertLat.py">convertLat.py</a> by clicking on it and then choosing <strong>File</strong> &gt; <strong>Save As...</strong> </li>
+               <li>Open it with an IDE.</li>
+               <li>This script should convert the given degrees, minutes, seconds latitude to decimal degrees. Write one or more line of code for each double-hash (##) comment.</li>
+               <li>The solution should be generic, not specific to the given input. </li>
+               <li> Use the  split method, indexing, the rstrip method, casting, mathematical  operations, and string the format method.<br />
+               </li>
+               <li> Here are some examples of the string 'split' and 'rstrip' methods:</li>
+               </ol>
+             <p>&gt;&gt;&gt; path =  &quot;C:/gispy/buffer/output.shp“</p>
+               <p>&gt;&gt;&gt; p =  path.split(&quot;/&quot;)</p>
+               <p>&gt;&gt;&gt; print(p)</p>
+               <p>['C:', 'gispy', 'buffer', 'output.shp']</p>
+               <p>&gt;&gt;&gt; path.rstrip(‘.shp’)</p>
+               <p>'C:/gispy/buffer/output'</p>               </td>
+           </tr>
+         </table>
+          <table width="642" bgcolor="#ffffcc">
+           <tr>
+             <td width="634" ><strong>convertLat2.py</strong>
+               <ol>
+               <li>Modify the convertLat.py script so that it takes one argument, the full path file name of a data file that contains the latitudes for a number of different points <a href="supMaterials/lats.txt">lats.txt</a> by clicking on it and then choosing <strong>File</strong> &gt; <strong>Save As...</strong> </li>
+               <li>Rename convertLat.py as convertLat2.py.</li>
+               <li>This script should take one argument, the full path for lat.txt, then it should open the file, read each latitude and convert the each degrees, minutes, seconds latitude to decimal degrees. (Don't forget to close the file.)<br> To open a file, use the built-in open function and then loop through each line with.   Something like this: inf = open(theFilePath, 'r')<br> for line in inf: <br>&nbsp;&nbsp;&nbsp;&nbsp;# do stuff to line <br>inf.close()</li>
+               <li>Put the code that converts things where it says "do stuff". </li>
+               <li> Once you get this working, add code that counts the number of lines in the input.<br />
+               </li>
+               <li> Then add code that appends the input latitudes to a list</li>
+				   <li> Then create convertLat3.py that does the same thing, but works on a different input file: <a href="supMaterials/lats2.csv">lats2.csv</a></li>
+               </ol>
+             <p></p>               </td>
+           </tr>
+         </table>
+<table width="642" height="72" bgcolor="#ffffcc">
+           <tr>
+             <td width="634"><p><strong>Print statements (if you have extra time, try this one)</strong> </p>
+                 <p>Try these commands.</p>
+               <p>&gt;&gt;&gt; dataFile = &quot;counties.shp&quot;<br />
+                 &gt;&gt;&gt; FID = 862<br />
+                 &gt;&gt;&gt; print(dataFile, FID) </p>
+               <p>&gt;&gt;&gt; print(&quot;The first FID in&quot;, dataFile, &quot;is&quot;, FID, &quot;!&quot;)<br />
+                 &gt;&gt;&gt; print(&quot;The first FID in&quot;+ dataFile+ &quot;is&quot;+ FID + &quot;!&quot;) </p>
+               <p>Repair the above statement.<br />
+                     <br />
+                 &gt;&gt;&gt; print(&quot;The first FID in {0} is {1}!&quot;.format( dataFile, FID ))</p>
+               <p>Explain what the above statement did.</p></td>
+           </tr>
+      </table>
+         <br />
+         <table width="413" height="72" bgcolor="#ffffcc">
+           <tr>
+             <td width="405"><p><strong>Methods  (if you have extra time, try this one)</strong></p>
+               <ol>
+                 <li>Type the following code: What does it return?<br />
+                   &gt;&gt;&gt; path = "C:/gispy/buffer/output.shp"<br />
+&gt;&gt;&gt; p = path.split("/")<br />
+&gt;&gt;&gt; p<br />
+                 <br />
+                 </li>
+                 <li>Write a line of code that will make 'path' all caps.<br />
+                   <br />
+                 </li>
+                 <li>Type these commands. Then try to write a line of code that  will sort mylistA, but not mylistB. Is it possible?<br />
+                 &gt;&gt;&gt; mylistA = [5,23,7,-1]<br />
+                 &gt;&gt;&gt; mylistB = mylistA<br />
+                   <br />
+                 </li>
+                 <li>Use the join string function to make a semicolon separated string from the list p (that you created in question 1).</li>
+             </ol></td>
+           </tr>
+    </table>
+         <br />
+         <table width="413" height="72" bgcolor="#ffffcc">
+           <tr>
+             <td width="405"><strong>Tuples</strong><strong>  (if you have extra time, try this one)</strong>
+               <p>Type the following statements in the <strong>Console</strong> of your IDE and discuss the results.</p>
+               <p>--------</p>
+               <p>&gt;&gt;&gt; t = (5,8,9)</p>
+               <p>&gt;&gt;&gt; t[0] = 1</p>
+               <p>&gt;&gt;&gt; s = [5,8,9]<br />
+               </p>
+               <p>&gt;&gt;&gt; r = 7, 3, 10</p>
+               <p>&gt;&gt;&gt; s[0] = 1</p>
+               <p>&gt;&gt;&gt; s</p>
+               <p>&gt;&gt;&gt; t</p>
+               <p>&gt;&gt;&gt; r</p>
+               <p>&gt;&gt;&gt; type(s)</p>
+               <p>&gt;&gt;&gt; type(t)</p>
+               <p>&gt;&gt;&gt; type(r)</p></td>
+           </tr>
+         </table>
+         <hr />
+     <p>In class-- arcpy tools <a name="arcpyTools" id="arcpyTools"></a></p>
+     <table width="640" bgcolor="#ffffcc">
+       <tr>
+         <td><p><strong>Wildfire damage assessment</strong> Write a script named 'buffer_clip.py' to find a 1 mile buffer around the fire damaged region ('special_regions.shp'); And then clip the park ('park.shp') on the buffer output. Refer to the <a href="https://pro.arcgis.com/en/pro-app/tool-reference/analysis/clip.htm">ArcGIS help template to see how to call the clip tool</a>. The input data is in C:/gispy/data/ch06. Write the output (both buffer and clip output) in C:/gispy/scratch<br />
+                 <br />
+         </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" bgcolor="#ffffcc">
+       <tr>
+         <td><p><strong>aggregate.py</strong>, <strong>call_shape2point.py</strong>, and <strong>buffer_clip.py</strong></p>
+         <p>Inspect the scripts located <a href="example_scripts/aggregate.py">here</a>, <a href="example_scripts/call_shape2point.py">here</a>, and <a href="example_scripts/buffer_clip.py">here</a>. Identify the following:</p>
+         <ol>
+           <li> geoprocessing methods. </li>
+           <li>geoprocessing properties.</li>
+           <li>geoprocessing tool calls.</li>
+           <li>toolbox aliases.<br />
+             ...<br />
+           </li>
+         </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>shapeToPoints</strong><strong>.py</strong></p>
+             <ol>
+
+               <li>Download <a href="example_scriptsPro/COVER63p.zip">COVER63p.zip</a> and unzip in C:/gispy/scratch.</li>
+               <li>Download a script that converts Shapes to Points from here: <a href="example_scriptsPro/ShapeToPoints_Pro.zip">ShapesToPoint.zip</a></li>
+               <li>Download and unzip  the toolbox to C:/gispy/scratch/ShapeToPoint/ </li>
+               <li> Follow Example 6.5 in the book  to practice calling a custom toolbox.<br />
+           </li>
+             </ol>          </td>
+       </tr>
+     </table>
+     <br />
+     <hr />
+     <p>In class-- Pseudocode <a name="Pseudocode" id="Pseudocode"></a></p>
+     <table width="640" bgcolor="#ffffcc">
+       <tr>
+         <td><p><strong>Pseudocode practice</strong> </p>
+         <p>Practice writing pseudocode with the examples in <a href="supMaterials/pseudocode_inclass.docx">this Word document</a>.</p></td>
+       </tr>
+     </table>
+     <br />
+    <table width="640" bgcolor="#ffffcc">
+       <tr>
+         <td><p><strong>Fix it:</strong> The conditional code blocks in each of the following examples either contains a logic error that will make it fail in certain cases or is less efficient than it should be or has both these problems. Read the intended purposes and the pseudocode and then answer the following for each:</p>
+           <ol>
+             <li>Will the fault cause it to work incorrectly in some cases or is it just inefficient?</li>
+             <li>If it contains a logic error, in what case(s) would it give incorrect results?</li>
+             <li>Identify changes to the conditional clauses that would improve efficiency and/or correct logic errors.</li>
+           </ol>
+           <p><strong>A. Point Statistics</strong> </p>
+           <p><em>Purpose:</em> For each shapefile in a given directory, check the geometry type of the shapefile. If the geometry type is a point, calculate the point statistics and print the results, otherwise report that the input in not a point shapefile.</p>
+           <p>             FOR each shapefile in the directory<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET geometry type<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF geometry type is a point THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CALCULATE point statistics<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END IF<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF geometry type is not a point THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT "The input file is not a point shapefile”<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF<br />
+ENDFOR</p>
+         <p><strong>B. Currency conversion</strong></p>
+         <p><em>Purpose:</em> Convert US Dollars to Euro or vice versa, depending on the input of currency amount and unit.</p>
+         <p>GET currency amount<br />
+           GET currency unit<br />
+            <br />
+           IF currency unit is Euro THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL convert Euros to US Dollars<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT the results<br />
+ENDIF<br />
+IF currency unit is US Dollars THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL convert US Dollars to EUROS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT the results<br />
+ELSE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT the input units must be Euros or US Dollars<br />
+         ENDIF</p>
+         <p><strong>C. Polygon to Raster</strong></p>
+         <p><em>Purpose: </em>If the given input is a polygon shapefile, perform polygon to raster conversion using the given field to assign raster values, otherwise inform the user that the conversion did not occur.</p>
+         <p>GET input file<br />
+         GET field<br />
+         </p>
+         <p>IF input file is a shapefile THEN<br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL convert polygon to raster using field to assign raster values.<br />
+         ELSE IF input file geometry is polygon THEN<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL convert polygon to raster using field to assign raster values.<br />
+         ELSE<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT Warning: Conversion not performed.<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT Input file data type</p>         </td>
+       </tr>
+     </table>
+     <br />
+    <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Challenge: </strong>Insert one or more line of Python code for each pseudocode comment.<strong> (excluding the line that says "#CALL geoprocessing operation"<br />
+                   <br />
+           # contour_select.py<br />
+             </strong># Purpose: Create contours from a raster dataset if the format is JPEG, TIFF, or IMAGINE Image.<br />
+             <br />
+           #Create geoprocessing object called gp <br />
+           <br />
+           #SET geoprocessing workspace to "C:/gipsy"<br />
+           #SET input raster to "Raster1" <br />
+           <br />
+           #Create describe object for input raster<br />
+           #Create a format list containing <span class="str">"JPEG"</span>,<span class="str"> "TIFF"</span>,<span class="str"> and "IMAGINE Image"<br />
+           </span><br />
+            #IF input raster data type is 'RasterDataset' and  the format is in the  format list<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #CALL geoprocessing operation (this will call the spatial analysis coutour tool. You can leave this as is for now) <span class="str"><br />
+    #ELSE<br />
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#PRINT a warning that the data will not be processed because it is not raster or it is not one of the required formats.<br />
+            #ENDIF<br />
+            <br />
+           </p>         </td>
+       </tr>
+    </table>
+     <br />
+     <a href="supMaterials/pseudocode_inclass_solutions.docx">Solutions to Word document pseudocode exercises linked here.</a>
+    <hr />
+     <p>In class-- Conditional statements<a name="CS" id="CS"></a><br />
+    </p>
+     <p>Topics: conditional statements, logic errors involving conditional statements</p>
+     <table width="726" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="720" scope="row"><p><strong>conditionalSound.py</strong> </p>
+             <p>Inspect the script conditionalSound.py shown below. Then predict what sounds will play if with these input conditions:<br />
+                 <br />
+                 a. No arguments.</p>
+             <p>b. C:/gispy/data/ch09/park.shp</p>
+             <p>c. C:/gispy/data/ch09/tree.gif</p>
+             <p>d. C:/gispy/data/ch09/jack.jpg</p>
+             <p>e. C:/gispy/data/ch09/xy1.txt</p>
+            <p>Check your answers by running the script in this Chapter 9 sample scripts directory. C:\gispy\sample_scripts\ch09\conditionalSoundExercise</p>
+           <p><img src="images/conditionalSoundScript.png" alt="conditional sound script" /><br />
+                 <br />
+          </p></td>
+       </tr>
+     </table>
+     <br />
+  <!--   <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>table_select</strong><strong>.py</strong></p>
+             <p>The park cover types in <em>park.shp </em> include woods, orchards,  park, and others. Fire risk experts would like a table including only  those polygons with a cover type of woods. Write a script to perform a  Table Select that will generate this table. Call the output table <em>wooded.dbf</em>. </p>
+             <p>Use these comments as a starting point for your script:</p>
+           <p>#IMPORT module(s)</p>
+           <p>#SET the variables</p>
+           <p>#CALL the table select geoprocessing method. <br />
+                 <br />
+           </p></td>
+       </tr>
+     </table>-->
+
+     <table width="640">
+       <tr>
+         <td bgcolor="#FFFFCE" scope="row"><p><strong>Distance Conversion Pseudocode</strong><a name="distancepy" id="distancepy"></a></p>
+
+              <p>Suppose you want to write pseudocode to convert miles to km and km to miles and handle user input of 2, 1, or 0 arguments as follows:  <br>
+                <br>
+               Arguments: 50 miles<br>
+&gt;&gt;&gt; 50 miles is equivalent to 80.0 kilometers.<br>
+               <br>
+               Arguments: 100<br>
+&gt;&gt;&gt; Warning: No distance unit provided. Assuming input is in miles.<br>
+               100.0 miles is equivalent to 160.0 kilometers.
+               <br>
+               <br>
+               Arguments:<br>
+&gt;&gt;&gt; Usage: &lt;numeric_distance&gt; &lt;distance_unit(miles or km)&gt;   <br />
+</p>
+              <p><br />
+              The pseudocode below would break, if the user provides less than 2 arguments. Follow these steps to approach the problem:</p>
+              <ol>
+                <li>Add to the pseudocode below, so checks in case of 'no user arguments'.</li>
+                <li>Add pseudocode to part 1 to handle the '1 argument' case.<br />
+                </li>
+              </ol>
+           <br />
+             <br />
+             <table width="308">
+               <tr>
+                 <td width="32">&nbsp;</td>
+                 <td width="264" bgcolor="#FFFFFF">GET numeric dist from args<br />
+GET  unit from args<br />
+IF unit is miles THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE km<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+ELSE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE miles<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+ENDIF</td>
+               </tr>
+             </table>
+         <br /></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Looping <a name="Looping" id="Looping"></a><br />
+     </p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>1. listfc_os.py </strong>Write a script to  print only the names of the file in C:/gispy/data/ch19 that are shapefiles (print name and :] ), txt files (name and print :[ ), or dbf files (print name and :o ). Use a FOR<strong>-</strong>loop.</p>
+<p># os.listdir example:<br />
+                 <br />
+               import os<br />
+            path = 'C:/gispy/data/ch19'<br />
+               files = os.listdir(path)</p>
+           <p>2. <strong>listfc_os2.py</strong> Rewrite  listfc_os.py to print each file's index in the list along with the file name.<br />
+            </p>
+           <p><strong>Sample output:</strong> <br />
+             5 aa.txt :[<br />
+             9 abc.dbf :o<br />
+             13 abc.shp :]<br />
+             16 AccessPoints.dbf :o<br />
+             20 AccessPoints.shp :]<br />
+             25 address.txt :[<br />
+             27 b.txt :[<br />
+             <br />
+           </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>nestedTables.txt </strong></p>
+             <p>Write pseudocode for the following problem: <br />
+             For each  table in each workspace in a  directory, print the file  name of the table.</p></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Batch processing <a name="batch" id="Batch"></a></p>
+    <p>Topic: geoprocessing enumeration methods (ListRaster, ListFields, etc.)</p>
+   <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong><a href="supMaterials/Lec8quiz_pro.rtf">Review_quiz</a></strong></p>         </td>
+       </tr>
+     </table>
+     <br />
+  <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>listrasters_enum</strong><strong>.py</strong></p>
+             <ol>
+               <li>Modify the code so that it  prints a list of the raster datasets in the mdb called:<br />
+                 "C:/Temp/ncrast_geodatabase/ncrast.mdb". </li>
+               <li>Modify the code to list only the rasters whose names start with 'land' </li>
+             </ol>
+           <table width="640" border="3" bgcolor="#ffffff">
+        <tr>
+                 <td scope="row"><p># listrasters_enum.py</p>
+                     <p><span class="key">import</span> arcpy<br />
+                         <span class="key"></span>arcpy.env.workspace = <span class="str">"C:/Temp/Duck"</span><br />
+                         <span class="key"></span>files = arcpy.ListFeatureClasses( )<br />
+                       <span class="key"></span><br />
+                       <span class="key">for </span>file<span class="key"> in</span> files:<br />
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>print(file)<br />
+                 <span class="key">print</span><span class="str">("All done.")</span></p></td>
+             </tr>
+           </table>
+           <p>&nbsp;</p>           </td>
+       </tr>
+    </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>List and copy</strong><strong></strong></p>
+             <ol>
+               <li>List all the point feature classes in C:/gispy/data/ch10/tester.gdb whose names start with 's'.</li>
+               <li>Call arcpy.CreateFileGDB_management('C:/gipsy/scratch/', 'out.gdb') to create a new gdb.</li>
+               <li>Write copies the point feature classes whose names start with 's' from  C:/gispy/data/ch10/tester.gdb and copies them to C:/gispy/scratch/out.gdb. The destination needs to have a slash between the. destination = destWorkspace + '/' + fc</li>
+             </ol>
+          <p>&nbsp;</p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Exploring Field objects: </strong>Type each statement in the <strong>Console </strong> of your IDE. After observing the results from all of these,  answer the questions that follow. </p>
+             <p>&nbsp;</p>
+           <table width="346" bgcolor="#FFFFFF">
+            <tr>
+                 <td width="22">&nbsp;</td>
+                 <td width="312"><p class="number number">import arcpy<br />
+                         <br />
+                   fc = &quot;C:/gispy/data/ch10/park.shp&quot; <br />
+                   <br />
+                   fs = arcpy.ListFields(fc)<br />
+                   <br />
+                   f = fs[0]<br />
+                   <br />
+                   f<br />
+                   <br />
+                   f.name<br />
+                   <br />
+                   f.type</p>
+                     <p class="number number">f.length<br />
+                         <br />
+                       f = fs[1]<br />
+                       <br />
+                       f.name<br />
+                       <br />
+                       f.isNullable<br />
+                     </p>
+                   <p class="number number">len(fs)</p></td>
+              </tr>
+            </table>
+         <br />
+             <ol>
+               <li>Which one of these statements tells you how many fields the attribute table has?<br />
+               </li>
+               <li>Name four field properties. </li>
+               <li>How can you find the name of the 3rd field?</li>
+         </ol></td>
+       </tr>
+     </table>
+
+     <br />
+    <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>check4Field.py</strong></p>
+             <ol>
+               Write a script to checks if C:/gispy/data/ch10/park.shp has a field 'COVER'.
+             The field names are  'FID', 'Shape', 'COVER', and 'RECNO',
+             </ol>
+             <p>So, if your input argument is 'COVER', the answer should be: <br />
+               &gt;&gt;&gt; Field 'COVER' found.</p>
+           <hr />
+           <em>If time allows, continue to part 2:           </em>
+           <p><strong>check4FieldV2.py</strong></p>
+           <p>Make your script more robust by with the following changes:<br />
+             1. Make it
+             case in-sensitive.<br />
+           So, if your input argument is 'coveR', the answer should be: <br />
+&gt;&gt;&gt; Field 'coveR' found.<br />
+           </p>
+           <p>2. Make the file name and field name arguments.<br />
+             <br />
+           3. Modify the script so that it lets you know if the field is not found:</p>
+           <p>So, if your input argument is 'MEH', the answer should be: <br />
+&gt;&gt;&gt; Field 'MEH' not found.<br />
+           </p></td>
+       </tr>
+     </table>
+     <br />
+     <hr />
+    <br />
+<p>In class-- Debugging <a name="debugging" id="Batch2"></a><br />
+Topic: Finding syntax errors, exceptions, and logic errors, using a debugger  </p>
+</p>
+    <table width="640" border="0" bgcolor="#FFFFCC">
+  <tr>
+    <td scope="row"><p><strong><a href="example_scriptsPro/why_debug_pro.py">why_debug.py</a></strong><strong> </strong>This script finds all kml files in a directory. Each kml file may have a corresponding file with the same basename (Example, a.shp goes with a.kml). It could be either a shapefile or geodatabase feature class. The purpose of this script is to determine if the corresponding file is a shapefile, feature class, or doesn't exist. But the script has a problem! Can you find it using the debugger?<br />
+    </p></td>
+  </tr>
+</table>
+<br />
+<table width="640" border="0" bgcolor="#FFFFCC">
+  <tr>
+    <td scope="row"><p><strong><a href="example_scriptsPro/agg_debug1_pro.py">agg_debug1.py</a></strong> This script should aggregate polygons and produce the output files listed below. But it has problems. Use the debugger to find and repair them.</p>
+        <p>C:/gispy/scratch/park100agg.shp<br />
+          C:/gispy/scratch/park300agg.shp<br />
+          C:/gispy/scratch/park500agg.shp<br />
+          C:/gispy/scratch/park700agg.shp<br />
+          C:/gispy/scratch/park900agg.shp<br />
+          <br />
+      </p></td>
+  </tr>
+</table>
+<br />
+<table width="640" border="0" bgcolor="#FFFFCC">
+  <tr>
+    <td scope="row"><p><strong><a href="example_scripts/superman_debug.py">superman_debug.py</strong></a><strong></strong> This script should give you 3 chances to guess who Clark Kent is.<br />
+            <br />
+      If you guess incorrectly three times it should print:</p>
+        <p>&gt;&gt;&gt; Haha! You don't know Superman!</p>
+      <p>If you guess correctly (Superman), it should print:</p>
+      <p>&gt;&gt;&gt; You are right!<br />
+            <br />
+        Use the debugger to correct the syntax and logic errors.</p>
+      <p><a href="supMaterials/superman.swf">Demo of how it should work.</a><br />
+      </p></td>
+  </tr>
+</table>
+<br />
+<table width="640" border="0" bgcolor="#FFFFCC">
+  <tr>
+    <td scope="row"><p><strong>s</strong><strong>lope_debug2.py</strong></p>
+        <p>slope = &quot;Undefined&quot; <br />
+          rise = 1 <br />
+          Run = 3 <span class="key"><br />
+            if</span> run &gt; 0:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print(</span>&quot;Rise:&quot;, rise, &quot;Run:&quot;, run)<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slope = rise/run <br />
+          <span class="key">print(</span>&quot;Slope:&quot;, slope) <br />
+          <br />
+      </p></td>
+  </tr>
+</table>
+     <hr />
+    <p>In class-- More Looping<a name="ML" id="ML"></a></p>
+
+    <p><strong>lineLength.py</strong></p>
+     <p>Task:  Check the length of each line in each Python file in a  directory and each of its subdirectory in a directory </p>
+     <p>Approach: Divide  and conquer!  Each number group will have  a separate task.  </p>
+     <ol>
+       <li>Work on it on paper  alone first.  </li>
+       <li>Gather with  the other  people in your group (such as, all of the other #1’s, all of the other #2's, ...). </li>
+       <li>Compare answers</li>
+       <li>Write it in your IDE and  try it (if possible).</li>
+       <li>Convert your code to a function (printLineLength (from group 1), getFullFileNames (from group 2), and  pyORdir (from group 3)). Groups 1 and 3 take a file name as an argument. Group 2 takes a directory name as arguments. Group 1 don't return anything. Group 2 return a list of names. Group 3 return &quot;py&quot;, &quot;dir&quot;, or &quot;other&quot;.</li>
+       <li>Let me know when you have it working.</li>
+       <li>Go over each of the individual pieces with whole class.</li>
+       <li>Return to your original group of 4.</li>
+       <li>Write lineLength.py by merging your code to solve the task.</li>
+     </ol>
+     <p>Group  1 members:  Open a “test.py” for  reading.  Print the length of each line  in the file.<br />
+       Group  2 members:   Print a list of full  path  names of the files in &quot;C:/gispy/data/ch12/wTest/&quot; .  Use list  comprehension to make a full path list from a base name list.<br />
+       Group  3 members:   Check if an input file is a  Python script or a directory. (Hint:   There’s an os.path.isdir(path)  method.)<br />
+       Group  4 members:   Write pseudocode for  the overall task.  Assume you have three  function: printLineLength (from group 1), getFullFileNames (from group 2), and  pyORdir (from group 3)</p>
+     <p><a href="example_data/testNest.zip">Test data</a><br />
+     </p>
+     <p>----------------------------------<br />
+     </p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><strong>walkPics.py </strong>Download and unzip <a href="example_data/pics.zip">this directory</a> which contains pictures and several subdirectories. <br /></td>
+       </tr>
+     </table>
+
+    <hr />
+     <p>In class-- Error Handling <a name="EH" id="EH"></a></p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><a href="example_scripts/tryExcept.py"><strong>tryExcept.py</strong></a> This script will help you understand how code flows when there are try/except commands in the script. Inspect this script and predict the answers (without running the script) to the questions at the bottom of the script. Then check your answers by running the script.<br />
+         </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>fileOpen_try.py</strong> </p>
+           <table width="507" height="148" border="3" bgcolor="#ffffff">
+             <tr>
+               <td width="499"><p><span class="comment"># fileOpen.py</span><br />
+                       <span class="key">import </span>sys <br />
+                       <br />
+                 filename = sys.argv[<span class="num">1</span>] <span class="comment"># Get a fullpath filename from the user</span></p>
+                   <p>fileObj = open(filename,<span class="str">&quot;r&quot;</span>)<span class="comment"> # Open user-input file for reading</span> <br />
+                       <br />
+                       <span class="key">print </span>(fileObj.readlines( )) <span class="comment"># Read in the entire file and print the file contents </span></p></td>
+             </tr>
+           </table>
+           <ol>
+               <li>Copy the code above and save it as fileOpen.py.<br />
+                 <br />
+               </li>
+               <li>Predict which named exception will occur if you run the script with no arguments.<br />
+                 <br />
+               </li>
+             <li>Run the script with no arguments and pat yourself on the back if you got it right; otherwise, say 'tisk-tisk'.<br />
+               <br />
+             </li>
+               <li>Next, compose a short verse, limerick, or ode to Python and save it in a text file named 'poem.txt'<br />
+                 <br />
+                 Here's an example: <br />
+                 <br />
+                 <table width="263" bgcolor="#ffffff">
+                   <tr>
+                     <td width="255"><strong>Scripterwocky</strong><br />
+                       `Twas brillig, and the Python lists<br />
+                       Did join and pop-le in the loop:<br />
+                       All-splitsy were the string literals,<br />
+                       And the boolean values were true.</td>
+                   </tr>
+                 </table>
+                 <br />
+               </li>
+               <li>Run fileOpen.py with 'C:/gispy/data/ch19/poem.txt' as the argument.<br />
+                   <br />
+               </li>
+               <li>Explain what this script does.<br />
+                   <br />
+               </li>
+               <li> Run fileOpen.py with a text file that doesn't exist  as this argument, perhaps 'C:/gispy/data/ch19/bogus.txt'.<br />
+                   <br />
+               </li>
+               <li> Which named exception does it throw? <br />
+               </li>
+         </ol>         </td>
+       </tr>
+     </table>
+   <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>slope_try.py</strong></p>
+             <ol>
+               <li>Save slope_try.py and step through in the debugger for each pair of arguments. Note the behavior in each case.</li>
+               <li> Use arguments: 12 6</li>
+               <li>Use arguments: 12 0</li>
+               <li>Use arguments: twelve six</li>
+               <li>Use argument: 12<span class="comment"><strong><br />
+                       <br />
+                       <em># </em></strong><em>slope_try.py</em></span><br />
+                       <span class="key">import </span>sys <br />
+                       <br />
+                 rise = sys.argv[<span class="num">1</span>] <br />
+                 run = sys.argv[<span class="num">2</span>]<br />
+                 <span class="key"><br />
+                   try:</span><br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> <span class="str">(&quot;Rise:&quot;</span>, rise, <span class="str">&quot;Run:&quot;</span>, run)<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slope = float(rise)/float(run)<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> <span class="str">(&quot;Slope = rise/run&quot;)</span><br />
+                 <span class="key">except</span> ZeroDivisionError:<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slope = <span class="str">&quot;Undefined (line is vertical) &quot;</span><br />
+                 <span class="key">except</span> ValueError:<span class="key"><br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span> <span class="str">(&quot;Usage: &lt;numeric rise&gt; &lt;numeric run&gt;&quot;)</span> <br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slope = <span class="str">&quot;Not found&quot;</span><br />
+                 <br />
+                 <span class="key">print</span> <span class="str">&quot;(Slope:&quot;</span>, slope) </li>
+             </ol>
+           <p><br />
+           </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>try_buffer.py</strong></p>
+             <ol>
+               <li>Copy try_buffer.py <strong><em>shown below</em></strong> to make a new script.</li>
+               <li>Make a bogus shapefile by creating a txt document and then renaming it bogus.shp and putting it in C:/gispy/scratch. Set the argument to  C:/gispy/scratch/bogus.shp</li>
+               <li> Choose 'step through in the debugger' and watch what the script does as you run it.</li>
+               <li>Which statements were printed? Why?</li>
+               <li>Copy cover.shp from C:\gispy\sample_scripts\ch14\ to C:/gispy/scratch.</li>
+               <li>Set the argument to C:/gispy/scratch/cover.shp</li>
+               <li>Step through again.</li>
+               <li>Again, which statements were printed and why?</li>
+             </ol>
+           <p><em># try_buffer.py<br />
+           # Input: full path name of a shapefile.</em><br />
+             <span class="key">import</span> arcpy, os, sys <br />arcpy.overwriteOutput = True<br />
+             inputFile = sys.argv[<span class="num">1</span>] <br />
+             <span class="key"><br />
+               try</span>:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer = os.path.splitext(inputFile)[0] + 'Buffer.shp'<span class="str"></span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.Buffer_Analysis(inputFile, buffer, <span class="str">&quot;1 mile&quot;</span>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print ('{0} created.'.format(buffer))</span><br />
+             <span class="key">except</span>:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> (arcpy.GetMessages( ))<br />
+print (&quot;Exiting the script now&quot;) <br />
+          </p>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>buffer_loop_try.py</strong></p>
+             <ol>
+               <li>Copy buffer_loop_try.py, <em><strong>shown below</strong></em>, to make a new scripts.</li>
+               <li>Make a bogus shapefile by creating a txt document and then renaming it to C:/gispy/scratch/aaadata.shp.</li>
+               <li>Copy cover.shp from C:/gispy/data/ch14 to C:/gispy/scratch too.</li>
+               <li>Predict what will happen when you run the script, then run it with no debugging.</li>
+               <li>Run the script again using the 'step through in debugger' option.</li>
+               <li>Ideally, we want the script to create buffers for all of the valid files and just print a warning if it fails for one of the files. try and except are in the wrong positions for this to happen. Repair the script. </li>
+               <li>Predict what will happen when you run the script and run it again with no debugging.</li>
+               <li>Run the script again stepping through in the debugger. Use the watch window to watch the value of <strong>fc</strong>.<span class="comment"><br />
+                     <br />
+                 </span>
+                   <p><span class="comment"><em># buffer_loop_try.py</em></span><br />
+                       <span class="key">import </span>arcpy, sys <br />
+                     arcpy.overwriteOutput = <span class="num">0</span><br />
+                     arcpy.env.workspace = <span class="str">&quot;C:/gispy/scratchp&quot;</span> <br />
+                     <br />
+                     fcs = arcpy.ListFeatureClasses()<br />
+                     <span class="key">try:<br />
+                     </span><span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for </span>fc <span class="key">in</span> fcs: <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer = fc[:-<span class="num">4]</span> + <span class="str">&quot;_buffer.shp&quot;</span><br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.Buffer_analysis(fc, buffer, <span class="str">&quot;1 mile&quot;</span>)<br />
+                     <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span> <span class="str">(&quot;Created: &quot;</span>, buffer)&nbsp;&nbsp;<br />
+                     <span class="key">except</span> arcpy.ExecuteError:<br />
+                     <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span> (arcpy.GetMessages( ))<br />
+                     <span class="str"><br />
+                     </span></p>
+               </li>
+         </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>buffer_loop_try2.py</strong> </p>
+             <ol>
+               <li>Run the code <em><strong>shown below</strong></em> and observe what happens. </li>
+               <li>Run the code by stepping through in the debugger to see the flow. </li>
+               <li>Repair the mistake on line 11 (buffDist = str(x) + &quot;mile&quot;).</li>
+               <li>Run the code by stepping through in the debugger again to see the flow. </li>
+               <li>Watch the value of <strong>x </strong>in the watch window.</li>
+               <li>Repair the mistake on line 16 (x = x + 1).</li>
+               <li>Run the script again and confirm that there are 10 output files.</li>
+             </ol>
+           <p><span class="comment"><em># buffer_loop_try2.py</em></span><br />
+                 <span class="key">import </span>arcpy, sys <br />
+             arcpy.env.overwriteOutput = True<br />
+             arcpy.env.workspace = <span class="str">&quot;C:/gispy/scratch/&quot;</span> <br />
+             <br />
+             fc = 'cover.shp'<br />
+             x = 1<br />
+             <span class="key">while </span>x &lt;= 10: <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+               </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">try:<br />
+                 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer = fc[:-<span class="num">4]</span> + <span class="str">&quot;_buffer.shp&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffDist = str(x) + &quot;mile&quot;<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.Buffer_analysis(fc, buffer, buffDist)<br />
+             <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span> <span class="str">(&quot;Created: &quot;</span>, buffer)&nbsp;&nbsp;<br />
+             <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except</span> arcpy.ExecuteError:<br />
+             <span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print</span> (arcpy.GetMessages( ))<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = x + 1</p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>table_to_raster_debug</strong><strong>.py</strong></p>
+             <p class="comment"># table_to_raster.py<br />
+               # Purpose: Create aggregate raster for a dredge site.<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#          A. Process every dbf in the given current directory in the following way:<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#            1) Make xy event layer from table.<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#            2) Clip layer dump sight<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#            3) Convert clipped points to raster file.<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#          B) Compute weighted sum of all output rasters<br />
+               # Created on: Aug 14 2008<br />
+               # Usage: Directory path for input tables<br />
+               # Example input : &quot;C:/gispy/scratch&quot; <br />
+               # Output: A clipped raster for each input table and a sumraster containing a sum of these rasters.<br />
+               Author: Bugs Bunny<br />
+               # ---------------------------------------------------------------------------</p>
+           <p><span class="comment"># Import system modules</span><br />
+                 <span class="key"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import</span> arcpy, os, sys</p>
+           <p><span class="key">try</span>:<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>myDir = sys.argv[<span class="num">2</span>] <span class="comment"># Get input directory </span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="key">try</span>:<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>arcpy.env.overwriteOutput = True<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment"># Check out any necessary licenses</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>arcpy.CheckOutExtension(<span class="str">&quot;spatial&quot;</span>)</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span># Set variables<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>arcpy.env.workspace = myDir.replace(<span class="str">&quot;\\&quot;</span>, <span class="str">&quot;/&quot;</span>)<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>rasterList = <span class="str">&quot;&quot;</span> <span class="comment">#Create empty string to hold weighted sum input</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>InX = <span class="str">&quot;VELD1&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>inY = <span class="str">&quot;VELD2</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>clipFeatures = <span class="str">&quot;dump_s1_UTM_ED50.shp&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>valueField = <span class="str">&quot;VELD3&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>tempLayer = <span class="str">&quot;tempLayer&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>sumRaster = <span class="str">&quot;sumRaster&quot;</span></p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment"># Get a list of the table files in the current directory</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>tables = arcpy.ListTables( )<br />
+            </p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment">#Do each of the INDENTED methods once for each dbf file in the current directory</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class= "key">while</span> tables</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment">#Set variables that depend on the current table</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>rootName = os.path.splitext(table)[<span class="num">0</span>] <br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>pointFeatures = <span class="str">&quot;clipped_&quot;</span> + rootName + <span class="str">&quot;.shp&quot;</span> <br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>raster = <span class="str">&quot;rast&quot;</span> + rootName</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">&nbsp;# Make xy event layer from dbf file <br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;#
+             (field 1: x, field 2: y, field 3: amount dumped, field 4: dumping ground)</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>arcpy.MakeXYEventLayer_management(table, inX, inY, tempLayer)</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment"># Make a clip with clip feature (dump_s1_UTM_ED50)<br />
+             </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>arcpy.Clip_analysis(tempLayer, clipFeatures, pointFeatures)</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment"># Convert the clipped shapefile to a raster </span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>arcpy.PointToRaster_conversion(pointFeatures, valueField, raster, <span class="str">&quot;MOST_FREQUENT&quot;</span>, <span class="str">&quot;NONE&quot;</span>, <span class="str">&quot;25&quot;</span>)</p>
+           <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment">#Add new raster to weighted sum input. Example: 'rast1 VALUE 1;rast2 VALUE 1;' </span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>rasterList = rasterList + raster + <span class="str">&quot; VALUE 1;&quot;</span> <br />
+            </p>
+           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="comment"># Sum of  all the output rasters  with weighted sum (weight = 1) . This is only done once, since it is dedented.</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arcpy.WeightedSum_sa(rasterList, sumRaster)<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="key">expect</span>:<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span><span class="key">print</span> (arcpy.GetMessages( ))<br />
+             <span class="key">except</span> IndexError:<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> <span class="str">(&quot;Usage: Directory path for input tables&quot;)</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> <span class="str">(&quot;Example: C:/gispy/scratch/table_to_raster&quot;)</span><br />
+             <br />
+           </p></td>
+       </tr>
+     </table>
+    <hr />
+     <p>In class-- Procedures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://docs.google.com/document/d/1QCUDqPaTfMY3BbT6YfScG9j2XbcudyeLHLkk0udeEqE/edit?usp=sharing">^__^</a></p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong><a href="example_scripts/printProcedures.py">printProcedures.py</a></strong> contains 2 function definitions and calls these functions (as examples). </p>
+             <p>1. A list of file names is given in the code (testList = ['a.shp', 'a.txt', 'cRaster']). Write code to loop through testList  and print only names that end with .shp.</p>
+           <p>2. When that is working, put the looping code that you wrote for #1 inside a function definition. Pass a  list in as an argument.<br />
+            </p>
+           3. Write a line of code to call the function using the given test  list of file names (testList).
+           (The idea is to replace the code you wrote for #1 with a function definition and call.)<br />         </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>add5 -- </strong>practice defining and calling a function that returns a value.</p>
+             <p>1. Add another function to the script  named add5 that adds five to the numeric  argument passed into it and returns the result. <br />
+                 <br />
+               2. Call the function using an argument of  10 and set x to the result. Then print x.<br />
+               <br />
+               3. Set a variable z to a float value and call the  function using z as the argument and set y to the result. Then print y. </p>
+           <p><br />
+           </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p>proc_practice.py<a href="example_scripts/slope_stepin.py"><strong></strong></a> Follow the instructions below. Be sure to repair the spacing as needed.</p>
+             <p>1. Add this function to a script.</p>
+           <p>def professorTalk():<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (&quot;Blah blah blah&quot;)</p>
+           <p>Call the function.</p>
+           <p>2. Add this function to the same script.</p>
+           <p>def sitInClass():<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (&quot;snore&quot;)</p>
+           <p>Call the function.<br />
+            </p>
+           <p>3. Add this function to the same script.</p>
+           <p>def favDessert( theDessert):<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (&quot;My favorite dessert is&quot;, theDessert)</p>
+           <p>Call the function.</p>
+           <p>4. Add this function to the same script.</p>
+           <p>def printCar(make,model, year):<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (&quot;I drive a&quot;, year, make, model + &quot;.&quot;)</p>
+           <p>Call the function.</p>
+           <p>5. Correct the indendation in this function and add it to the same script. </p>
+           <p>def sitInClass(quality):<br />
+             if quality = &quot;interesting&quot;:<br />
+             return &quot;learn&quot; <br />
+             else: <br />
+             return &quot;snore&quot;<br />
+             print (&quot;All done.&quot;)</p>
+           <p>Call the function.  Step through in the debugger to see the flow.</p>
+           <p>6. Write a function to print a message passed in (by the caller) in both the Interactive Window and the geoprocessing window.  Call the function.<br />
+            </p>
+           <p>7. Write a function that takes a full path file name  as an argument and returns a Python list of field names.  Call the prodecure, store the return value in a variable, and print the returned list of names and the documentation string.</p>
+           <p><br />
+                 <br />
+           </p></td>
+       </tr>
+     </table>
+    <br />
+     <table width="600" bgcolor="#ffffcc">
+       <tr>
+         <td><p><a href="example_scripts/procedures.zip"><strong>functions.zip</strong></a></p>
+             <p><strong>zipall.py</strong> Modify zipAll.py so that it is a function.<br />
+               The function should take one argument: the directory whose contents are to be zipped.</p>
+           <div>
+             <p>Call the method.</p>
+           <p><strong><br />
+             Returning a value<br />
+             </strong>Amend zipAllFunction so that it returns the name of the archive file that was created</p>
+           <strong><br />
+             Optional Arguments</strong> Amend your zipAll.py function so that it has an optional loop to delete all the original files after it creates the archive file<br />
+           <p><strong>Returning Multiple Values</strong></p>
+           <div>
+           <div>
+           Define a function that returns the extent of a shapefile before it is clipped, clips it based on a smaller file, then returns the size of the new file<br />
+           <div>
+           Call this function, printing each extent as follows:<br />
+           <div>
+           Old extent of in feature: xxxxxxxxxxxx<br />
+           <div>
+           New extent of in feature: xxxxxxxxxxxx<br />
+           <div>
+           <p>&nbsp;</p></td>
+       </tr>
+     </table>
+     <br />
+
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong><a href="example_scripts/slope_stepin.py">s</a></strong><a href="example_scripts/slope_stepin.py"><strong>lope_stepin.py</strong></a><strong></strong></p>
+             <ol>
+               <li>Repair the syntax errors in slope_stepin.py<br />
+                   <br />
+               </li>
+               <li>Step through the script using the step over button. Then step through using step in at the function call (findSlope) and step out in the middle of the function definition (slope = rise/run) <br />
+                   <br />
+                 Explain the difference between step in/out/over.<br />
+                 <br />
+               </li>
+               <li>Set a breakpoint on lines 4 and 10. Go through the script 2 times, once using the step-through in debugger mode and once using the run in debugger mode. Then turn off all break points and repeat the run in debugger mode.<br />
+                   <br />
+                 Explain the difference between the 2 modes.</li>
+             </ol>
+           <p><br />
+                 <br />
+           </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><strong>defprint.py</strong> <br />
+             <table width="539" height="79" border="0" bgcolor="#ffffff">
+               <tr>
+                 <td scope="col"><p>def printMyYears(start, stop):<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yrs = range(start, stop + 1)<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for yr in yrs:<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (yr)</p>
+                     <p><br />
+                       printMyYears(1920,1926)</p></td>
+               </tr>
+             </table>
+           <ul>
+               <li>Modify the given script, so that it has a function called myprint.</li>
+             <li>The purpose of myprint is to have a function that will print a given message in both PythonWin and in the geoprocessing Window when it’s called from ArcGIS </li>
+             <li>myprint should take one argument: the string message to be printed </li>
+             <li>Call the function with a message.<br />
+              </li>
+           </ul></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Cursors <a name="Cursors" id="Cursors"></a></p>
+     <table width="648" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring  cursor objects Part 1 (Search cursors): </strong>Copy <strong>C:\gispy\data\ch01\park.shp</strong> to the scratch directory to create <strong>C:\gispy\scratch\park.shp</strong>. Then, type each statement in the Interactive Window (Except for the comments) and answer the questions. </p>
+<table bgcolor="#FFFFFF">
+             <tr>
+                 <td width="6" rowspan="2">&nbsp;</td>
+                 <td width="317"><p class="number number">import arcpy<br />
+                         <br />
+                   fc = &quot;C:/gispy/scratch/park.shp&quot; </p>
+           <p class="number number">fds = arcpy.ListFields(fc)<br />
+                       <br />
+                     fds<br />
+                   </p>
+                   <p class="number number">numFields = len(fds)<br />
+                       <br />
+                     sc = arcpy.da.SearchCursor(fc, fds)<br />
+                       <br />
+                     fieldNames = [f.name for f in fds]<br />
+                     <br />
+                     sc = arcpy.da.SearchCursor(fc, fieldNames)<br />
+                   </p>
+ <p class="number number">sc<br />
+                         <br />
+                       row = sc.next()<br />
+                       <br />
+                       row[0]<br />
+                       <br />
+                       row[2]<br />
+                       <br />
+                       row = sc.next()<br />
+                       <br />
+                       row[0]<br />
+                       <br />
+                       sc.reset( )</p>
+                   <p class="number number">row = sc.next( )<br />
+                         <br />
+                     row[0]<br />
+                     <br />
+                     row[1]</p>
+                   <p class="number number">del sc<br />
+                     <br />
+                     fieldNames = [&quot;SHAPE@&quot;]<br />
+                     <br />
+                     sc = arcpy.da.SearchCursor(fc, fieldNames)<br />
+                     <br />
+                     row = sc.next()<br />
+                      row[0].extent<br />
+                      row[0].centroid<br />
+                     row[0].extent</p>
+                   <p class="number number">type(row[0].centroid)<br />
+                   #What type of object does row[0].centroid #return?</p>
+                   <p class="number number">row[0].centroid.X<br />
+                   </p>
+                   <p class="number number">del sc<br />
+                     row = sc.next( )<br />
+                   </p>
+                   <hr /></td>
+                 <td valign="top"><img src="images/parkAttrTable.png" alt="park.shp attribute table" /></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><p class="number number">sc = arcpy.da.SearchCursor(fc, &quot;*&quot;, &quot;COVER = 'other'&quot;)<br />
+                   </p>
+                     <p class="number number">row = sc.next( )<br />
+                         <br />
+                       row[0]<br />
+                       <br />
+                       row[2]<br />
+                       <br />
+                       sc = arcpy.da.SearchCursor(fc, &quot;*&quot;, &quot;COVER &lt;&gt; 'woods'&quot;)<br />
+                     </p>
+               <p class="number number">for row in sc:<br />
+               	  &nbsp;&nbsp;&nbsp;&nbsp;print (row[2])<br />
+                     # what does &lt;&gt; mean here in the statement above?</p>
+                   <p class="number number">sc =arcpy.da.SearchCursor(fc, &quot;*&quot;, &quot;FID &gt; 200&quot;)<br />
+                   </p>
+               row = sc.next()<br />
+                         <br />
+                     row[0]
+                   <hr /></td>
+               </tr>
+             </table>
+           <br />
+             <ol>
+               <li>What is row?</li>
+               <li>What does sc.reset() do?</li>
+               <li>How can you find the area of the polygon associated with each? </li>
+               <li>What does del do?</li>
+               <li> What do you think this statement does sc = arcpy.da.SearchCursor(fc, <span class="number number">&quot;*&quot;,</span>&quot;COVER = 'orch'&quot;)?</li>
+               <li> What does &lt;&gt; mean in a where clause?<br />
+               </li>
+               <li>Use a search cursor with a where_clause to find the RECNO the row FID is 22.<br />
+               </li>
+               <li>How can you get the value of the field COVER if you have a row object?</li>
+               <li>How can you get the value of a field if you don't know the name of the field ahead of time?<br />
+               </li>
+         </ol></td>
+       </tr>
+     </table>
+     <br />
+     <br />
+     <table width="648" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring cursors objects Part 2 (insert &amp; update cursors): If you skipped part 1, </strong>you'll need to create <span class="number number"><strong>&quot;C:\gispy\scratch\park.shp&quot;</strong> by copying it from </span><strong>C:\gispy\data\ch01\park.shp</strong>. Otherwise, simply continue and type each statement in the Interactive Window (Except for the comments), predicting the results as you go. </p>
+<table width="572" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="6">&nbsp;</td>
+                 <td width="554"><p class="number number"> import arcpy<br />
+                   </p>
+                     <p class="number number">fc = &quot;C:/gispy/scratch/park.shp&quot;<br />
+                       ic = arcpy.da.InsertCursor(fc, [&quot;COVER&quot;])<br />
+                       <br />
+                       ic.insertRow([&quot;lake&quot;])<br />
+                       del ic<br />
+                       <br />
+                        with arcpy.da.InsertCursor(fc, [&quot;COVER&quot;]) as ic:<br />
+                        ... 	for i in range(4):<br />
+                         ........		ic.insertRow([&quot;lake&quot;])<br />
+                     </p>
+               <span class="comment"># Refresh view in ArcCatalog. </span><br />
+                     uc = arcpy.da.UpdateCursor(fc, &quot;*&quot;)<br />
+                     <br />
+                     for row in uc:<br />
+                     ....if row[2] == &quot;lake&quot;:<br />
+                     .........row[3] = 1000<br />
+                     .........uc.updateRow(row)<br />
+                     <br />
+                     del uc<br />
+                     # Refresh view in ArcCatalog.<br />
+                   </p>                 </td>
+               </tr>
+            </table>
+             <br />
+             <strong>Exploring cursors objects Part 3 Geometric insertions</strong>. Copy <strong>C:\gispy\data\ch17\fires.shp</strong> to <strong>C:\gispy\scratch\fires.shp</strong>.<br />
+         <table width="461" bgcolor="#FFFFFF">
+         <tr>
+                 <td width="6" height="252">&nbsp;</td>
+           <td width="443">import arcpy<br />
+             fc = &quot;C:/gispy/scratch/fires.shp&quot;<br />
+                       ic = arcpy.da.InsertCursor(fc, [&quot;FireId&quot;, &quot;SHAPE@&quot;] )<br /></p>
+                     <p>myPoint = arcpy.Point(-70.1, 42.07)<br />
+                       newRow = (500000, myPoint)</p>
+                     <p>ic.insertRow(newRow)</p>
+                   <p>del ic<span class="comment"><br />
+                       <br />
+                   #View results in ArcMap</span></p>                   </td>
+            </tr>
+            </table>
+           <p><br />
+           </p></td>
+       </tr>
+     </table>
+    <hr />
+     <p>In class-- Dictionaries <a name="Dictionaries" id="Dictionaries"></a></p>
+   <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Explore dictionaries</strong> Type these lines of code in the interactive window and discuss the results.</p>
+             <table width="366" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="6">&nbsp;</td>
+                 <td><p class="number number">&gt;&gt;&gt; myD = {0:&quot;woods&quot;, 1:&quot;park&quot;,   5:&quot;orch&quot;}<br />
+                   &gt;&gt;&gt; for key in myD:<br />
+                   ............ 	print (key)<br />
+                   <br />
+                   <br />
+                   &gt;&gt;&gt; for value in myD.values():<br />
+                   ............ 	print (value)<br />
+                   <br />
+                   <br />
+                   &gt;&gt;&gt; 3 in myD<br />
+               <br />
+                   &gt;&gt;&gt; 1 in myD<br />
+               <br />
+                   &gt;&gt;&gt; myD[1]<br />
+               <br />
+                   &gt;&gt;&gt; myD[1] = &quot;other&quot;<br />
+               <br />
+                   &gt;&gt;&gt; myD</p>
+                     <p class="number number">&gt;&gt;&gt;  myList = [0,1,5] </p>
+                   <p class="number number">&gt;&gt;&gt; myList[2]</p>
+                   <p class="number number">&gt;&gt;&gt; myD[2]<br />
+                         <br />
+                     &gt;&gt;&gt; myD[1]<br />
+               <br />
+                     &gt;&gt;&gt; myD<br />
+               <br />
+                     &gt;&gt;&gt; myD[3] = &quot;lake&quot;</p>
+                   <p class="number number">&gt;&gt;&gt; myD<br />
+                         <br />
+                     &gt;&gt;&gt; myD2 = {}<br />
+               <br />
+                     &gt;&gt;&gt; myD2[&quot;strK&quot;] = 5<br />
+               <br />
+                     &gt;&gt;&gt; myD2<br />
+               <br />
+                   </p></td>
+               </tr>
+             </table>
+           <ol>
+               <li>What does <span class="number number">myD2 = {}</span> do?</li>
+             <li>Explain the difference between what happened when you typed <span class="number number">myD[1] = &quot;other&quot;</span> and when you typed <span class="number number">myD[3] = &quot;lake&quot;</span>.</li>
+             <li>Explain the difference between myList[2] and <span class="number number">myD[2].</span></li>
+             <li>Write a line of code to add an item with key &quot;London&quot; and value &quot;Heathrow&quot; into myD.</li>
+             <li>Write a line of code to add an item with key &quot;beer&quot; and value [&quot;Bass&quot;, &quot;Corona&quot;, &quot;Dunkle&quot;] to myD.</li>
+             <li>Write a line of code to append &quot;Pale Ale&quot; list whose key is &quot;beer&quot;.</li>
+             <li>Set the value of x to &quot;5 hrs&quot;. Write a line of code to add an item with key &quot;sleep&quot; and value a list containing one item, x.</li>
+           </ol></td>
+       </tr>
+     </table>
+
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><strong>drinkdict.py</strong> Create a dictionary where drinks are the key and a list of people who favor that drink are the value, by completing the code in the given script. The existing code prompts you for 10 people's names and favorite drinks.
+           <p>Example output:</p>
+           <p>{   ‘tea’: [’Carlo‘, ’Bo‘],<br />
+             ’water‘: [’Jamie‘, ’Ouise’],<br />
+
+             'beer': [’Ali', ’Mayu', ’Geddy', ’Chang'],<br />
+             'sweet tea': [’Shayo', ’John']}</p>
+           <p>General format for creating dictionaries that use lists as  values:</p>
+           <em> </em><em> # If the key is already in the list, append. <br />
+             &#13;</em> if key in dict: <br />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict[key].append(value)<br />
+           else: # <em>Otherwise create a new list</em><br />
+           &#13;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict[key] = [value]<br />
+             <br />
+             <table width="600" bgcolor="#ffffff">
+               <tr>
+                 <td><p><em>#drinkdict.py</em></p>
+                   dict={}<br />
+                   for i in range(10):<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;name = input(&quot;Name:&quot;)<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;drink = input(name +&quot;'s fav. drink:&quot;) <em>    # insert dictionary code here.</em>
+                   <p>print (dict)<br />
+                   </p></td>
+               </tr>
+             </table>
+           <br />         </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><strong>table2dict.py</strong><br />
+             <p>Write a script to do the following:</p>
+             <ol>
+               <li>Get an input file name.</li>
+               <li> Get a list of field names objects.</li>
+               <li>Use get a list of field names (You can use list comprehension).</li>
+               <li>Remove the 'Shape' field from the field name list (if it's there).</li>
+               <li>Create a search cursor for an input file.</li>
+               <li>Create an empty dictionary. </li>
+               <li>For each row, add an item to the dictionary that has a key of the input file's 'FID' and the rest of the non-shape fields the value. For example input C:/gispy/data/ch02/park.shp, the dictionary would look something like this:<br />
+                   <br />
+                 {0: (u'woods', 1.0), 1: (u'woods', 2.0), 2: (u'woods', 3.0), 3: (u'woods', 4.0), 4: (u'woods', 5.0), 5: (u'other', 6.0), 6: (u'woods', 7.0), 7: (u'orch', 8.0), 8: (u'woods', 9.0), 9: (u'woods', 10.0), 10: (u'orch', 11.0), 11: (u'orch', 12.0), 12: (u'other', 13.0), and so forth...<br />
+                 <br />
+                 <br />
+               </li>
+           </ol>           </td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Reading and Writing Text Files<a name="rwText" id="rwText"></a></p>
+
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring file objects: </strong>Type each statement in the Interactive Window (Except for the comments) and discuss the results.</p>
+    <table width="327" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="317"><p>f = open(&quot;C:/gispy/scratch/test.txt&quot;, 'w')<br />
+                    f.write('a')<br />
+                    f.write('b')<br />
+                    f.write(2) <br />
+                    mylist = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]<br />
+                    <br />
+                    f.write(str(3))<br />
+                    f.write(mylist)<br />
+                    f.writelines(mylist)<br />
+                    f.close( ) </p>
+               </p>
+                     <p>Now look at the file you just created. </p>
+                   <p>Why does f.write(2) fail?<br />
+                     Why does f.write(mylist) fail?<br />
+                     Describe an easy way to write each item in mylist on its own line in a file.<br />
+                     <br />
+                   </p>
+                   <hr />
+                     <p>f = open(&quot;C:/gispy/scratch/test.txt&quot;, 'w')<br />
+                       f.write('xyz\n')<br />
+                       f.write('a\nbcd\ne\nf\ng')<br />
+                       f.close( )</p>
+                   <p>Look at your output file. </p>
+                   <p>What happens when you open an existing file in 'w' mode and write things in it?</p>
+                   <p>Explain why the text is not all on one line.<br />
+                   </p>
+                   <hr />
+                     <p>inf = open(&quot;C:/gispy/scratch/test.txt&quot;, 'r')<br />
+                       print (inf.readline())<br />
+                       <br />
+                       print (inf.readline())<br />
+                       print (inf.read(2))<br />
+                       inf.seek(0)<br />
+                       print (inf.readline())<br />
+                       inf.seek(0)<br />
+                       print (inf.readlines()) <br />
+                       inf.seek(0) <br />
+                       print (inf.read()) </p>
+                   <p>inf.close()</p>
+                   <p>inf.open(&quot;C:/nofile.txt&quot;, 'r')<br />
+                         <br />
+                     What is the difference between the file methods readline, read(2), and readlines?<br />
+                     What does seek(0) do?<br />
+                     Give an example of when an IOError exception is thrown.<br />
+                     <br />
+                   </p></td>
+               </tr>
+             </table>
+           <br /></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest1.py Part 1<br />
+                   <br />
+             </strong><strong>Read/write </strong>Write a script that opens &quot;C:/gispy/data/ch19/RDUforest.txt&quot;, reads it and writes it to an output file named RDUout.txt in the &quot;C:/gispy/scratch&quot; directory.<br />
+            </p>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest2.py</strong> <strong>Part 2</strong></p>
+             <p><strong>Read/modify/write </strong>Suppose a mistake was made in calculating the dbh. It should be the square root of the value in the file. E.g., 25 should be 5. Modify the code from Part 1 so that it makes this change in the output, RDUout2.txt. (Hint: the built-in math module has a sqrt method. For example math.sqrt(16) returns 4.<br />
+             </p>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest3.py Part 3<br />
+           <br />
+         Delete rows. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and write it to RDUout3.txt <em>deleting</em> all of the records that are not Loblolly pines (species LP). Hint: Instead of thinking in terms of deleting, think about what you DO want to write.<br />
+              </p>             </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rdu_forest4.py Part 4<br />
+           <br />
+         </strong><strong>Delete a column. </strong>Modify rdu_forest1.py to read &quot;C:/gispy/data/ch19/RDUforest.txt&quot; and  write it to RDUout4.txt. This time, delete the plot column.<br />
+              </p>          </td>
+       </tr>
+     </table>
+     <p>&nbsp;</p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong><a href="example_scripts/ipcc2ESRI.py">ipcc2Esri.py</a> (Intergovernmental Panel on Climate Change):<br />
+             </strong>ipcc2Esri.py converts an IPCC .dat format file to Esri ASCII .txt format.<br />
+           #         Then call Esri's ASCIItoRaster tool to convert the ascii file to a GRID raster. </strong>Insert lines of code to replace the ### comments. run the script on <a href="example_data/precipitation6190.dat.gz">precipitation6190.dat</a>. </p>
+             <p><a href="example_scripts/ipcc2ESRI_solution.py">solution script </a></p>
+           <br /></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>rduRead.py:</strong></p>
+             <ol>
+               <li>Write a script to read each line of <a href="example_data/rdu_forest.txt">RDU_forest.txt</a>. Print each line to the interactive window. </li>
+               <li>Print only the DBH (tree height measurement) of each entry.</li>
+               <li>Find the sum of the DBH. <br />
+               </li>
+             </ol></td>
+       </tr>
+     </table>
+     <hr />
+     <br />
+     <br />
+     <br />
+     <hr />
+     <p>In class-- Modules  <a name="Modules" id="Modules"></a></p>
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td width="649"><p><strong>User-defined modules: <br />
+                   <br />
+           1. </strong>Copy and save <em>sortString.py</em> and <em>listManager.py</em> <a href="#sortString">defined BELOW</a>. Save them both in C:/gispy/scratch. <em>sortString</em> calls one of the functions in <em>listManager</em>, but you need to add code to sortString for this to work correctly. The output should look like this: </p>
+             <table width="467" border="0" bgcolor="#ffffff">
+               <tr>
+                 <td width="461"><p class="comment"># Desired output: </p>
+                     <p>&gt;&gt;&gt; ['fid', 'fid', 'alt', 'lat', 'long', 'fid', 'lat']</p></td>
+               </tr>
+             </table>
+           <br />
+             <p>If you add the code and it still doesn't work, you may need to click reload <img src="images/reloadButton.png" alt="reload button" width="34" height="32" /> while your focus is on listManager.py. </p>
+           <p><strong>2. </strong>Now add <strong>one line of code</strong> to sortString.py to sort mylist (returned from string2List) and then add another to print the list. <br />
+            </p>
+    <table width="467" border="0" bgcolor="#ffffff">
+               <tr>
+                 <td width="461"><p class="comment"># Desired output: </p>
+                     <p>&gt;&gt;&gt; ['alt', 'fid', 'fid', 'fid', 'lat', 'lat', 'long']</p></td>
+               </tr>
+            </table>
+           <p><br />
+                 <strong>3. </strong>Finally, add code to sortString.py to turn the sorted list back into a string by calling the other listManager function. Print the string. </p>
+           <br />
+             <table width="467" border="0" bgcolor="#ffffff">
+               <tr>
+                 <td width="461"><p class="comment"># Desired output: </p>
+                     <p>&gt;&gt;&gt; alt;fid;fid;fid;lat;lat;long</p></td>
+               </tr>
+           </table>
+           <p>4. Add the function uniqueList given below to listManager.py</p>
+           <table width="467" border="0" bgcolor="#ffffff">
+             <tr>
+               <td width="461"><p ><span class="key">def</span> uniqueList(L):<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">&quot;&quot;&quot;Get list with only unique entries&quot;&quot;&quot;</span><br />
+                 <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;# Python Set data types hold only unique entries<br />
+                   &nbsp;&nbsp;&nbsp;&nbsp;# S collects unique entries in L</span></span><br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;S = set(L)<br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Cast the set back to list. </span><br />
+                 &nbsp;&nbsp;&nbsp; uniqueL = list(S)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return </span>uniqueL</p></td>
+             </tr>
+           </table>
+           <p>5. In  sortString.py,   add a line of code  to call  the uniqueList function on mylist. </p>
+           <p>6. Add print (&quot;Hehe&quot;) to listManager.py (outside of any functions).</p>
+           <p>7. Without reloading listManager.py, run sortString.py. Does it run to completion? Does Hehe print?</p>
+           <p>8. Reload listManager.py, using the reload button. Does Hehe print?  </p>
+           <p>9. Run sortString.py now. Does it run to completion?</p></td>
+       </tr>
+     </table>
+   <br />
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td width="649"><br />
+             <span class="comment"> <strong># sortString.py</strong> <a name="sortString" id="sortString"></a><br />
+               #Purpose: Given a delimited string, it sorts the delimited elements by splitting it into a list, sorting the list, and joining it back into a string. The sorted string result is printed.</span><br />
+           <br />
+           <br />
+           mystring = &quot;fid;fid;alt;lat;long;fid;lat&quot; <span class="comment"># set delimited string</span><br />
+           delimiter = &quot;;&quot; # set delimiter
+           </p>
+           <p><span class="comment"># Get a list from the string. module.function(argv1, argv2,...) format.</span><br />
+             mylist = listManager.string2List(delimiter, mystring)</p>
+           <p>print (mylist) </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td width="649"><p class="comment"><em><strong># listManager.py</strong></em></p>
+             <p><span class="key">def</span> string2List(delimiter, s):<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">&quot;&quot;&quot;Take a delimited string and return a list&quot;&quot;&quot;</span><br />
+               &nbsp;&nbsp;&nbsp;&nbsp;L = s.split(delimiter)<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return</span> L</p>
+           <p><span class="key">def</span> list2String(delimiter, L):<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">&quot;&quot;&quot;Take a list and return a delimited string&quot;&quot;&quot;</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Use list comprehension to cast each element to string,<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;# because join fails for non-string elements.</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;stringL = [str(i) for i in L]<br />
+             <br />
+             &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Join the string elements of stringL</span><br />
+             &nbsp;&nbsp;&nbsp;&nbsp;s = delimiter.join(stringL)<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">return</span> s</p></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- File GUI's  <a name="GUI" id="GUI"></a></p></p>
+ <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td width="649"><p><strong>Playing with tkFileDialog:</strong></p>
+             <p>&gt;&gt;&gt; from tkinter import filedialog<br />
+               &gt;&gt;&gt; fc = filedialog.askopenfilename()<br />
+               &gt;&gt;&gt; print (fc)</p>
+           <p>&gt;&gt;&gt; fc = filedialog.askopenfile() # select a python script or a text file. <br />
+             &gt;&gt;&gt; print (fc)<br />
+             &gt;&gt;&gt; print (fc.readlines( ))</p>
+           <p>&gt;&gt;&gt; fc = filedialog.askopenfilename(filetypes = [(&quot;spam&quot;, &quot;*.py&quot;), (&quot;Text files&quot;, &quot;*.txt&quot;)],<br />
+             title=&quot;Boogiewoogie&quot;, initialdir = &quot;C:/gispy/scratch&quot;, multiple=True)<br />
+             &gt;&gt;&gt; print (fc) <br />
+             &gt;&gt;&gt; print (fc[0]) # Print only the first item in the tuple</p></td>
+       </tr>
+     </table>
+     <p><br />
+</p>
+     <hr />
+     <p>In class-- Code Reuse: Classes <a name="Classes" id="Classes"></a></p>
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td width="649"><p><strong>Thinking in OOP:</strong></p>
+             <p>Plan the OOP components for a  script that would support daily air   traffic analysis of airlines and their flights. The script will use   Airline, Flight, and Seat objects. Identify  properties and methods for   each of these objects based on the following description:<br />
+               <br />
+Each airline name is stored along with a set of   numbered flights. The  origin and destination airports of each flight   are stored and can be used to estimate the length of flight paths.   Flight departure and arrival times are stored, so that the flight   duration can be derived. Each flight has a set of seats organized in   rows and columns. Each seat has a fare rate and a status (occupied or   vacant) which can be modified when a new reservation is made. The class   (first, business, or economy) can be determined based on the row.   Flights can be added and removed. The capacity, the load factor, and the   total fare for a flight can be calculated. The total number of flights   for each airline for a day can also be derived.<br />
+<br />
+Airline properties (2): <br />
+Flight properties (5): <br />
+Seat properties (4): <br />
+<br />
+Airline methods (3): <br />
+Flight methods (5): <br />
+Seat methods (2):</p>         </td>
+       </tr>
+     </table>
+     <p><a href="example_scripts/parcelClass.py"><strong>parcelClass.py</strong></a> See ### comments in code for instructions. Do them in order as numbered. Get it running after each step <br />
+    </p>
+     <p>----------------------------------<br />
+     </p>
+     <p><a href="example_scripts/callExcelInClass.py"><strong>callExcelInClass.py</strong></a> # modify this one.</p>
+     <p><a href="example_scripts/excel_lib.py"><strong>excel_lib.py</strong></a> # download into same directory as callExcelInClass.py, but don't modify </p>
+     <p>See ### comments in code for instructions. Do them in order as numbered. Get it running after you do #1 and 2. Run it to see how it works. They try #3 and 4. </p>
+   <hr />
+     <p>In class-- HTML <a name="HTML" id="HTML"></a></p>
+   <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>HTML tags</strong></p>
+             <p>1. Open a new Browser window to this page HTML 5 Tutorial page and click on "Try it yourself":<br />
+                 <a href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video_autoplay">https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video_autoplay</a><br />
+             </p>
+     <p>2. Replace the code in the left window with <a href="https://docs.google.com/a/ncsu.edu/document/d/1WlhcQp2GGzEXswRB-qdyCvWyUHtJUOYFI99vnELY_Zc/edit?usp=sharing">the code found on the page linked here</a>. <!--<a href="supMaterials/htmlTags.txt">--><br />
+                 <br />
+             3. Click 'Submit Code' and observe the results in the right window.</p>
+           <p>4. Experiment with this code to answer the following questions.</p>
+           <ol type='a'>
+               <li>How do you create a kittens image the same size as the angry face? Like this: <br />
+                   <img src="http://myspacenow.com/wp-content/uploads/2011/09/pics-of-kittens-2.jpg" 	alt="kittens" width ="42" height="42"/><br />
+                   <br />
+               </li>
+             <li>How do you modify the table to have a third row, like this:<br />
+                   <table border="1">
+                     <tr>
+                       <th>Month</th>
+                       <th>Savings</th>
+                     </tr>
+                     <tr>
+                       <td>January</td>
+                       <td>$100</td>
+                     </tr>
+                     <tr>
+                       <td>February</td>
+                       <td>$80</td>
+                     </tr>
+                   </table>
+               <br />
+              </li>
+             <li>How do you make a table  with borders? without?<br />
+                   <table border="0">
+                     <tr>
+                       <th>Month</th>
+                       <th>Savings</th>
+                     </tr>
+                     <tr>
+                       <td>January</td>
+                       <td>$100</td>
+                     </tr>
+                   </table>
+               <br />
+              </li>
+             <li>How can you make a numbered list that starts with 50 with 4 items, like this? </li>
+             <ol start="50">
+                 <li>Coffee</li>
+               <li>Tea</li>
+               <li>Milk</li>
+               <li>Mango juice<br />
+                     <br />
+                </li>
+             </ol>
+             <li>What's the difference between HTML tags for a bulleted list and code for a numbered list?<br />
+                   <br />
+              </li>
+             <li>Remove the &lt;br /&gt; tag between Hey and you. What does a &lt;br /&gt; tag do? <br />
+               <br />
+             </li>
+             <li>How can you create a link to the AAG page (http://www.aag.org/) labeled AAG   like this:<br />
+                   <br />
+                 <a href="http://www.aag.org/">AAG</a> </li>
+           </ol>
+          <p>&nbsp;</p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>HTML Spacing</strong></p>
+             <p>1. Go back to the <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_video_bear">'Try it yourself' HTML tutorial page</a>.<br />
+             </p>
+       <p>2. Replace the code in the left window with <a href="supMaterials/htmlSpacing.txt">the code found on the page linked here</a>. <br />
+                 <br />
+             3. Click 'Edit and Click Me&gt;&gt;' and observe the results in the right window.</p>
+           <p>4. Experiment with this code to do the following.</p>
+           <ol type='a'>
+               <li>Wrap preformatting tags around sentence 1.  Preformatting tags look like this: &lt;pre&gt; stuff to preformat &lt;/pre&gt;. This should make the gap appear, so that it looks something like this:<br />
+                   <pre>(1) I have a BIG                        gap in my middle.</pre>
+              </li>
+             <li>Make a bigger gap in sentence (3) using the &amp;nbsp; tag instead of preformatting. It should look something like this:<br />
+               (3) I have a SMALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap in my middle.<br />
+               <br />
+             </li>
+             <li>Use &lt;br&gt; tags to put two empty lines between sentences (2) and (3), like this:<br />
+                   <br />
+               (2) I <br />
+               don't<br />
+               care.<br />
+               <br />
+               <br />
+               (3) I have a SMALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gap in my middle.<br />
+               <br />
+              </li>
+             <li>Put sentence (2) all on one line like this:<br />
+               I don't care. <br />
+               <br />
+              </li>
+             <li>Can you understand the Python code in the results Window? Wrap preformatting tags around the Python code (before and after these #####). This can be done on the Wolfware message board too because it's HTML enabled.<br />
+                   <br />
+              </li>
+           </ol>
+           <p>&nbsp;</p></td>
+       </tr>
+     </table>
+
+     <br />
+     <hr />
+     In class-- Write HTML<a name="ParseHTML" id="ParseHTML2"></a><br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>writeSmallHTML.py</strong></p>
+             <p>1. Confirm that park.png is in C:\gispy\data\ch20\pics<br />
+             </p>
+           <p>2. Save <strong><a href="example_scripts/writeSmallHTML.py">writeSmallHTML.py</a> </strong>to C:\gispy\scratch. </p>
+           <p>3. Run the script in its current state and view the resulting html page.</p>
+           <p>4. Search for the '##' signs and follow the instructions in these comments to create a page like the one shown below. You will need to call 3 functions defined in the script to get a list of cover types in the data, find the unique cover types, and create an html bulleted list of unique cover types.  You will also need to add and modify some strings that encode HTML tags.<br />
+            </p>
+          <p><img src="images/parkPic.png" alt="" /></p></td>
+       </tr>
+     </table>
+    <hr />
+    <br />
+<p>In class-- Fetch and uncompress <a name="ParseHTML" id="ParseHTML"></a></p>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>wakeURL.py</strong></p>
+             <p>1. Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch
+               and save <a href="example_scripts/wakeURL.py"> <strong>wakeURL.py</strong></a> in  C:/gispy/scratch<br />
+             </p>
+            <p>2. Add code to import 3 built-in modules that the code uses (in addition to os, which is already being imported) and import BeautifulSoup.</p>
+           <p>3. Find the url assignment statement (line 40), check the url to be sure it's current. Modify if needed.</p>
+           <p>4. Run the script in its current state and view the resulting print statements. </p>
+           <p>5. Search for the ## signs and add code there to make functions work and then to call them. <br />
+           </p></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class--  KML <a name="KML" id="KML"></a></p>
+     <table width="648" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring  KML soup: </strong><br />
+           Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch. Type each statement in the <em>Interactive Window</em>  and answer the questions. </p>
+          <table width="477" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="6">&nbsp;</td>
+                 <td width="459"><p class="number number">import os<br />
+                         <br />
+                   os.getcwd()<br />
+                   <br />
+                   from bs4 import BeautifulSoup<br />
+                   <br />
+                   os.chdir('C:/gispy/scratch')<br />
+                   <br />
+                   from bs4 import BeautifulSoup<br />
+                   <br />
+                   mystr = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;kml xmlns=&quot;http://www.opengis.net/kml/2.2&quot;&gt;&lt;Document&gt;&lt;Placemark&gt;&lt;name&gt;Bubba's Tofu Gumbo&lt;/name&gt;&lt;description&gt;Tofu Gumbo and Zydeco!&lt;br /&gt;Score: 97&lt;/description&gt;&lt;Point&gt;&lt;coordinates&gt;-90,30,0&lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&lt;Placemark&gt;&lt;name&gt;Joe Bob's Good Cookin'&lt;/name&gt;&lt;description&gt;The best tree top grits n' greens restaurant south of the Mason-Dixon line.&lt;br /&gt;Score: 94&lt;/description&gt;&lt;Point&gt;&lt;coordinates&gt;-78,35,0&lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&lt;/Document&gt;&lt;/kml&gt;&quot;&quot;&quot;<br />
+                    <br />
+                   soup = BeautifulSoup(mystr, 'html.parser') </p>
+                   <p class="number number">h = soup.prettify( )</p>
+                   <p class="number number">print h<br />
+                   </p>
+                   <p class="number number">t = soup.find('description')</p>
+                   <p class="number number">type(t)<br />
+                   </p>
+                   <p class="number number">t.name</p>
+                   <p class="number number">t.attrs<br />
+                         <br />
+                     t.contents<br />
+                     <br />
+                     t.contents[0]</p>
+                   <p class="number number">ts = soup.findAll('placemark')</p>
+                   <p>for g in ts:<br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;print (g.contents[0])</p></td>
+               </tr>
+             </table>
+           <br />
+             <ol>
+               <li>What data type is t?<br />
+                   <br />
+               </li>
+               <li>What does the 'find' method do?<br />
+                   <br />
+               </li>
+               <li>What's the difference between t.contents and t.contents[0]?<br />
+                   <br />
+               </li>
+               <li>What does a KML description tag contain?<br />
+                   <br />
+               </li>
+               <li>How many KML placemarks are in this file?<br />
+                   <br />
+               </li>
+               <li>What does a placemark tag contain?<br />
+               </li>
+             </ol></td>
+       </tr>
+     </table>
+     <p>&nbsp;</p>
+   <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>parseKMLpts_inclass.py</strong></p>
+             <p>1. Copy C:\gispy\sample_scripts\ch20\BeautifulSoup.py to C:/gispy/scratch.</p>
+             <p>2. Save <a href="example_scripts/parseKMLpts_inclass.py"><strong> parseKMLpts_inclass.py</strong></a> in  C:/gispy/scratch. <br />
+             </p>
+            <p>3. Search for the ### signs in the Python script. Add code as instructed in the comments. When complete the script  parses the driving stops from the kml and creates an output shapefile. <br />
+           </p></td>
+       </tr>
+     </table>
+    <br />
+
+ <hr />
+     <p>In class-- arcpy mapping module<a name="Mapping" id="Mapping"></a></p>
+     <table width="648" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring  the arcpy MapDocument:  </strong>Copy the ch24 data directory (found at C:\gispy\data\ch24) into the scratch directory (C:\gispy\scratch). Then open 'states.mxd' found in C:\gispy\scratch\ch24\maps.    <span class="number number"> Next, open the Python window embedded in ArcMap. </span> Now, type each statement in the Python Window (except for the comments) and answer the questions. </p>
+<table width="477" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="6">&nbsp;</td>
+                 <td width="459"><p class="number number">aprx = arcpy.mp.ArcGISProject("CURRENT")<br />
+                   </p>
+<p class="number number">mxd<br />
+  <br />
+(#View File &gt; 'Map document properties' and see the values written there)</p>
+<p class="number number">mxd.author</p>
+<p class="number number">mxd.author = 'Moi!'</p>
+<p class="number number">(#Open map properties and see change)<br />
+  <br />
+  mxd.activeView<br />
+  </p>
+<p class="number number">mxd.activeView = 'PAGE_LAYOUT'</p>
+<p class="number number">mxd.title<br />
+          </p>
+<p class="number number">mxd.title = 'Eastern US'</p>
+<p class="number number">arcpy.RefreshActiveView( )<br />
+  <br />
+  mxd.filePath<br />
+</p>
+<p class="number number">mxd.dateSaved<br />
+                     <br />
+                     mxd.relativePaths<br />
+                     <br />
+                  mxd.relativePaths = False</p>
+<p class="number number">mxd.relativePaths </p>
+<p class="number number">mxd.filePath</p>
+<p class="number number">p = 'C:/gispy/scratch/states2.mxd'  </p>
+<p class="number number">mxd.filePath = p<br />
+</p>
+<p class="number number">mxd.save( )<br />
+  <br />
+mxd.saveACopy(p)</p>                 </td>
+               </tr>
+           </table>
+           <br />
+             <ol>
+               <li>What is mxd?<br />
+                 <br />
+               </li>
+               <li>What does mxd.relativePaths mean? <br />
+                 <br />
+               </li>
+               <li> How can you change mxd.filePath from a Python script?<br />
+                 <br />
+               </li>
+               <li>How do you get or change the author of the map from a Python script?<br />
+                 <br />
+               </li>
+               <li>How can you force the map to refresh to show changes you've made in the current session?<br />
+                 <br />
+               </li>
+               <li>Keep ArcMap open for now. Try the following in the PythonWin <em>Interactive Window</em>. Note...which of three calls to <em>arcpy.mapping.MapDocument</em>  work/don't work.<br />
+                 <span class="number number">&gt;&gt;&gt; import arcpy<br />
+                 #Attempt #1 <br />
+                 </span><span class="number number">&gt;&gt;&gt; mxd1 = arcpy.mapping.MapDocument('CURRENT')<br />
+                 #Attempt #2<br />
+                 &gt;&gt;&gt; arcpy.env.workspace = &quot;C:/gispy/scratch/ch24/maps/&quot;<br />
+                &gt;&gt;&gt; arcpy.env.workspace<br />
+                &gt;&gt;&gt; mapName = 'states.mxd'<br />
+                 </span><span class="number number">&gt;&gt;&gt; mxd2 = arcpy.mapping.MapDocument(mapName)<br />
+                 # Attempt #3<br />
+                 &gt;&gt;&gt; mapName = &quot;C:/gispy/scratch/ch24/maps/states.mxd&quot;</span><br />
+                 <span class="number number">&gt;&gt;&gt; mxd3 = arcpy.mapping.MapDocument(mapName)<br />
+               # make a change to the map in ArcMap (e.g., change the title)</span><br />
+               &gt;&gt;&gt; mxd3.title = &quot;Smart map&quot;<br />
+               <span class="number number"># </span><span class="number number">and try to save the map.</span><br />
+               &gt;&gt;&gt; mxd3.save()<span class="number number"><br />
+&gt;&gt;&gt; del mxd</span><span class="number number">3<br />
+  </span></li>
+               <li>Close ArcMap and <span class="number number">try the following in the PythonWin interactive Window. What does it do?<br />
+                </span>import os<br />
+os.startfile('C:/gispy/scratch/ch24/maps/landCover.mxd')</li><br />
+               </p>
+               <li>a) Where can you find a complete list of map properties and methods b) How do you know which properties can be modified from a Python script?<br />
+                 <br />
+               </li>
+          </ol></td>
+       </tr>
+     </table>
+     <p><br />
+     </p>
+     <table width="648" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="642" scope="row"><p><strong>Exploring  the arcpy DataFrame and Layer objects: </strong></p>
+           <p>If you haven't already done so during the above exercise, copy the ch24 data directory (found at C:\gispy\data\ch24) into the scratch directory (C:\gispy\scratch). Then open 'states.mxd' found in C:\gispy\scratch\ch24\maps.    <span class="number number"> </span><br />
+             <br />
+             Now, type each statement in the Python Window (except for the comments) and answer the questions. </p>
+      <table width="580" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="6">&nbsp;</td>
+                 <td width="562"><p class="number number">                   mxd = arcpy.mapping.MapDocument('CURRENT')<br />
+                     <br />
+                   dfs = arcpy.mapping.ListDataFrames(mxd) #get a list of first data frame<br />
+                   <br />
+                   dfs<br />
+                   <br />
+                   df = dfs[0]<br />
+                   <br />
+                   df.name <br />
+                   <br />
+                   df2 = dfs[1] <br />
+                   <br />
+                   df.displayUnits<br />
+                   <br />
+                 ext = df2.extent</p>
+                   <p class="number number">ext.YMin<br />
+                       <br />
+                     arcpy.SelectLayerByAttribute_management('VA')<br />
+                       <br />
+                     df2.zoomToSelectedFeatures(  )<br />
+                   </p>
+<p class="number number">for df in dfs:<br />
+                       &nbsp;&nbsp;&nbsp;&nbsp;print df<br />
+                   </p>
+                     <p class="number number">for df in dfs:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print df.name<br />
+<br />
+layers = arcpy.mapping.ListLayers(mxd, "*", df)<br />
+<br />
+for layer in layers:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print layer<br />
+<br />
+for layer in layers:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print layer.name<br />
+                   </p>
+                     <p class="number number">layer.isFeatureLayer<br />
+                       <br />
+layer.isRasterLayer<br />
+<br />
+                       e = layer.getExtent()<br />
+                       <br />
+                   e.XMax</p>
+                     <p class="number number">df. extent = e<br />
+                       <br />
+                       for layer in layers:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x = layer<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print x</p>
+                   <p class="number number">x.dataSource</p>
+                     <p class="number number">for layer in layers<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x = layer.name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;print x</p>
+                     <p class="number number">x.dataSource<br />
+                         <br />
+                       <br />
+                   </p></td>
+               </tr>
+            </table>
+           <br />
+             <ol>
+               <li>How can you get a list of ALL the layers in map? (hint: the last two arguments in ListLayers are optional)<br />
+                 <br />
+               </li>
+               <li>How can you use Python to zoom?<br />
+                   <br />
+               </li>
+               <li>How can you get the 5th layer in the 3rd dataframe (if the map has 3 or more data frames and the third frame has  5 or more layers)?<br />
+                   <br />
+               </li>
+               <li>Where can you find a complete list of layer properties and methods?<br />
+               </li>
+             </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>listFeatureLayers</strong><a href="example_scripts/addLayer1.py"></a></p>
+             <ul>
+               1. By hand, add raster &quot;C:\gispy\data\ch24\otherData\getty_rast&quot; to the 'C:/gispy/scratch/ch24/maps/states.mxd' map. Save the map.<br />
+               2.
+               Add to the code below, to print the names of the feature type layers in a map (not the raster layers).<span class="comment"></span>
+               <div>Hint1:  Need nested looping to loop through the data frames and the layers.</div>
+               <div>Hint2: layers have a Boolean property called <em>isFeatureLayer</em>                 </div>
+          </ul>
+             <pre>import arcpy
+mapName = 'C:/gispy/scratch/ch24/maps/states.mxd'<br />
+mxd = arcpy.mapping.MapDocument(mapName)<br />
+dfs = arcpy.mapping.ListDataFrames(mxd)<br>
+for df in dfs:<br />
+     print &quot;Frame &quot; + df.name<br />
+     layers = arcpy.mapping.ListLayers(mxd, &quot;*&quot;, df)</pre></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>addLayer1.py </strong><a href="example_scripts/addLayer1.py">Run this script. </a></p>
+             <ul>
+               <li>Note that if the map document doesn't already exist, you will get an error. Change the name of the map document in the script to one that you have on your machine. </li>
+               <li>Note that an error occurs if "C:/gispy/scratch/Cover63p3.lyr" doesn't exist.</li>
+             </ul>
+             <ul>
+               <li> Add these lines of code to the script to create the .lyr file and try running it again.</li>
+             </ul>
+             <p>fileName = <span class="str">"C:/gispy/scratch/Cover63p.shp"</span><br />
+               inMemLyr = <span class="str">"GettysburgLandCover"</span><br />
+               onDiskLyr = <span class="str">"C:/gispy/scratch/Cover63p.lyr"</span><br />
+  <br />
+               arcpy.MakeFeatureLayer_management(fileName, <span class="comment"></span> inMemLyr) <span class="comment">#Make a temporary layer file</span><br />
+           arcpy.SaveToLayerFile_management(<span class="comment"></span>inMemLyr, onDiskLyr) <span class="comment">#Save the layer file to disk</span></p></td>
+       </tr>
+     </table>
+     <br />
+     <hr />
+     <p>In class-- Messaging <a name="Messaging" id="Messaging"></a></p>
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td scope="col"><p><strong>printPoly.py</strong> part 1 You will create a script tool and use it to observe the difference between running a script in Pythonwin and running a script tool from ArcToolbox. </p>
+             <ol>
+               <li>Launch ArcCatalog now and move on to step 2, so that it's open by the time you need it.<br />
+                   <br />
+               </li>
+               <li><strong>printPoly.py</strong> Write a script which prints all of the polygon feature classes in a directory.
+                 Allow the user to pass in one argument, the directory.
+                 <!--  <table width="572" border="3" bgcolor="#ffffff">
+                   <tr>
+                     <td width="558" scope="row"><p># printPoly.py</p>
+                         <p><span class="key">import</span> arcgisscripting,sys<br />
+                           <span class="key"></span>gp = arcgisscripting.create(9.3 )<br />
+                           <span class="key"></span>gp.workspace = sys.argv[1] <br />
+                           <span class="key"></span>mylist = gp.ListFeatureClasses("*", "Polygon")
+                           <br />
+                           <span class="key">for</span>                           c <span class="key">in</span> mylist:<br />
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key"></span>print c <br />
+                           <br />
+                           <span class="key">print</span> <span class="str">"All done."</span></p></td>
+                   </tr>
+                 </table>-->
+                   <br />
+                   <br />
+               </li>
+               <li>In PythonWin, run printPoly.py. It takes one argument: a workspace directory path. <br />
+                   <br />
+               </li>
+               <li>In ArcCatalog, create a new toolbox mytoolbox.tbx in C:/gispy/scratch (right-click on the directory. Then <strong>new</strong> &gt; <strong>toolbox</strong>) <br />
+                   <br />
+               </li>
+               <li>Add the script to mytoolbox.tbx (right-click on the toolbox <strong>add </strong>&gt; <strong>script</strong>).<br />
+                   <br />
+               </li>
+               <li>Use the wizard to   set up your script tool: <br />
+                 Set the name and label as printShapes.  (Always set name and label to the same value.) <br />
+                 Set the script to take one input parameter, a directory path of datatype <em>String</em>. <br />
+                 (You can always go back and modify these properties by right-clicking on the script tool and choosing <strong>properties</strong>)<br />
+                 <br />
+               </li>
+               <li>Run the script tool by double clicking on it in mytoolbox.tbx. Enter a directory that has some data. <br />
+                 Make a note of the results. Do you see the shapefiles listed?<br />
+               </li>
+             </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td scope="col"><p><strong>printPoly.py</strong> part 2 <br />
+           </p>
+             <ol>
+               <li>Add a line of code to the script so that it prints the output in both the Pythonwin Interactive window and the geoprocessing window. <br />
+                   <br />
+               </li>
+               <li>Run the script in Pythonwin again. Does it print the messages twice there?<br />
+                   <br />
+               </li>
+               <li>Run the script tool again from ArcCatalog again. Do you see the output statements? <br />
+                   <br />
+               </li>
+             </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td scope="col"><p><strong>printPoly.py</strong> part 3 </p>
+             <ol>
+               <li>Open the script <strong>properties</strong>. (Right-click on the script tool in ArcCatalog) </li>
+               <li>Click on the <strong>source</strong> tab.</li>
+               <li>Check the box: &quot;<em>Show command window when executing scripts.</em>&quot; </li>
+               <li>Place this line of code at the end of your script: input(  &quot;Click ENTER to close the window&quot;)<br />
+                 input is a built-in Python function that    waits for user input. The command window will stay open until the user clicks ENTER.<br />
+                 <br />
+                 Note:
+                 If run a script with an input command without showing the command window, it will hang with no explanation and you have to cancel the run. </li>
+             </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#ffffcc">
+       <tr>
+         <td scope="col"><p><strong><a href="example_scripts/fieldCheck.py">fieldCheck.py</a> script tool</strong> </p>
+             <ol>
+               <li>Save the  script fieldCheck.py</li>
+               <li>Add a script tool to the mytoolbox.tbx</li>
+               <li>Test  the new script tool.</li>
+               <li>Build a  model following the steps for this example given <a href="scripting_topics/messaging.htm#buildModel">on the messaging page</a>.</li>
+             </ol></td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Script Tools<a name="Tools" id="Tools"></a><br />
+     </p>
+    <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Create a script tool</strong></p>
+           <p>Part 1: Get some hands-on experience by following these steps: </p>
+<ol>
+               <li>Copy  sample script 'textLister.py' from C:\gispy\sample_scripts\ch23\scripts to C:\gispy\scratch. Then run in  PythonWin. It should print text file names:<br />
+                 &gt;&gt;&gt; cfactors.txt<br />
+                 crop_yield.txt<br />
+                 poem.txt<br />
+                 RDUforest.txt<br />
+                 report.txt<br />
+                 wheatYield.txt<br />
+                 xyData2.txt<br />
+                 <br />
+               </li>
+               <li>  In ArcCatalog, browse to 'C:\gispy\scratch\' and create a new toolbox in this directory. To do so, right-click and   create a new toolbox (New &gt; Toolbox). Rename it as 'practice.tbx'. <br />
+                 <br />
+               </li>
+               <li>Add a script tool to the new toolbox by right-clicking on   'practice.tbx' in ArcCatalog and choosing Add &gt; Script... This   launches a Script Tool wizard to customize the script tool step by step.<br />
+                 <br />
+               </li>
+               <li>In  the first pane of the wizard, set the script 'Name'   and 'Label' to 'printTextFiles'. The label appears in the ArcCatalog   table of contents; It can have spaces, but the name can't. For   simplicity, you can use the same value for both. Check 'Store relative   path names'. This is an important choice, as we'll discuss shortly.   Click 'Next &gt;' to go to the next wizard pane.<br />
+                   <br />
+               </li>
+               <li>We want this script tool to point to 'textLister.py'. To   set the 'Script File', browse to 'textLister.py' in   'C:\gispy\scratch\'. Leave the default values for the   check boxes. Running a script tool in-process improves efficiency, so   this is usually the preferred approach. Click 'Next &gt;' to proceed.<br />
+                   <br />
+               </li>
+               <li>The final pane pertains to script parameters. Since    'textLister.py' needs no arguments, we'll leave this page as-is.   Finally, click 'Finish' to exit the wizard.   You can always come back   and change any of the choices made during the initial setup by   right-clicking on the script tool and selecting 'Properties...'. <br />
+                   <br />
+               </li>
+               <li>Check that a script tool named 'printTextFiles' appears in ArcCatalog.<br />
+                 <br />
+               </li>
+               <li> Run the tool by double-clicking on it. A GUI with several   buttons and a help panel appears. The left panel   states 'This tool has no parameters'. This is what we expect to see,   since we didn't set  up any parameters.<br />
+                 <br />
+               </li>
+               <li> Click 'OK' to run the script tool. When the script tool run   has completed, it launches a window to report success or failure. We   refer to this as the 'Geoprocessing Window'. </li>
+            </ol>
+            <p>What prints in the  'Geoprocessing Window'? Compare this to what printed when you ran the script in PythonWin and hypothesize why there's a difference.</p>
+             <p>Part 2: Add a button to access your tool:</p>
+             <div>1.‘Customize’  &gt; ‘Customize mode…’</div>
+             <div>2.‘Commands’  tab </div>
+             <div>3.Under  Categories, scroll to select [Geoprocessing tool] </div>
+             <div>4.Add  Tools… Browse to toolbox &gt; Select script tool in toolbox &gt; Add (Script  tool appears under Commands )</div>
+             <div>5.Drag  script tool from under Commands to an ArcMap toolbar</div>
+             <div>6.Before  closing the ‘Customize’ dialog, right-click on the tool in the toolbar to  display text and image and modify these as desired.  (can also be done by reopening the customize  dialog)</div>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Break a script tool</strong></p>
+             <ol>
+               <li>Right click on the 'printTextFiles' script tool, select   'Properties...', and then select the 'Source' tab. Note the Python   script  specified by the             'Script file' path on this tab   ('C:\gispy\scratch\textLister.py'). Close the script   tool properties by clicking 'OK'.<br />
+                   <br />
+               </li>
+               <li>Browse to 'textLister.py' and open it.  Add another message to 'textLister.py' and save the script:<br />
+                   <br />
+                 arcpy.AddMessage('***I like kale***!') <br />
+                 <br />
+               </li>
+               <li>Double click on the script tool to run it again. Do you see a change?<br />
+                 <br />
+               </li>
+               <li>Rename   'textLister.py' to 'textLister2.py' and run the script tool again. What happens?<br />
+                 <br />
+               </li>
+               <li>Rename the script back to its original name,   'textLister.py' and run the script tool again. Is it working? Why?<br />
+                   <br />
+               </li>
+               <li> Now    make a directory 'C:\gispy\scratch\breakStuff' and move  'textLister.py' down into it. Run the script tool again. What happens?<br />
+                 <br />
+               </li>
+               <li>Copy the toolbox to your 'Documents' directory. Run the script tool again. Does it work? Why?<br />
+                 <br />
+               </li>
+               <li>Move textLister.py to the 'Documents' directory.  Run the script tool again. Does it work? Why?</li>
+             </ol>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Running scripts</strong> in the command window and in Arc's Python Window.</p>
+             <p>1. <a href="example_scripts/listPrinters.py">listPrinters.py</a> takes 2 arguments. Run it in PythonWin to see how it works. Suggested args:</p>
+           <p>&nbsp;&nbsp;&nbsp;C:\Python27\ArcGIS10.4\python&nbsp;&quot;Available printers&quot; &quot;Printer name&quot;</p>
+           <p>2. Search for python.exe. Use the path to this executable, the name of the script and two argument to run <a href="example_scripts/listPrinters.py">listPrinters.py</a> on the command line. It should look something like this. (Executable path and script path may vary)</p>
+           &quot;Available printers&quot; &quot;Printer name&quot;<br />
+             <p>3. Run <strong>Arc Python Window</strong> -- Confirm that it won't work as is. <br />
+                 <br />
+               4. Use   variables to make it work in the Arcpy Window. The Python code will look something like this:</p>
+           <p>&gt;&gt;&gt; firstMessage = &quot;Available printers&quot;<br />
+             &gt;&gt;&gt; secMessage = &quot;Printer name: &quot;<br />
+             &gt;&gt;&gt; import arcpy, sys<br />
+             ... print (firstMessage)  #First message<br />
+             ... for printerName in arcpy.mapping.ListPrinterNames():<br />
+             ...     print (secMessage + &quot;: &quot;+printerName)</p></td>
+       </tr>
+     </table>
+     <p><br />
+</p>
+     <hr />
+     <p>In class-- Script Tools Parameter Properties 1<a name="paramProperties1" id="Tools4"></a> (Adding multivalue tool output to the map)</p>
+    <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Script Tools Parameter Properties 1<br />
+           (Adding multivalue tool output to the map)</strong></p>
+           <ol>
+             <li>Copy C:\gispy\sample_scripts\ch23\scripts\bufferallv1.py to C:/gispy/scratch.               <br />
+               <br />
+             </li>
+             <li>Put some vector data in the scratch directory. Copy the contents of &quot;C:\gispy\data\ch02&quot; into C:\gispy\scratch<br />
+               <br />
+             </li>
+             <li>Run the code in PythonWin to see what output it creates.<br />
+               <br />
+</li>
+             <li>Delete the output. <br />
+               <br />
+             </li>
+             <li>Add code to bufferallv1.py so that it takes 2 input arguments-- the workspace and the buffer distance. It should retain the existing functionality of returning the semicolon delimited string of output names. Notice that you'll need to change the index since it will now be the 3rd (zero-based) parameter, not the first.<br />
+               <br />
+             </li>
+             <li>Create a toolbox and a new script tool pointing to bufferallv1.py. Set up 3 appropriate parameters: <br />
+               1) An input Folder type for the workspace parameter.
+                 <br />
+                 2) An input Linear Unit type for the buffer distance. The Linear Unit data type  will pass in the numeric value and the unit separated by a space.<br />
+                 3) An derived output multivalue Feature Class type for the feature classes that are created by the script.  <br />
+                <br />
+             </li>
+             <li>Set default values for the input parameters to C:/gispy/scratch and 0.2 miles.<br />
+               <br />
+             </li>
+             <li>Test the Script Tool in ArcMap.</li>
+          </ol></td>
+      </tr>
+     </table>
+   <br />
+ <hr />
+     <p>In class-- Script Tools Parameter Properties 2<a name="paramProperties2" id="paramProperties2"></a></p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Use Filters</strong></p>
+           <ol>
+             <li>Write a script that prints the index and  value of the arguments that it receives in both  PythonWin and Geoprocessing Window. <br />
+               <br />
+              </li>
+             <li>Create a script tool in C:\gispy\scratch and use filters to  allow the user to:
+               <ol type='a'>
+
+                   <li> Choose the word 'float' or 'integer' from a combobox.<br />
+                       <br />
+                   </li>
+                 <li>Choose  a value between [-10, 10].<br />
+                       <br />
+                  </li>
+                 <li>Choose  one or more polygon feature classes. <br />
+                   <br />
+                 </li>
+               </ol>
+             </li>
+
+
+           <li>Set the default value as the <strong>relative path</strong> to park.shp in the chapter 2 data directory in gispy.<br />
+           </li>
+           </ol>
+
+            <p>Printed output should look something like this:</p>
+           <p>Argument 0: C:\gispy\scratch\printArgs.py<br />
+             Argument 1: float<br />
+             Argument 2: -4<br />
+             Argument 3: C:\gispy\ch02\data\park.shp;C:\gispy\data\ch11\USA.shp<br />
+           </p>          </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>selectOrchards</strong><strong>.py</strong></p>
+             <p>The park cover types in <em>park.shp </em> include woods, orchards,  park, and others. Fruit farmers would like a table including only  those polygons with a cover type of orch. Write a script to perform a  Table Select that will generate this table. Call the output table <em>orchards.dbf</em>.<br />
+           </p>         </td>
+       </tr>
+     </table>
+     <hr />
+     <p>In class-- Script Tools Parameter Properties 3<a name="paramProperties3" id="paramProperties3"></a></p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Script tool argument 'obtained from' property</strong></p>
+           <p><a href="example_scripts/countOccurances2.py">countOccurrences2.py</a>: Counts the number of occurrences of a particular value of a particular field in a file. It takes 3  argument: a file name, a field name, and a field value. </p>
+           <ol> <li>Modify the script so that it prints the count in both the Interactive Window and the geoprocessing window. </li>
+             <li>Create a script tool for countOccurrences2.py that passes in 3 arguments:
+               <ol type='a'>
+               <li>The first arg (file name) should be a required table. Set the default value to C:/gispy/scratch/Cover63p.shp. </li>
+               <li>The second argument (field name) should be required input obtained from the first argument.</li>
+               <li>The third argument (field value) should be a required string. Set the default value to woods.</li>
+             </ol>
+             </li>
+           </ol>             </td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Setting symbology</strong></p>
+             <p><a href="example_scripts/feature2point.py">feature2point.py</a> finds the centroids of an input polygon feature class. Suppose there are information booths at each of these centroids. We want to display the results using a blue information symbol encoded in information.lyr. </p>
+             <ol>
+
+               <li>Download and save <a href="example_data/information.lyr">information.lyr</a> in C:/gispy/scratch. This will provide the symbology for your output.</li>
+               <li>Create a script tool for feature2point.py with 2 arguments:
+                 <ol type='a'>
+                     <li>The first arg (file name) should be a required feature class. Set the default value to C:/gispy/scratch/Cover63p.shp. </li>
+                     <li>The second argument (field name) should be derived output feature class. Set the symbology to the full path of the information layer file (C:/gispy/scratch/information.lyr).</li>
+                   <li>Add a last line of code to the script  (use SetParameterAsText to link it to the second parameter you set up in the script tool) so that output file will be added to the map after the script tool is run.</li>
+                 </ol>
+               </li>
+         </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Add the following scripts as script tools in a toolbox. Run them to observe the progressor in action and answer the questions below each:</strong></p>
+             <strong><a href="example_scripts/simpleDefaultProgressor.py">simpleDefaultProgressor.py</a></strong>
+             <ol>
+                <li>What does time.sleep(5) do?</li>
+                <li>How can you change the progressor label to 'He he, ho ho'?</li>
+                <li>How do you print messages in the geoprocessing window?</li>
+                <li>How do you set the position of the default progressor?</li>
+             </ol>
+           <a href="example_scripts/simpleStepProgressor.py"><strong>simpleStepProgressor.py</strong></a>
+           <ol>
+                <li>How do you set the position of the step progressor?</li>
+             <li>What happens if you set your 'max' to 100*(len(files) - 1) instead of len(files) - 1 in the second script? Add time.sleep statements so that you can see what's going on.</li>
+             <li>What happens if you don't provide upper and lower bounds ('min' and 'max') or 'interval' when you set up the step progressor?</li>
+            </ol>
+           <a href="example_scripts/progressorDemo.py"><strong>bigDemo.py</strong></a>
+             <ol>
+                <li>How do you count down with the step progressor? (See sample code in 'bigDemo.py' to inform this response.)</li>
+             </ol>             </td>
+       </tr>
+     </table>
+     <br />
+     <hr />
+     <p>In class-- ToolValidator<a name="toolValidator" id="toolValidator"></a></p>
+     <table width="789" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="783" scope="row"><p><strong>updateMessage</strong></p>
+           <p>1. Create a script tool (no need to point to an actual script--this is just an empty shell). Set up 2 parameters:</p>
+           <ol type='a'>
+             <li>Favorite number, a required input with datatype long. </li>
+             <li>Favorite color a required input with datatype string.</li>
+           </ol>
+           <p>2. Modify the updateMessages method in the ToolValidator class so that if the user enters a negative number in the first parameter, the tool gives an error and tells the users to enter a positive number. Check to be sure the value has been altered before the number is checked. </p>
+           <p>Pseudocode:</p>
+           <p>IF the first parameter has been altered THEN<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;
+             IF the first parameter's value is less than zero THEN<br />
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Set the error message to remind the bozo running the tool to use a positive number<br />
+             &nbsp;&nbsp;&nbsp;&nbsp; ENDIF<br />
+            ENDIF</p>
+           <p><a href="https://pro.arcgis.com/en/pro-app/arcpy/geoprocessing_and_python/programming-a-toolvalidator-class.htm">ToolValidator Help</a></p>
+           <p>Parameter properties: altered, value, ...</p>
+           <p>Parameter methods: setErrorMessage(theError)<br />
+            </p></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>getUniqueValues.py</strong></p>
+             <p>1. Write a script which gets the unique values for a given field in a given GIS table. For the moment, hard-code the table and field. The script is started for you here. Fill in code where you see ###</p>
+           import arcpy<br />
+           fc = "C:/gispy/data/ch01park.shp"<br />
+           fieldname = "COVER"<br />
+           <br />
+           sc = ### Get a search cursor.<br />
+           valueList = [ ]<br />
+           <br />
+           ### Loop through the rows; get the value for field name for the current row; append it to the list. <br />
+           <br />
+           uniqueValueSet = set(valueList) #Casts valueList to a set (only unique values retained)<br />
+           <br />
+           uniqueList = ### Cast uniqueValueSet back to a list.<br />
+           <br />
+           print (uniqueList)<br />
+           <p>2. Create a script tool (no need to point to an actual script--this is just an empty shell). Set up 3 parameters:</p>
+           <ol type='a'>
+             <li>The first arg (file name) should be a required feature class type. </li>
+             <li>The second argument (field name) should be required input field type obtained from the first argument.</li>
+             <li>The third argument (field value) should be a required string. </li>
+           </ol>
+           <p>3. Use parts of getUniqueValues to modify the updateParameters method in the ToolValidator class so that the 3rd parameter is updated to a unique list of values in the selected field for the selected feature class. The method is started for you here. Fill in code where you see ###</p>
+           <pre>  def updateParameters(self):<br />    """Modify the values and properties of parameters before internal<br />    validation is performed.  This method is called whenever a parmater<br />    has been changed."""<br />    <br />    if ### The 2nd parameter is altered:<br />      fc = str(self.params[0].value) #Feature class is the first parameter<br />      fieldname = str( ###use the 2nd parameter ) #Has to be cast to string, since it's a field object.<br />      sc = ### Get a search cursor.<br />      valueList = []<br />      ### Loop through rows and get the values for the selected field name and append to valuelist.<br />      uniqueValueSet = set(valueList) #Cast valueList to a set (only unique values retained)<br />      uniqueList = ### Cast uniqueValueSet back to a list.<br />      self.params[2].filter.list = ### This should be your unique list.    <br />    return
+</pre>
+           Test the tool by selecting <strong>C:/gispy/data/ch01/park.shp</strong> for the first parameter. The 2nd parameter should automatically get populated with a list of the field names in park.shp. Select COVER for the second parameter.  The third parameter should get dynamically populated with a list of the landcover types in park.shp. If it does, congratulations--you got it working!</td>
+       </tr>
+     </table>
+
+     <hr />
+
+
+     <p><strong>Additional materials</strong> <a name="retired" id="retired"></a></p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>ADDING output to a map with a script tool 2</strong></p>
+             <p>1. Modify <a href="example_scripts/buffer_tool2.py">buffer_tool2.py</a> so that it takes 2 arguments: input file name and buffer distance. <br />
+               And so that it creates an output file name based on the input file name. </p>
+           <p>2. Create a script tool pointing to the script that passes in the first two arguments and adds the output file to the map automatically. </p></td>
+       </tr>
+     </table>
+     <p><br />
+     </p>
+     <table width="640" bgcolor="#ffffcc">
+       <tr>
+         <td><p><strong>aggregate.py</strong>, <strong>call_shape2point.py</strong>, and <strong>buffer_clip.py</strong> answers </p>
+             <p>Inspect the scripts located <a href="example_scripts/aggregate.py">here</a>, <a href="example_scripts/call_shape2point.py">here</a>, and <a href="example_scripts/buffer_clip.py">here</a>. Identify the following:</p>
+           <ol>
+               <li> geoprocessing methods.<br />
+                 <strong>SetProduct, AddToolbox, AggregatePolygons_management, ShapesToPnts_s2p, buffer_analysis, clip_analysis, GetMessages()</strong><br />
+</li>
+             <li>geoprocessing properties.<br />
+                 <strong>overwriteoutput, workspace</strong><br />
+             </li>
+             <li>geoprocessing tool calls.<br />
+                 <strong>AggregatePolygons_management, ShapesToPnts_s2p, buffer_analysis</strong><br />
+             </li>
+             <li>toolbox aliases.<br />
+                 <strong>management, s2p, analysis</strong><br />
+               ...<br />
+             </li>
+           </ol></td>
+       </tr>
+     </table>
+     <br />
+     <table width="640">
+       <tr>
+         <td bgcolor="#FFFFCE" scope="row"><p><strong><a href="#distancepseudo">Distance Conversion Pseudocode</a></strong> answers<br />
+            </p>
+           <ol><li>Add pseudocode to handle the 'no user arguments' case<br />
+              <br />
+             GET number of arguments<br />
+              IF number of arguments is one<br />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT usage<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT code<br />
+              ENDIF<br />
+                <br />
+              GET numeric distance<br />
+              GET distance unit<br />
+              IF unit is miles THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE kilometers<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+ELSE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE miles<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+ENDIF<br />
+<br />
+             </li>
+             <li>Add pseudocode to handle the '1 user argument' case<br />
+               <br />
+               GET number of arguments<br />
+IF number of arguments is one<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT usage<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT code<br />
+ENDIF<br />
+<br />
+IF number of arguments is two<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET distance unit to default<br />
+ELSE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GET distance unit from arguments<br />
+ENDIF<br />
+<br />
+GET numeric distance from arguments<br />
+<br />
+               IF unit is miles THEN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE kilometers<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+ELSE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMPUTE miles<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT results<br />
+<br />
+The resulting Python script:<br />
+             </li>
+           </ol>
+   <table width="528" height="149" bgcolor="#FFFFFF">
+               <tr>
+                 <td width="520"><p><span class="key">import </span>sys </p>
+                     <p>                   listLength = len(sys.argv) <span class="comment"># count the number of arguments</span></p>
+                     <p><span class="key">if</span> listLength &lt; <span class="num">2</span>:</p>
+                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print</span> ("Usage: &lt;numeric_distance&gt; &lt;distance_unit(miles or km)&gt;")<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(0) #exit the script</p>
+                     <p><span class="comment"># Otherwise, continue</span><br />
+                         <span class="key">if</span> listLength == <span class="num">2</span>:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit = <span class="str">"miles"</span><span class="comment"> # Set the default unit, since no unit was provided</span>.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print(</span> <span class="str">"Warning: No distance unit provided. Assuming input is in miles.")</span><br />
+  <span class="key">else</span>:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit = sys.argv[<span class="num">2</span>] <span class="comment"># Get the unit provided by the user</span><br />
+  <br />
+  <span class="comment"># Notice we get the numeric distance in either case <br />
+</span>dist = float(sys.argv[<span class="num">1</span>]) <span class="comment"># Assuming the argument  is numeric</span></p>
+                     <p><span class="comment"># Finally, compute the conversion</span><span class="key"><br />
+                       if</span> unit == <span class="str">"miles"</span>:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output = float(dist)*<span class="num">1.6</span><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print(</span> dist, unit, <span class="str">"is equivalent to"</span>, output, <span class="str">"kilometers.")</span><br />
+  <span class="key">else</span>:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output = float(dist)*<span class="num">.62</span><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">print(</span> dist, unit, <span class="str">"is equivalent to"</span>, output, <span class="str">"miles.")</span></p></td>
+               </tr>
+           </table>
+           <p>&nbsp;</p>
+           <p>&nbsp;</p>
+           <p>-------<br />
+           <a href="example_scripts/nestedLooping1.py">nestedLooping1.py</a></p>
+           <p><a href="example_scripts/nestedLooping.py">nestedLooping2.py</a></p></td>
+       </tr>
+     </table>
+     <p>&nbsp;</p>
+     <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td width="792" scope="row"><p><strong>batch_feature2raster</strong><strong>.py</strong></p>
+             <p>A GIS analyst posed the following question on the Esri forum:</p>
+           <table width="635" border="0" bgcolor="#CEDAE3">
+               <tr>
+                 <td scope="row">...I have 100’s of feature classes files that I need to process. I  process these feature classes, through  “FeatureToRaster_conversion”, then write them out to a different folder  with a chosen name. I’ve tried to modify my code to loop through input files  based on examples but get errors. The problem is, I don’t know what  I’m doing with Python...</td>
+               </tr>
+            </table>
+           <strong><br />
+            </strong>He posted a script like the one below. He wants to generate one raster for each bus route in the mdb, ncrast.shp. He wants the output raster to be generated using the 'cat' field. Start modifying the script towards solving his problem by following these steps:
+           <ol>
+               <li>Replace the ### comments with code</li>
+             <li>Change the variable name inFeatures to the variable you're using to iterate through the  loop. </li>
+             <li>Identify which other variable needs to change each time the code loops. </li>
+           </ol>
+           <table width="640" border="3" bgcolor="#FFFFff">
+               <tr>
+                 <td width="685" scope="row"><span class="comment"># ---------------------------------------------------------------------------<br />
+                   # batch_feature2raster.py<br />
+                   # Created on: Thu Aug 14 2008 10:26:47 AM<br />
+                   #   (generated by ArcGIS/ModelBuilder)<br />
+                   #Modified on:   Thu Aug 14 2008 13:12:43 AM<br />
+                   # ---------------------------------------------------------------------------<br />
+                   </span>
+                     <p><span class="key">import</span> arcpy</p>
+                   <p>InFeatures =<span class="str">&quot;C:/gispy/scratch/busroute1.shp&quot;</span><br />
+                     InField = <span class="str">&quot;cat&quot;</span><br />
+                     OutRaster = <span class="str">&quot;C:/gispy/scartch/busroute1.shp&quot;</span><br />
+                     <br />
+                     <span class="key"></span>arcpy.env.workspace = &quot;C:/gispy/scratch/ncshape.mdb&quot;<span class="comment"> <br />
+                       ###Get a list of feature classe files in the input folder 'path' that start with the word 'bus'</span><br />
+                     <br />
+                     <span class="comment">### Check the looping condition</span><span class="comment"><br />
+                     </span><span class="key">print(</span> InFeatures)<br />
+                     <span class="key">print(</span> InField)<br />
+                     <span class="key">print(</span> OutRaster)<br />
+                     <span class="comment">#arcpy.FeatureToRaster_conversion(InFeatures, InField, OutRaster) <br />
+                       #Process: Feature to Raster for each feature class</span><br />
+                     <span class="comment">### update the looping condition</span><br />
+                     <span class="comment">#End loop</span> <br />
+                   </p>
+                   <p><span class="comment"># Print error message if an error occurs</span><br />
+                         <span class="key"></span><span class="key">print(</span> &quot;All done.&quot;) </p>
+                   <br />                 </td>
+               </tr>
+            </table>
+           <p><br />
+                 <br />
+           </p></td>
+       </tr>
+     </table>
+     <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#pig_latin.py</span>
+<span class="c">#Purpose: Translate English phrases to pig latin.</span>
+<span class="c">#Input: English word or phrase.</span>
+<span class="c">#Output: Pig latin phrase.</span>
+<span class="c">#Example: Scram or else -&gt; &#39;amScray oray elseay&#39;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c">#Remove script path.</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">myfunction</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;docstring goes here&#39;&#39;&#39;</span>
+    <span class="k">pass</span>
+
+<span class="n">wordList</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+<span class="n">vowelList</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;e&quot;</span><span class="p">,</span><span class="s">&quot;i&quot;</span><span class="p">,</span><span class="s">&quot;o&quot;</span><span class="p">,</span><span class="s">&quot;u&quot;</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="n">pigLatinList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c">#Convert each word to pig latin and add it to the list.</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">wordList</span><span class="p">:</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c">#Find the index of the first vowel.</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">vowelList</span><span class="p">:</span>
+            <span class="c">#break out of the smallest enclosing for loop.</span>
+            <span class="k">break</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c">#Example: word = &#39;Scram&#39;, front = &#39;am&#39; </span>
+    <span class="n">front</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)]</span>
+    <span class="c">#Example: word = &#39;Scram&#39;, back = &#39;Scr&#39; + &#39;ay&#39;</span>
+    <span class="n">back</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;ay&quot;</span>
+    <span class="n">pigLatinList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">front</span> <span class="o">+</span> <span class="n">back</span> <span class="p">)</span>
+<span class="k">print(</span> <span class="s">&quot;English phrase: {0}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">phrase</span><span class="p">))</span>
+<span class="k">print(</span> <span class="s">&quot;Pig Latin Translation: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pigLatinList</span><span class="p">))</span>)
+</pre></div>
+</td></tr></table>
+
+
+    <p>In class-- 18a <a name="class18a" id="class18a"></a></p>
+    <br />
+    <table width="640" border="0" bgcolor="#FFFFCC">
+      <tr>
+        <td scope="row"><strong>testMessage.mxd</strong><br />
+            <table width="539" height="79" border="0" bgcolor="#ffffff">
+              <tr>
+                <td scope="col"> Public Sub PrintMessage()<br />
+                  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span>Dim myMessage As String<br />
+                  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span>myMessage = “Test message”<br />
+                  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span>MsgBox myMessage<br />
+                  End Sub</td>
+              </tr>
+            </table>
+          <ul>
+              <li>Open ArcMap and go to the VBA editor (<strong>Alt+F11</strong>) </li>
+            <li>Right-click on Project </li>
+            <li> Insert a module</li>
+            <li>Place the given subroutine in the module.</li>
+            <li>Save the document. </li>
+            <li>Test the subroutine:</li>
+          </ul>
+          <ol>
+              <li> <strong>Alt+F8</strong> </li>
+            <li>Use the <strong>Macro in</strong>: combo box to select the project where your function is stored. </li>
+            <li>In the <strong>Macro name:</strong> text box, select your macro. </li>
+            <li>Click <strong>Run</strong>.</li>
+          </ol>
+          <ul>
+              <li>Right-click on Project </li>
+            <li> Insert a userform</li>
+            <li>Drag a button from the Controls toolbox onto the user form.</li>
+            <li>Double click on the button on the form. You'll see function wrappers for a button click event function.   In here call your new function. The code should look something like this:<br />
+              <br />
+              Private Sub CommandButton1_Click()<br />
+              <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span>Call Module1.PrintMessage<br />
+End Sub</li>
+            <li>Test the CommandButton1 subroutine by placing the cursor inside the function and selecting the run arrow. <br />
+            </li>
+        </ul></td>
+      </tr>
+    </table>
+  <hr />
+    <!-- InstanceEndEditable --></div>
+    <hr />
+      <p>In class-- R &amp; rpy2<a name="rpy2" id="rpy2"></a></p>
+      <table width="640" border="0" bgcolor="#FFFFCC">
+        <tr>
+          <td scope="row"><p><strong>plot.py</strong></p>
+              <p>1. Modify <a href="example_scripts/plot.py">plot.py</a> to create a plot like this.<br />
+            <img src="images/blueDots.png" alt="blue dots" width="120" height="100" /></p>
+              <p>2. Modify the script again to graph <a href="example_data/xy1.txt">the points in xy1.txt</a> create this output graph.</p>
+              <p><img src="images/greenLine.png" alt="blue dots" width="120" height="100" /><br />
+             </p></td>
+        </tr>
+      </table>
+      <br />
+     <table width="640" border="0" bgcolor="#FFFFCC">
+        <tr>
+          <td scope="row"><p><strong>Review</strong></p>
+            <p>1. Rewrite these statements so that they use the minimum number of arguments necessary to achieve the same results.           </p>
+            <p> arcpy.Buffer_analysis(fctrace, fctrace[:-4] + "_buffer.shp",  "500 Feet", "FULL", "ROUND", "ALL")</p>
+            <p>dist  = arcpy.sa.EucDistance(inSourceData, “#”, “25”,"#") </p>
+              <p>2. Rewrite the following lines of code to address the width problems.</p>
+              <p>arcpy.MakeFeatureLayer_management(infile, layerName, "", "", "FID FID  VISIBLE NONE;Shape  Shape VISIBLE NONE;STUDENT_ID STUDENT_ID VISIBLE NONE;FIRST_INST FIRST_INST  VISIBLE NONE;FIRST_STAT FIRST_STAT VISIBLE NONE;FIRST_CURR FIRST_CURR VISIBLE  NONE;FIRST_HS_D FIRST_HS_D VISIBLE NONE;FIRST_HS_N FIRST_HS_N VISIBLE  NONE")</p>
+              <p>arcpy.CreateTin_3d(newtin,  "PROJCS['NAD_1983_StatePlane_South_Carolina_FIPS_3900_Feet_Intl',GEOGCS['GCS_North_American_1983',DATUM['D_North_American_1983',SPHEROID['GRS_1980',6378137.0,298.257222101]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]],PROJECTION['Lambert_Conformal_Conic'],PARAMETER['False_Easting',2000000.0],PARAMETER['False_Northing',0.0],PARAMETER['Central_Meridian',-81.0],PARAMETER['Standard_Parallel_1',32.5],PARAMETER['Standard_Parallel_2',34.83333333333334],PARAMETER['Latitude_Of_Origin',31.83333333333333],UNIT['Foot',0.3048]]",  newshp,  "Shape.Z  masspoints  &lt;None&gt;", "DELAUNAY")<br />
+              </p>
+              <p>3. Rewrite this code to make use of triple quotes.</p>
+              <p>outfile.write("   0\n")</p>
+              <p>outfile.write("SECTION\n")</p>
+              <p>outfile.write("   2\n")</p>
+              <p>outfile.write("HEADER\n") # Header Section</p>
+              <p>outfile.write("   9\n")</p>
+          <p>4. Run this code and see the results. Then rewrite using string formatting. Confirm that your results match the original.<br />
+            <br />
+          count1 = 4<br />
+          count = 2<br />
+          count3 = "6"</p>
+          <p>print ("Out of " + str(count1)  + " segments, " + str(count) + " require cleaning and  " + str(count2)  + " received no signal.")</p></td>
+        </tr>
+     </table>
+      <br />
+      <table width="640" border="0" bgcolor="#FFFFCC">
+        <tr>
+          <td scope="row"><p><strong>Procedures Review</strong></p>
+            <p>Run <a href="example_scripts/generalizability.py">this script</a> and confirm that you understand what it does.  It creates a dictionary from the fields of a table. The dictionary is like this. {field1:[value1,value2, value3], field2:[value1,value2, value3]}<br />
+              <br />
+            Next follow these steps to break the function into two parts so that each of the parts could be used independently if desired.</p>
+            <p>1. Write a function that returns a list of fieldNames given a table and a list of field names to avoid (such as FID and shape). Start with the following code.</p>
+            <p>def getFields(tableName, avoidList):<br />
+ '''Returns a list of field names not in avoidList'''</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return fieldsList</p>
+            <p>2. Call the function to confirm that it works using this code:</p>
+            <p>fields =  getFields(inputFile,["FID", "Shape"] )<br />
+              print (fields)<br />
+            </p>
+            <p>3. Rewrite and rename the original function so that it takes a table and a list of fields and returns a dictionary with a list of the values in the table for each field. The dictionary will be like this: {field1:[value1,value2, value3], field2:[value1,value2, value3]}</p>
+            <p>Start with this code and take part of the original function to fill it in:</p>
+            <p>def getValues( tableName, fieldsList = [] ):<br />
+            '''Return table values for give fields in dictionary {fieldname:[valList]}'''</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return d</p>
+            <p>4. Confirm that it workds by using this code</p>
+            <p>dict1 = PullOutTimeSeriesXYZ("C:/gispy/scratch/COVER63p.shp")<br />
+              fields =  getFields(inputFile,["FID", "Shape"] )<br />
+            dict2 = getValues(inputFile, fields)</p>
+            <p>if dict1 == dict2:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ("Hurray")<br />
+            </p>           </td>
+          <td scope="row">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+    <!-- InstanceEndEditable --></div>
+
+</div></div>
+</body>
+<!-- InstanceEnd --></html>
