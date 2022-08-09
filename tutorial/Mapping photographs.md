@@ -4,27 +4,32 @@ Geotagged drone, Google Street View, Twitter, or field study snapshots have vari
 
 To get started, follow these steps:
 
-Data preparation: Download and unzip [chilePics.zip](https://drive.google.com/file/d/1Y-IzaKyDzhxHhgOHhwpTBZ0afLWaXERP/view?usp=sharing)  and note the file path location. 
+1. Data preparation: Download and unzip [chilePics.zip](https://drive.google.com/file/d/1Y-IzaKyDzhxHhgOHhwpTBZ0afLWaXERP/view?usp=sharing)  and note the file path location. 
 
-1. Open ArcGIS Pro and select a New Blank 'Map' Template.  
+2. Open ArcGIS Pro and select a New Blank 'Map' Template.  
 
-2. You can accept the default project name or name it geotag.
+3. You can accept the default project name or name it geotag.
 
-3. Select the 'Analysis' tab at the top.
+4. Select the 'Analysis' tab at the top.
 
-4. If you don't already see a Python Window, click the small arrow next to "Python" and choose, Python Window.
+5. If you don't already see a Python Window, click the small arrow next to "Python" and choose, Python Window.
 
-5. In the bottom of the Python Window, try out the command prompt. With the instructions below. 
+6. In the bottom of the Python Window, try out the command prompt. With the instructions below. 
 
 ## 1. Play with Python
 Type each of the following lines of code at the *Python prompt* and observe the result:
 
-```
+```Python
 print('Hello')
 5 + 6
 x = 8
 print(x)
 x  
+```
+```Python
+tools = arcpy.ListTools()
+tools[:10]
+len(tools)
 ```
 
 ```Python
