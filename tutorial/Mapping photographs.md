@@ -17,11 +17,7 @@ Data preparation: Download and unzip [chilePics.zip](https://drive.google.com/fi
 5. In the bottom of the Python Window, try out the command prompt. With the instructions below. 
 
 ## 1. Play with Python
-Type each of the following lines of code at the Python prompt and observe the result:
-
-![Python Window](../images/pythonWindow.png)
-
-  Type each of the following lines of code at the *Python prompt* and observe the result:
+Type each of the following lines of code at the *Python prompt* and observe the result:
 
 ```
 print('Hello')
