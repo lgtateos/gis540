@@ -1,0 +1,50 @@
+<!Doctype Html>  
+<Html>     
+<Head>      
+<Title>     
+Exploring Field Objects  
+</Title>  
+</Head>  
+<Body>   
+ <table width="640" border="0" bgcolor="#FFFFCC">
+       <tr>
+         <td scope="row"><p><strong>Exploring Field objects: </strong>Type each statement in the Interactive Window. After observing the results from all of these,  answer the questions that follow. </p>
+             <p>&nbsp;</p>
+           <table width="346" bgcolor="#FFFFFF">
+            <tr>
+                 <td width="22">&nbsp;</td>
+                 <td width="312"><p class="number number">import arcpy<br />
+                         <br />
+                   fc = &quot;C:/gispy/data/ch10/park.shp&quot; <br />
+                   <br />
+                   fs = arcpy.ListFields(fc)<br />
+                   <br />
+                   f = fs[0]<br />
+                   <br />
+                   f<br />
+                   <br />
+                   f.name<br />
+                   <br />
+                   f.type</p>
+                     <p class="number number">f.length<br />
+                         <br />
+                       f = fs[1]<br />
+                       <br />
+                       f.name<br />
+                       <br />
+                       f.isNullable<br />
+                     </p>
+                   <p class="number number">len(fs)</p></td>
+              </tr>
+            </table>
+         <br />
+             <ol>
+               <li>Which one of these statements tells you how many fields the attribute table has?<br />
+               </li>
+               <li>Name four field properties. </li>
+               <li>How can you find the name of the 3rd field?</li>
+         </ol></td>
+       </tr>
+     </table>
+     </Body>   
+</Html>
