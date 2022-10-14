@@ -12,6 +12,6 @@ try:
     for fc in fcs:
         scratch_fc = scratch + fc
         arcpy.Copy_management(fc, scratch_fc)
-        print( f"******Created: {scratch_fc}******")  
+        print(f"******Created: {scratch_fc}******")  
 except arcpy.ExecuteError:
     print(arcpy.GetMessages( ))
