@@ -3,7 +3,7 @@
 # Step through in the debugger to see how it works.
 # Then rearrange the code to fix the problem.
 import arcpy
-arcpy.overwriteOutput = True
+arcpy.overwriteOutput = False
 arcpy.env.workspace = "C:/gispy/data/ch14/"
 scratch = "C:/gispy/scratch/"
 
