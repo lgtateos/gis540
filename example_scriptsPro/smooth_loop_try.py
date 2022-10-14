@@ -1,7 +1,7 @@
 # smooth_loop_try.py
 # This code has mistakes. 
 # Step through in the debugger to see how it works.
-# Then fix the problem.
+# Then fix the problems.
 import arcpy, sys
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:/gispy/data/ch14/"
