@@ -1,4 +1,4 @@
-# copy_loopv2.py
+# copy_tryv2.py
 import arcpy
 arcpy.overwriteOutput = True
 arcpy.env.workspace = "C:/gispy/data/ch14/"
