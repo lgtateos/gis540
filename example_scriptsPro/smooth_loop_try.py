@@ -2,7 +2,7 @@
 # This code has mistakes. 
 # Step through in the debugger to see how it works.
 # Then fix the problems.
-import arcpy, sys
+import arcpy
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:/gispy/data/ch14/"
 scratch = "C:/gispy/scratch/"
