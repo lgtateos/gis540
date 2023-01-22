@@ -1,4 +1,4 @@
-# test_setup.py
+# setup_testeroo.py
 # Purpose: To check if the sample data is in the correct location.
 import arcpy
 my_data = "C:/gispy/data/ch02/park.shp"
