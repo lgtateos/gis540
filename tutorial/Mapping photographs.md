@@ -1,6 +1,6 @@
 # **Mapping photographs**
 
-Geotagged drone, Google Street View, Twitter, or field study snapshots have variety of applications in the natural and social sciences.  You can tell if an image file is geotagged by inspecting its exif properties (manually or with code). The chiliPics directory in the course data contains some geotagged vacation snaps. 
+Geotagged drone imagery, Google Street View, Twitter, or field study snapshots have a variety of applications in the natural and social sciences.  You can tell if an image file is geotagged by inspecting its exif properties (manually or with code). The chiliPics directory in the course data contains some geotagged vacation snaps. 
 
 To get started, follow these steps:
 
@@ -12,9 +12,9 @@ To get started, follow these steps:
 
 4. Select the 'Analysis' tab at the top.
 
-5. If you don't already see a Python Window, click the small arrow next to "Python" and choose, Python Window.
+5. If you don't already see a Python Window, click the small arrow next to "Python" and choose Python Window.
 
-6. In the bottom of the Python Window, try out the command prompt. With the instructions below. 
+6. At the bottom of the Python Window, try out the command prompt. With the instructions below. 
 
 ## 1. Play with Python
 Type each of the following lines of code at the *Python prompt* and observe the result:
@@ -33,10 +33,10 @@ len(tools)
 ```
 
 ```Python
-baseDir = 'C:/gispy/scratch'  # Change this to the location of your chilePics directory
+baseDir = "C:/gispy/scratch"  # Change this to the location of your chilePics directory
 ```
 ```python
-pic = baseDir + '/chilePics/EnchantedForest/P1010417.JPG
+pic = baseDir + "/chilePics/EnchantedForest/P1010417.JPG"
 ```
 
 ```python
@@ -50,7 +50,7 @@ arcpy.Exists(pic)
 
   1. Select the Map tab at the top.  
 
-  2. Click on basemap.  The names you see there, can be used in your code.
+  2. Click on basemap.  The names you see there can be used in your code.
 
   3. You can use the NatGeo one in the code below or another one of your choosing.
 
@@ -86,7 +86,7 @@ Click on one of the points to open the information and scroll down for a preview
 
 ## 4. **Map it three dimensionally.**
 
-Click on the 'Insert' tab at the top.  Pull down on the arrow below 'New Map'.  Select 'New Global Scene'  A new 'Scene' map will next to your 2D map.  Add the points to this map by calling the same tool again.
+Click on the 'Insert' tab at the top.  Pull down on the arrow below 'New Map'.  Select 'New Global Scene'  A new 'Scene' map will appear next to your 2D map.  Add the points to this map by calling the same tool again.
    ~~~python
 arcpy.management.GeoTaggedPhotosToPoints(myPicFolder)
    ~~~
