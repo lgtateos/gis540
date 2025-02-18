@@ -28,7 +28,7 @@
        if not os.path.exists(dirpath):
            os.mkdir(dirpath)
    currentFiles = os.listdir(mydir)
-   print "Directory {0} contains {1} files.".format(mydir,len(currentFiles))
+   print("Directory {0} contains {1} files.".format(mydir,len(currentFiles)))
    ```
 
    Where's Waldo?  Locate the conditional statements,  comparison operator, logical operator, slicing, indexing
@@ -69,12 +69,12 @@
        numChars = 50
        message = "******************FILE NAME: "+ myfile+ " ******************\n"
        outF.write(message)
-       print message
+       print(message)
        for term in termsOFinterest:
            theCount = contents.count(term)
            message =  "Mention of " + term + "\n-----------------------------------"
            outF.write(message)
-           print message
+           print(message)
            trueCount = theCount
            if theCount > 0:
                for m in re.finditer(term, contents):
@@ -105,10 +105,10 @@
                        message =  "\n\t"+ 
                        contents[m.start() - numChars : m.start() + numChars +len(term)]
                        outF.write(message)
-                       print message
+                       print(message)
                message = "\nThe count for {0} is: {1}\n".format(term, trueCount)
                outF.write(message)
-               print message  
+               print(message)  
    outF.close()
    ```
 
@@ -140,20 +140,20 @@
 **Arguments:**    8 3 9 
 
    ```python
-   print sys.argv[1] - 2
+   print(sys.argv[1] - 2)
    ```
 
    **Arguments:**    42 3.4 99.9
 
    ```python
-   print len(sys.argv)  - 2
+   print(len(sys.argv)  - 2)
    ```
 
    **Arguments:**    42 3.4 99.9 
 
    ```python
    i = int(sys.argv[2])
-   print i
+   print(i)
    ```
 
    **Arguments:**    42 3.4 99.9 
@@ -161,9 +161,9 @@
    ```python
    i = sys.argv[3]
    if i > 100:
-       print "yay"
+       print("yay")
    else:
-       print "boo"
+       print("boo")
    ```
 
    **Arguments:**    C:/gispy/data/ch10/xy.shp 
@@ -172,7 +172,7 @@
    inputData = sys.argv[1]
    name = os.path.dirname(inputData)
    theExtension = os.path.splitext(inputData)[1]
-   print name + "out" + theExtension
+   print(name + "out" + theExtension)
    ```
 
    **Arguments:**   elephant
@@ -182,7 +182,7 @@
    theWord.rstrip('ant')
    myList = ['a','b','c'] 
    myList.extend('d')
-   print myList.join(theWord)
+   print(myList.join(theWord))
    ```
 
    **Arguments:**    avavavoom 
@@ -190,7 +190,7 @@
    ```python
    exclamation = sys.argv[1]
    theBits = exclamation.split('v')
-   print theBits
+   print(theBits)
    ```
 
    **Arguments:**    oak
@@ -198,9 +198,9 @@
    ```python
    tree = sys.argv[1]
    if tree == 'pine' or "willow":
-       print "yay"
+       print("yay")
    else:
-       print "boo"
+       print("boo")
    ```
 
    
