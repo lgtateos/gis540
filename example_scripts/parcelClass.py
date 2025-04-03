@@ -22,10 +22,10 @@ class Parcel:
 
 #-------- invocation begins ---------    
 myParcel = Parcel(145000, "residential")
-print "Value:", myParcel.value
-print "Zoning:", myParcel.zoning
+print( "Value:", myParcel.value)
+print("Zoning:", myParcel.zoning)
 mytax = myParcel.calculateTax()
-print "Tax:", mytax
+print("Tax:", mytax)
 
 ### 1. Create another Parcel object called p2 (you choose the value and zoning).
 ### 2. Print the value of p2.
