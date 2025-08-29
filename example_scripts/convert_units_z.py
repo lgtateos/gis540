@@ -20,8 +20,8 @@ Xpart = coor_parts[0]
 Ypart = coor_parts[1]
 
 ## 5. Remove the non-numeric prefixes (e.g., 'X-' and 'Y-') from each coordinate string.
-Xstr = Xpart.replace("X-", "")
-Ystr = Ypart.replace("Y-", "")
+Xstr = Xpart.strip("X-")
+Ystr = Ypart.strip("Y-")
 
 ## 6. Convert the cleaned coordinate strings to floats.
 X = float(Xstr)
@@ -40,6 +40,14 @@ Ymeters = Y/3.28
 ## The coordinates (700000.0, 500000.0) in feet are equivalent to (213414.6, 152439.0) in meters.
 message = f"The coordinates ({X:.1f}, {Y:.1f}) in feet are equivalent to ({Xmeters:.1f}, {Ymeters:.1f}) in meters."
 print(message)
+
+
+## For help with the formatting, try the following code.
+##import math
+##pi = math.pi
+##print(pi)
+##print(f"Shorten it: {pi:.4f}")
+
 
 ## Addional notes:
 
