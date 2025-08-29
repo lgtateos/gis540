@@ -29,3 +29,10 @@ coordinate_string = 'X-700000.0,Y-500000.0|UNITS-Foot'
 
 ## 9. Use an f string and 4 variables to print to print the converted coordinates like this:
 ## The coordinates (700000.0, 500000.0) in feet are equivalent to (213414.6, 152439.0) in meters.
+
+
+## For help with the formatting, try the following code.
+##import math
+##pi = math.pi
+##print(pi)
+##print(f"Shorten it: {pi:.4f}")
