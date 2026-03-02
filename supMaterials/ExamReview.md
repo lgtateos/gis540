@@ -248,3 +248,6 @@
     https://data.charlottenc.gov/datasets/charlotte::charlotte-mecklenburg-tree-canopy-1/about
     https://osf.io/86ume/files/y5m7k
 
+14.  Additional data for the spatial join example:
+    https://data.charlottenc.gov/datasets/charlotte::zoning-1/explore?location=35.138702%2C-79.541016%2C7
+    messy_code.py link: https://lgtateos.github.io/gis540/supMaterials/messy_script.py
