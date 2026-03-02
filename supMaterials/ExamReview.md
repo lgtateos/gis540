@@ -112,7 +112,7 @@
    outF.close()
    ```
 
-2. Specify whether each of the following lines of code would evaluate as **True** or **False** if used as a Boolean expression in a conditional statement. For example, (None) evaluates to True because it is a non-empty tuple and so bool((None)) returns True. Some expressions will generate an error when you try to use them in this way. For these, respond **ERROR**. 
+2. Specify whether each of the following lines of code would evaluate as **True** or **False** if used as a Boolean expression in a conditional statement. For example, (None) evaluates to True because it is a non-empty tuple and so bool([None]) returns True. Some expressions will generate an error when you try to use them in this way. For these, respond **ERROR**. 
 
    Assume that `fields` is `'fields1.shp'`, `centroids` is `'fieldCenters.shp'`, and `myNum` is `1`.
 
@@ -244,10 +244,20 @@
 
 12. Create a list of all of the files in a directory whose names end in prj or shx and are smaller than 2000 bytes.  Use **os.listdir** to get a list of all the files.  Given the *full path* of a file, **os.path.getsize** returns the size in bytes.
 
-13. Data for zonal statistics example:
-    https://data.charlottenc.gov/datasets/charlotte::charlotte-mecklenburg-tree-canopy-1/about
-    https://osf.io/86ume/files/y5m7k
+13. Create a zonal statistics table for each temperature raster in the workspace, based on the zonal field, "geometry_" in the Charlotte Tree Canopy dataset.   Data for zonal statistics as table example:
 
-14.  Additional data for the spatial join example:
+    Charlotte Tree Canopy Data (download the shapefile):  https://data.charlottenc.gov/datasets/charlotte::charlotte-mecklenburg-tree-canopy-1/about  
+
+    Charlotte Temperature (temp) and Heat index (hi) data (download button near upper right): https://osf.io/86ume/files/y5m7k
+
+   # Tool Signature:
+   # ZonalStatisticsAsTable(in_zone_data, zone_field, in_value_raster, out_table, {ignore_nodata}, {statistics_type},
+   # {process_as_multidimensional}, {percentile_values}, {percentile_interpolation_type},
+   # {circular_calculation}, {circular_wrap_value}, {out_join_layer})
+
+15. Compute a spatial join on the Charlotte Tree Canopy data (target) and Charlotte zoning data).  You will need this additional data for the spatial join example:
     https://data.charlottenc.gov/datasets/charlotte::zoning-1/explore?location=35.138702%2C-79.541016%2C7
-    messy_code.py link: https://lgtateos.github.io/gis540/supMaterials/messy_script.py
+   
+
+17. Clean up this messy code.  messy_code.py link: https://lgtateos.github.io/gis540/supMaterials/messy_script.py
+
