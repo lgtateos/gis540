@@ -242,4 +242,9 @@
 
     
 
-12. Create a list of all of the files in a directory whose names end in prj or shx and are smaller than 2000 bytes.  Use **os.listdir** to get a list of all the files.  Given the *full path* of a file, **os.path.getsize** returns the size in bytes. 
+12. Create a list of all of the files in a directory whose names end in prj or shx and are smaller than 2000 bytes.  Use **os.listdir** to get a list of all the files.  Given the *full path* of a file, **os.path.getsize** returns the size in bytes.
+
+13. Data for zonal statistics example:
+    https://data.charlottenc.gov/datasets/charlotte::charlotte-mecklenburg-tree-canopy-1/about
+    https://osf.io/86ume/files/y5m7k
+
