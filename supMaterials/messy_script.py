@@ -1,3 +1,22 @@
+# Data:
+# https://data.charlottenc.gov/datasets/charlotte::charlotte-mecklenburg-tree-canopy-1/about
+# https://osf.io/86ume/files/y5m7k
+# https://data.charlottenc.gov/datasets/charlotte::zoning-1/explore?location=35.138702%2C-79.541016%2C7
+
+#Signatures:
+# ZonalStatisticsAsTable(in_zone_data, zone_field, in_value_raster, out_table, {ignore_nodata}, {statistics_type},
+# {process_as_multidimensional}, {percentile_values}, {percentile_interpolation_type},
+# {circular_calculation}, {circular_wrap_value}, {out_join_layer})
+
+# arcpy.analysis.SpatialJoin(target_features, join_features, out_feature_class, {join_operation}, {join_type},
+# {field_mapping}, {match_option}, {search_radius}, {distance_field_name}, {match_fields})
+
+# arcpy.management.AddJoin(in_layer_or_view, in_field, join_table, join_field, {join_type},
+# {index_join_fields}, {rebuild_index}, {join_operation})
+
+# arcpy.conversion.ExportTable(in_table, out_table, {where_clause}, use_field_alias_as_name,
+# {field_mapping}, {sort_field})
+
 arcpy.sa.ZonalStatisticsAsTable(
     in_zone_data="Charlotte_Mecklenburg_Tree_Canopy",
     zone_field="Geography_",
