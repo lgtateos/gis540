@@ -250,14 +250,15 @@
 
     Charlotte Temperature (temp) and Heat index (hi) data (download button near upper right): https://osf.io/86ume/files/y5m7k
 
-   # Tool Signature:
-   # ZonalStatisticsAsTable(in_zone_data, zone_field, in_value_raster, out_table, {ignore_nodata}, {statistics_type},
-   # {process_as_multidimensional}, {percentile_values}, {percentile_interpolation_type},
-   # {circular_calculation}, {circular_wrap_value}, {out_join_layer})
+   Tool Signature:
+   ZonalStatisticsAsTable(in_zone_data, zone_field, in_value_raster, out_table, {ignore_nodata}, {statistics_type},
+   {process_as_multidimensional}, {percentile_values}, {percentile_interpolation_type},
+   \# {circular_calculation}, {circular_wrap_value}, {out_join_layer})
 
 15. Compute a spatial join on the Charlotte Tree Canopy data (target) and Charlotte zoning data).  You will need this additional data for the spatial join example:
     https://data.charlottenc.gov/datasets/charlotte::zoning-1/explore?location=35.138702%2C-79.541016%2C7
    
 
 17. Clean up this messy code.  messy_code.py link: https://lgtateos.github.io/gis540/supMaterials/messy_script.py
+
 
