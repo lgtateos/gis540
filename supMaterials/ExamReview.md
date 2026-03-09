@@ -112,7 +112,7 @@
    outF.close()
    ```
 
-2. Specify whether each of the following lines of code would evaluate as **True** or **False** if used as a Boolean expression in a conditional statement. For example, (None) evaluates to True because it is a non-empty tuple and so bool([None]) returns True. Some expressions will generate an error when you try to use them in this way. For these, respond **ERROR**. 
+2. Specify whether each of the following lines of code would evaluate as **True** or **False** if used as a Boolean expression in a conditional statement. For example, [None] evaluates to True because it is a non-empty tuple and so bool([None]) returns True. Some expressions will generate an error when you try to use them in this way. For these, respond **ERROR**. 
 
    Assume that `fields` is `'fields1.shp'`, `centroids` is `'fieldCenters.shp'`, and `myNum` is `1`.
 
@@ -259,6 +259,7 @@
    
 
 17. Clean up this messy code.  messy_code.py link: https://lgtateos.github.io/gis540/supMaterials/messy_script.py
+
 
 
 
